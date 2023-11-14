@@ -1,14 +1,16 @@
 <template>
     <div class="main-container">
-        <a class="main-header" href="https://www.naver.com">
+        <RouterLink :to="{name:'home'}" class="main-header">
             <img src="../assets/logo.png" id="logo">
             𝕭𝖗𝖊𝖒𝖊𝖓
-        </a>
+        </RouterLink>
         <div class="login-bar">
-            <a href="google.com">Login</a>
+            <RouterLink :to="{name:'community'}">커뮤니티</RouterLink>
+            <a href="../views/Community.vue">Login</a>
             <a href="Sign in">Sign up</a>
         </div>
     </div>
+        <RouterView></RouterView>
 </template>
 
 <script setup>
@@ -17,7 +19,7 @@
 
 <style scoped>
 .main-container {
-    padding-left:120px;
+    padding-left:120px; 
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;

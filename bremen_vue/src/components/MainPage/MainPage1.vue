@@ -12,5 +12,6 @@
 .main1 {
     background-image: url("@/assets/main/workout.png");
     height: 1080px;
+    padding-top: 100px;
 }
 </style>
