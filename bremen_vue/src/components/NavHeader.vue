@@ -17,16 +17,20 @@
 
 <style scoped>
 .main-container {
-    margin-top: 18px;
+    padding-left:120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     width:100%;
+    position: fixed;
+    background-color: white;
 }
 
 .login-bar {
     display: flex;
     margin-top: 10px;
     font-size: 20px;
-    margin-left: 60%;
+    padding-left: 60%;
     justify-content: space-around;
 }
 
