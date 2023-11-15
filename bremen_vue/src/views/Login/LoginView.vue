@@ -15,7 +15,12 @@
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">로그인</button>
-                           
+                        </div>
+                        <div class="social-sign-up">
+                            <img src="@/assets/login/google.png">
+                            <img src="@/assets/login/naver.png">
+                            <img src="@/assets/login/kakao.png">
+                            <img src="@/assets/login/apple.png">
                         </div>
                         <div class="sign-up">
                             <div class="text-center"> <a href="#!">회원가입</a></div>| 
@@ -41,6 +46,9 @@ body {
 
 }
 
+.col-sm-6{
+    margin-top: 70px;
+}
 
 
 .login-box {
@@ -51,6 +59,7 @@ body {
     min-height: 700px;
     -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+
 }
 
 .logo {
@@ -105,7 +114,16 @@ body {
 .sign-up{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin: 20px;
+    
+}
+.social-sign-up {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+} 
+.social-sign-up img{
+    width: 50px;
     
 }
 </style>
