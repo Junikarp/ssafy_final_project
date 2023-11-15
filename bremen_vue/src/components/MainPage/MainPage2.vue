@@ -9,9 +9,4 @@
 </script>
 
 <style scoped>
-.main2 {
-    background-image: url('@/assets/main/space.jpeg');
-    background-size: contain;
-    height: 1080px;
-}
 </style>

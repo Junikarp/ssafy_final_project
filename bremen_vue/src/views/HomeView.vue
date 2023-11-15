@@ -13,8 +13,4 @@ import MainPage3 from '../components/MainPage/MainPage3.vue';
 </script>
 
 <style scoped>
-.main {
-  /* margin-left: 200px;
-    margin-right: 200px; */
-}
 </style>

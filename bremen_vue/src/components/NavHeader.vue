@@ -1,15 +1,23 @@
 <template>
-    <div class="main-container">
-        <RouterLink :to="{name:'home'}" class="main-header">
-            <img src="../assets/logo.png" id="logo">
-            𝕭𝖗𝖊𝖒𝖊𝖓
-        </RouterLink>
-        <div class="login-bar">
-            <RouterLink :to="{name:'community'}">커뮤니티</RouterLink>
-            <RouterLink :to="{name:'login'}">Login</RouterLink>
-            <a href="Sign in">Sign up</a>
-        </div>
-    </div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="@/assets/logo.png" alt="..." width="150px"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">메인페이지1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 </template>
 
 <script setup>
@@ -57,4 +65,9 @@
 #logo {
     width: 30px;
 }
+
+.navbar {
+    color: black;
+}
+
 </style>
