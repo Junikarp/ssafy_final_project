@@ -2,68 +2,27 @@
     <section class="body">
         <div class="container">
             <div class="login-box">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="logo">
-                            <span class="logo-font">Go</span>Snippets
+                <div class="col-sm-6 offset-sm-3"> <!-- 중앙 정렬을 위한 offset-sm-3 추가 -->
+                    <div class="logo">BREMEN</div>
+                    <br>
+                    <h3 class="header-title">LOGIN</h3>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email or UserName">
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <br>
-                        <h3 class="header-title">LOGIN</h3>
-                        <form class="login-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email or UserName">
-                            </div>
-                            <div class="form-group">
-                                <input type="Password" class="form-control" placeholder="Password">
-                                <a href="#!" class="forgot-password">Forgot Password?</a>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-block">LOGIN</button>
-                            </div>
-                            <div class="form-group">
-                                <div class="text-center">New Member? <a href="#!">Sign up Now</a></div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-sm-6 hide-on-mobile">
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ul class="carousel-indicators">
-                                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                                <li data-target="#demo" data-slide-to="1"></li>
-                            </ul>
-                            <!-- The slideshow -->
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="slider-feature-card">
-                                        <img src="https://i.imgur.com/YMn8Xo1.png" alt="">
-                                        <h3 class="slider-title">Title Here</h3>
-                                        <p class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit. Iure, odio!</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="slider-feature-card">
-                                        <img src="https://i.imgur.com/Yi5KXKM.png" alt="">
-                                        <h3 class="slider-title">Title Here</h3>
-                                        <p class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit. Ratione, debitis?</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Left and right controls -->
-                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#demo" data-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </a>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">로그인</button>
+                           
+                        </div>
+                        <div class="sign-up">
+                            <div class="text-center"> <a href="#!">회원가입</a></div>| 
+                            <div class="text-center"> <a href="#!">아이디 찾기</a></div> |
+                            <div class="text-center"> <a href="#!">비밀번호 찾기</a></div> 
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -79,16 +38,12 @@
 
 body {
     background: #f5f5f5;
+
 }
 
-@media only screen and (max-width: 767px) {
-    .hide-on-mobile {
-        display: none;
-    }
-}
+
 
 .login-box {
-    background: url(https://i.imgur.com/73BxBuI.png);
     background-size: cover;
     background-position: center;
     padding: 50px;
@@ -99,21 +54,10 @@ body {
 }
 
 .logo {
-    font-family: "Script MT";
-    font-size: 54px;
+    font-weight: 800;
+    font-size: 40px;
     text-align: center;
-    color: #888888;
-    margin-bottom: 50px;
-}
-
-.logo .logo-font {
-    color: #3BC3FF;
-}
-
-@media only screen and (max-width: 767px) {
-    .logo {
-        font-size: 34px;
-    }
+    margin-bottom: 20px;
 }
 
 .header-title {
@@ -133,6 +77,12 @@ body {
 
 .login-form .form-group {
     position: relative;
+
+}
+
+.form-group {
+    display: flex;
+    
 }
 
 .login-form .form-group .forgot-password {
@@ -145,39 +95,17 @@ body {
     border-radius: 0;
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
 }
 
 .login-form .btn.btn-primary {
+    width: 100%;
     background: #3BC3FF;
     border-color: #31c0ff;
 }
-
-.slider-feature-card {
-    background: #fff;
-    max-width: 280px;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: center;
-    -webkit-box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+.sign-up{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
 }
-
-.slider-feature-card img {
-    height: 80px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.slider-feature-card h3,
-.slider-feature-card p {
-    margin-bottom: 30px;
-}
-
-.carousel-indicators {
-    bottom: -50px;
-}
-
-.carousel-indicators li {
-    cursor: pointer;
-}</style>
+</style>
