@@ -6,7 +6,7 @@
         </RouterLink>
         <div class="login-bar">
             <RouterLink :to="{name:'community'}">커뮤니티</RouterLink>
-            <a href="../views/Community.vue">Login</a>
+            <RouterLink :to="{name:'login'}">Login</RouterLink>
             <a href="Sign in">Sign up</a>
         </div>
     </div>
