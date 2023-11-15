@@ -5,28 +5,29 @@
                 <div class="col-sm-6 offset-sm-3"> <!-- 중앙 정렬을 위한 offset-sm-3 추가 -->
                     <div class="logo">BREMEN</div>
                     <br>
-                    <h3 class="header-title">LOGIN</h3>
+
                     <form class="login-form">
+                        <p>아이디</p>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Email">
                         </div>
+                        <p>비밀번호</p>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password">
                         </div>
+                        <p>비밀번호 확인</p>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block">로그인</button>
+                            <input type="password" class="form-control" placeholder="Password check">
                         </div>
-                        <div class="social-sign-up">
-                            <img src="@/assets/login/google.png">
-                            <img src="@/assets/login/naver.png">
-                            <img src="@/assets/login/kakao.png">
-                            <img src="@/assets/login/apple.png">
+                        <p>이름</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name">
                         </div>
-                        <div class="sign-up">
-                            <RouterLink :to="{name : 'signup'}">회원가입</RouterLink>| 
-                            <div class="text-center"> <a href="#!">아이디 찾기</a></div> |
-                            <div class="text-center"> <a href="#!">비밀번호 찾기</a></div> 
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">회원가입</button>
                         </div>
+                        
+
                     </form>
                 </div>
             </div>
@@ -46,7 +47,7 @@ body {
 
 }
 
-.col-sm-6{
+.col-sm-6 {
     margin-top: 70px;
 }
 
@@ -69,10 +70,6 @@ body {
     margin-bottom: 20px;
 }
 
-.header-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
 
 .login-form {
     max-width: 300px;
@@ -91,7 +88,7 @@ body {
 
 .form-group {
     display: flex;
-    
+
 }
 
 .login-form .form-group .forgot-password {
@@ -111,19 +108,9 @@ body {
     background: #3BC3FF;
     border-color: #31c0ff;
 }
-.sign-up{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    
-}
-.social-sign-up {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 30px;
-} 
-.social-sign-up img{
-    width: 50px;
-    
+
+p{
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 </style>
