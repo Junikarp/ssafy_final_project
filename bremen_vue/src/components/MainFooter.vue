@@ -22,6 +22,7 @@
       background-color:#f8f9fa;
       padding:1rem 0;
       margin:1rem 0;
+      height: 100px;
   }
   
   .footer-message{

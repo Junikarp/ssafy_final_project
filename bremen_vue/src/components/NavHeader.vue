@@ -10,7 +10,6 @@
             <a href="Sign in">Sign up</a>
         </div>
     </div>
-        <RouterView></RouterView>
 </template>
 
 <script setup>
@@ -23,6 +22,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
+    height: 67px;
     width:100%;
     position: fixed;
     background-color: white;
@@ -30,7 +30,7 @@
 
 .login-bar {
     display: flex;
-    margin-top: 10px;
+    padding-top: 10px;
     font-size: 20px;
     padding-left: 60%;
     justify-content: space-around;
@@ -38,7 +38,7 @@
 
 .login-bar a {
     text-decoration: none;
-    margin-right:30px;
+    padding-right:30px;
     font-weight:bold;
     color:black
 }

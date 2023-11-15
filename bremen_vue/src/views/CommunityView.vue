@@ -74,6 +74,7 @@ table {
 section.notice {
   padding: 80px 0;
   background-image: url("../assets/main/로니.png");
+  width: 100%;
 }
 
 .page-title {

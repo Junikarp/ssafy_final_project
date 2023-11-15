@@ -1,13 +1,15 @@
 <template>
+  <div class="main">
     <header>
       <NavHeader></NavHeader>
     </header>
   <main>
-  
+    <RouterView></RouterView>
   </main>
-  <Footer>
+  <footer>
     <MainFooter></MainFooter>
-  </Footer>
+  </footer>
+  </div>
 </template>
 
 <script setup>
@@ -20,7 +22,20 @@ import NavHeader from './components/NavHeader.vue';
 
 main {
   padding-top: 70px;
+  width: 100%;
+  min-height: calc(100vh - 167px);
 }
+
+footer {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 
 </style>
