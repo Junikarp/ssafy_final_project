@@ -1,8 +1,5 @@
 <template>
   <div class="main">
-    <header>
-      <NavHeader></NavHeader>
-    </header>
   <main>
     <RouterView></RouterView>
   </main>
@@ -14,7 +11,6 @@
 
 <script setup>
 import MainFooter from './components/MainFooter.vue';
-import NavHeader from './components/NavHeader.vue';
 
 </script>
 
@@ -34,8 +30,5 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
-
-
 
 </style>

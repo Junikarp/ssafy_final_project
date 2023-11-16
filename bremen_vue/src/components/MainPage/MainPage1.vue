@@ -1,4 +1,27 @@
 <template>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo.png" alt="..." width="100%" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars ms-1"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#services">메인페이지1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
+          <li class="nav-item"><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <body id="page-top">
     <header class="masthead" id="introduce" background-color="black">
       <div class="container">
@@ -188,7 +211,7 @@ img {
   margin-left: auto;
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
@@ -207,7 +230,7 @@ img {
 
   .container {
     max-width: 960px;
-  } 
+  }
 }
 
 @media (min-width: 1200px) {
@@ -398,7 +421,8 @@ p {
 }
 
 #mainNav .navbar-brand img {
-  height: 1.5rem;
+  height: 100%;
+  width: auto;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -511,5 +535,13 @@ section#contact .section-heading {
 #introduce {
   background-image: url(../../assets/main/space.jpeg);
   padding-top: 100px;
+}
+
+.login-nav {
+  display: flex;
+  justify-content: space-around;
+  width: 12%;
+  text-decoration: none;
+  font-size: 18px;
 }
 </style>
