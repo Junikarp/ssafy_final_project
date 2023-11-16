@@ -1,5 +1,5 @@
 <template>
-    <!-- Navigation-->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="#page-top"><img src="@/assets/logo.png" alt="..." width="100%"/></a>
@@ -8,7 +8,7 @@
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#services">메인페이지1</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
@@ -65,10 +65,6 @@
 #logo {
     width: 30px;
     
-}
-
-.navbar {
-    color: black;
 }
 
 </style>
