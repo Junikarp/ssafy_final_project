@@ -2,7 +2,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="@/assets/logo.png" alt="..." width="150px"/></a>
+                <a class="navbar-brand" href="#page-top"><img src="@/assets/logo.png" alt="..." width="100%"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -25,7 +25,7 @@
 </script>
 
 <style scoped>
-.main-container {
+/* .main-container {
     padding-left:120px; 
     padding-top: 10px;
     padding-bottom: 10px;
@@ -60,10 +60,11 @@
     font-size: 40px;
     text-decoration: none;
     color: black;
-}   
+}    */
 
 #logo {
     width: 30px;
+    
 }
 
 .navbar {

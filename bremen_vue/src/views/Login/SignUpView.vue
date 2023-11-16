@@ -7,17 +7,17 @@
                     <br>
 
                     <form class="login-form">
-                        <p>아이디</p>
+                        <p>이메일 주소</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" placeholder="예)bremen@bremen.co.kr">
                         </div>
                         <p>비밀번호</p>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자">
                         </div>
                         <p>비밀번호 확인</p>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password check">
+                            <input type="password" class="form-control" placeholder="비밀번호 확인">
                         </div>
                         <p>이름</p>
                         <div class="form-group">
@@ -26,6 +26,7 @@
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">회원가입</button>
                         </div>
+                        
                         
 
                     </form>
@@ -45,6 +46,12 @@
 body {
     background: #f5f5f5;
 
+}
+
+p{
+    margin: 0;
+    font-weight: 800 !important;
+    font-size: 15px;
 }
 
 .col-sm-6 {
@@ -79,6 +86,8 @@ body {
 .login-form .form-control {
     border-radius: 0;
     margin-bottom: 30px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .login-form .form-group {

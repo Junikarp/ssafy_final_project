@@ -4,15 +4,21 @@
             <div class="login-box">
                 <div class="col-sm-6 offset-sm-3"> <!-- 중앙 정렬을 위한 offset-sm-3 추가 -->
                     <div class="logo">BREMEN</div>
-                    <br>
-                    <h3 class="header-title">LOGIN</h3>
+                    <h5 class="header-title" style="font-style: normal;" >하나가 되는 스포츠</h5>
                     <form class="login-form">
+
+
+                        <p>이메일 주소</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                        
+                            <input type="text" class="form-control" placeholder="예)bremen@bremen.co.kr">
                         </div>
+                        <p>비밀번호</p>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자">
                         </div>
+
+
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">로그인</button>
                         </div>
@@ -46,6 +52,11 @@ body {
 
 }
 
+p{
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+}
 .col-sm-6{
     margin-top: 70px;
 }
@@ -64,7 +75,7 @@ body {
 
 .logo {
     font-weight: 800;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -80,8 +91,11 @@ body {
 }
 
 .login-form .form-control {
+    
     border-radius: 0;
     margin-bottom: 30px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .login-form .form-group {
