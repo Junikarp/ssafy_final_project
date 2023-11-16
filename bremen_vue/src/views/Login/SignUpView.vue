@@ -23,6 +23,10 @@
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Name">
                         </div>
+                        <p>닉네임</p>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nickname">
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">회원가입</button>
                         </div>
