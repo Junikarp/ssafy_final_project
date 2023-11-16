@@ -50,7 +50,7 @@ body {
 
 p{
     margin: 0;
-    font-weight: 800 !important;
+    font-weight: 800 !important ;
     font-size: 15px;
 }
 
