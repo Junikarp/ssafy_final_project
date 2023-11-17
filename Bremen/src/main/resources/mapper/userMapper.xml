@@ -6,9 +6,19 @@
 	
 	<!-- DEFAULT라 포인트랑 친구 비워놓음  -->
 	<select id="selectAll" resultType="User">
-		INSERT INTO user (userId, userPassword, userName, userNickname)
-		VALUES (#{userId}, #{userPassword}, #{userName}, #{userNickname})
+		SELECT userId, userPassword, userName, userNickname
+		FROM user
 	</select>
 	
-	<insert
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO user (userId, userPassword, userName, userNickname)
+		VALUES (#{userId}, #{userPassword}, #{userName}, #{userNickname})
+	</insert>
+	
+	<select id="selectOne" parameterType="String" resultType="User">
+		SELECT userId, userPassword, userName, userNickname
+		FROM user
+		WHERE userId = #{userId}
+	</select>
+	
 </mapper>

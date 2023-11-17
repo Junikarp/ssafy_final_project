@@ -7,7 +7,7 @@ import com.bremen.model.dto.Review;
 public interface ReviewDao {
 
 	// 전체목록
-	List<Review> selectAll();
+	List<Review> selectAll(int id);
 
 	// 댓글 등록
 	int inservReview(Review review);

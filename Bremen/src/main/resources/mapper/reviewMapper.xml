@@ -4,4 +4,29 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bremen.model.dao.UserDao">
 
+	<!-- 게시글당 전체 댓글 조회-->
+	<select id="selectAll" resultType="Review" parameterType="int">
+		SELECT reviewContent, reviewWriter, reviewLike, reviewId, postId
+		FROM review
+		WHERE postId = #{postId};
+	</select>
+	
+	<!-- reviewLike default 0이라서 뺐음  -->
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO review (reviewContent, reviewWriter, reviewId, postId)
+		VALUES (#{reviewContent}, #{reviewWriter}, #{reviewId}, #{postId});
+	</insert>
+	
+	<delete id="deleteReview" parameterType="int">
+		DELETE FROM review
+		WHERE reviewId = #{reviewId};
+	</delete>
+	
+	<!-- 수정하면 나머지는 똑같고 내용만 바뀌니까  -->
+	<update id="updateReview" parameterType="Review">
+		UPDATE review
+		SET reviewContent = #{reviewContent}
+		WHERE reviewId = #{reviewId};
+	</update>
+	
 </mapper>

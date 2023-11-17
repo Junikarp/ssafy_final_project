@@ -1,5 +1,38 @@
 package com.bremen.model.service;
 
-public class UserServiceImpl {
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bremen.model.dao.UserDao;
+import com.bremen.model.dto.User;
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	@Autowired
+	private UserDao dao;
+
+	@Override
+	public List<User> selectAll() {
+		return dao.selectAll();
+	}
+
+	@Override
+	public int insertUser(User user) {
+		return dao.insertUser(user);
+	}
+
+	@Override
+	public User selectOne(String id) {
+		return dao.selectOne(id);
+	}
+
+	@Override
+	public List<User> friendsAll(String id) {
+		return dao.friendsAll(id);
+	}
+	
+	
 }
