@@ -1,85 +1,86 @@
 <template>
-    
-<section class="notice">
-  <div class="page-title">
-        <div class="container">
-            <h3>즐거운 게시판입니다.</h3>
-        </div>
+  <section class="notice">
+    <div class="page-title">
+      <div class="container">
+        <h3>즐거운 게시판입니다.</h3>
+      </div>
     </div>
 
-    <!-- board seach area -->
+    <!-- board search area -->
     <div id="board-search">
-        <div class="container">
-            <div class="search-window">
-                <form action="">
-                    <div class="search-wrap">
-                        <label for="search" class="blind">공지사항 내용 검색</label>
-                        <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-                        <button type="submit" class="btn btn-dark">검색</button>
-                    </div>
-                </form>
+      <div class="container">
+        <div class="search-window">
+          <form action="">
+            <div class="search-wrap">
+              <label for="search" class="blind">공지사항 내용 검색</label>
+              <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+              <button type="submit" class="btn btn-dark">검색</button>
             </div>
+          </form>
         </div>
+      </div>
     </div>
-   
-  <!-- board list area -->
+
+    <!-- board list area -->
     <div id="board-list">
-        <div class="container">
-            <table class="board-table">
-                <thead>
-                <tr>
-                    <th scope="col" class="th-num">번호</th>
-                    <th scope="col" class="th-title">제목</th>
-                    <th scope="col" class="th-date">등록일</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>3</td>
-                    <th>
-                      <a href="#!">[공지사항] 개인정보 유출된 사실 알림방침</a>
-                      <p>테스트</p>
-                    </th>
-                    <td>2017.07.13</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <th><a href="#!">준구형 커피달다..</a></th>
-                    <td>2017.06.15</td>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <th><a href="#!">강준규는 신인가? 강준규는 신인가? 강준규는 신인가? 강준규는 신인가?</a></th>
-                    <td>2017.06.15</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+      <div class="container">
+        <table class="board-table">
+          <thead>
+            <tr>
+              <th scope="col" class="th-num">번호</th>
+              <th scope="col" class="th-title">제목</th>
+              <th scope="col" class="th-date">등록일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- v-for 디렉티브를 사용하여 boardList를 반복 -->
+            <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
+              <td>{{ index + 1 }}</td>
+              <td>
+                <router-link :to="{ name: 'detail', params: { id: boardItem.boardId } }">
+                  {{ boardItem.boardTitle }}
+                </router-link>
+              </td>
+              <td>{{ boardItem.boardRegDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-</section>
+  </section>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { useBoardStore } from '@/stores/board';
+import { useRoute } from 'vue-router'
 
+const store = useBoardStore();
+const route = useRoute();
+
+onMounted(() => {
+  // 게시글 목록을 가져오는 메서드 호출
+  store.getBoardList(route.params.category);
+});
 </script>
+
 
 <style scoped>
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 section.notice {
   padding: 80px 0;
-  background-image: url("../assets/main/로니.png");
   width: 100%;
 }
 
 .page-title {
   margin-bottom: 60px;
 }
+
 .page-title h3 {
   font-size: 28px;
   color: #333333;
@@ -91,13 +92,15 @@ section.notice {
   padding: 15px 0;
   background-color: #f9f7f9;
 }
+
 #board-search .search-window .search-wrap {
   position: relative;
-/*   padding-right: 124px; */
+  /*   padding-right: 124px; */
   margin: 0 auto;
   width: 80%;
   max-width: 564px;
 }
+
 #board-search .search-window .search-wrap input {
   height: 40px;
   width: 100%;
@@ -105,11 +108,13 @@ section.notice {
   padding: 7px 14px;
   border: 1px solid #ccc;
 }
+
 #board-search .search-window .search-wrap input:focus {
   border-color: #333;
   outline: 0;
   border-width: 1px;
 }
+
 #board-search .search-window .search-wrap .btn {
   position: absolute;
   right: 0;
@@ -134,9 +139,11 @@ section.notice {
   word-break: break-all;
   vertical-align: middle;
 }
+
 .board-table a:hover {
   text-decoration: underline;
 }
+
 .board-table th {
   text-align: center;
 }
@@ -150,7 +157,8 @@ section.notice {
   width: 200px;
 }
 
-.board-table th, .board-table td {
+.board-table th,
+.board-table td {
   padding: 14px 0;
 }
 
@@ -166,7 +174,7 @@ section.notice {
   text-align: left;
 }
 
-.board-table tbody th p{
+.board-table tbody th p {
   display: none;
 }
 
@@ -203,7 +211,8 @@ section.notice {
   color: #fff;
 }
 
-.btn-dark:hover, .btn-dark:focus {
+.btn-dark:hover,
+.btn-dark:focus {
   background: #373737;
   border-color: #373737;
   color: #fff;
@@ -214,7 +223,8 @@ section.notice {
   color: #fff;
 }
 
-.btn-dark:hover, .btn-dark:focus {
+.btn-dark:hover,
+.btn-dark:focus {
   background: #373737;
   border-color: #373737;
   color: #fff;
@@ -229,15 +239,18 @@ section.notice {
   margin: 0;
   box-sizing: border-box;
 }
+
 .clearfix:after {
   content: '';
   display: block;
   clear: both;
 }
+
 .container {
   width: 1100px;
   margin: 0 auto;
 }
+
 .blind {
   position: absolute;
   overflow: hidden;
@@ -245,6 +258,4 @@ section.notice {
   margin: -1px;
   width: 1px;
   height: 1px;
-}
-
-</style>
+}</style>

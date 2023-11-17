@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CommunityView from '../views/CommunityView.vue'
+import CommunityView from '../views/Community/CommunityView.vue'
+import CategoryView from '../views/Community/CategoryView.vue'
+import DetailView from '../views/Community/DetailView.vue'
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
 
@@ -13,9 +15,21 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/community',
-      name: 'community',
-      component: CommunityView
+      path: '/board',
+      name: 'board',
+      component: CommunityView,
+      children: [
+        {
+          path: ':category',
+          name: 'category',
+          component: CategoryView
+        },
+        {
+          path: 'detail/:id',
+          name: 'detail',
+          component: DetailView
+        }
+      ]
     },
     {
       path: '/login',

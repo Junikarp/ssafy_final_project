@@ -1,5 +1,7 @@
 <template>
-    
+    <div>
+        
+    </div>
 </template>
 
 <script setup>
@@ -8,7 +10,4 @@
 
 <style scoped>
 
-#logo {
-    width: 30px;
-}
 </style>

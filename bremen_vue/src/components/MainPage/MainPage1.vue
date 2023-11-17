@@ -2,7 +2,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo.png" alt="..." width="100%" /></a>
+      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo.png" alt="..." id="logo" /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -243,6 +243,7 @@ img {
   .container {
     max-width: 1320px;
   }
+  
 }
 
 .row {
@@ -544,4 +545,8 @@ section#contact .section-heading {
   text-decoration: none;
   font-size: 18px;
 }
+
+#logo {
+    width: 100px !important;
+} 
 </style>
