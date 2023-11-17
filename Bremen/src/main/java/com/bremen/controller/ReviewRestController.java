@@ -27,7 +27,7 @@ public class ReviewRestController {
 		return new ResponseEntity<String>(errMsg, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@PostMapping("/board/{postId}")
+	@PostMapping("/review/{postId}")
 	public ResponseEntity<?> insertReview(@PathVariable int postId, @RequestBody Review review) {
 		try {
 			int result = reviewService.insertReview(review);

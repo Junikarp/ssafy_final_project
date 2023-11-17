@@ -12,7 +12,7 @@ public class Board {
 	private String boardCategory;
 	private int boardLike;
 	private int boardHate;
-	public List<Review> reviewList;
+	private List<Review> reviewList;
     
 	public List<Review> getReviewList() {
 		return reviewList;
