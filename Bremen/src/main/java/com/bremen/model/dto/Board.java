@@ -1,5 +1,7 @@
 package com.bremen.model.dto;
 
+import java.util.List;
+
 public class Board {
 	private int boardId;
 	private String boardTitle;
@@ -10,6 +12,15 @@ public class Board {
 	private String boardCategory;
 	private int boardLike;
 	private int boardHate;
+	public List<Review> reviewList;
+    
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
+	}
 
 	public int getBoardId() {
 		return boardId;
