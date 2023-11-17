@@ -7,7 +7,7 @@ import com.bremen.model.dto.Board;
 public interface BoardService {
 
 	// 전체 목록 
-	List<Board> selectAll();
+	List<Board> selectAll(String category);
 	
 	// 상세 목록
 	Board selectOne(int id);

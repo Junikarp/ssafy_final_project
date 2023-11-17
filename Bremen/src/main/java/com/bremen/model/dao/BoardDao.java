@@ -6,7 +6,7 @@ import com.bremen.model.dto.Board;
 
 public interface BoardDao {
 	// 전체 목록
-	List<Board> selectAll();
+	List<Board> selectAll(String category);
 	
 	// 상세 조회
 	Board selectOne(int id);

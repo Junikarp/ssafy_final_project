@@ -16,8 +16,8 @@ public class BoardServiceImpl implements BoardService {
 	BoardDao dao;
 
 	@Override
-	public List<Board> selectAll() {
-		return dao.selectAll();
+	public List<Board> selectAll(String category) {
+		return dao.selectAll(category);
 	}
 
 	@Override
@@ -48,6 +48,5 @@ public class BoardServiceImpl implements BoardService {
 	public void updateViewCnt(int id) {
 		dao.updateViewCnt(id);
 	}
-	
 	
 }
