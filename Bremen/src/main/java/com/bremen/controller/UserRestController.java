@@ -71,6 +71,8 @@ public class UserRestController {
 				System.out.println("로그인 성공 ");
 				return new ResponseEntity<>(loginUser, HttpStatus.OK);
 			} else {
+				System.out.println(loginUser.getUserId());
+				System.out.println(loginUser.getUserPassword());
 				System.out.println("로그인 실패 ");
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
