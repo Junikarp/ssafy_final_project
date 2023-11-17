@@ -120,4 +120,35 @@ public class BoardRestController {
 			return exceptionHandler(e);
 		}
 	}
+	
+	@PostMapping("/review")
+	public ResponseEntity<?> insertReview(@RequestBody Review review) {
+		try {
+			int result = reviewService.insertReview(review);
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
+	
+	@DeleteMapping("/review")
+	public ResponseEntity<?> deleteReview(@RequestBody int id) {
+		try {
+			reviewService.deleteReview(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
+	
+	@PutMapping("/review")
+	public ResponseEntity<?> updateReview(@RequestBody Review review) {
+		try {
+			reviewService.updateReview(review);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
+
 }

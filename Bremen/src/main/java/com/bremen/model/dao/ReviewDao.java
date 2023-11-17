@@ -10,7 +10,7 @@ public interface ReviewDao {
 	List<Review> selectAll(int id);
 
 	// 댓글 등록
-	int inservReview(Review review);
+	int insertReview(Review review);
 
 	// 댓글 삭제
 	void deleteReview(int id);

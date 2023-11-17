@@ -23,7 +23,7 @@ public class ReviewServiceImpl implements ReviewService {
 	@Transactional
 	@Override
 	public int insertReview(Review review) {
-		return dao.inservReview(review);
+		return dao.insertReview(review);
 	}
 
 	@Transactional
