@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,14 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bremen.model.dto.User;
 import com.bremen.model.service.UserService;
 
-import ch.qos.logback.core.net.SocketConnector.ExceptionHandler;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.Model;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
-@RequestMapping("/api-user")
+@RequestMapping("/api")
 @Api(tags = "유저 컨트롤러")
 @CrossOrigin("*")
 public class UserRestController {
@@ -91,4 +90,6 @@ public class UserRestController {
 			return exceptionHandler(e);
 		}
 	}
+	
+	// 친구추가 
 }
