@@ -16,8 +16,8 @@ public class ReviewServiceImpl implements ReviewService {
 	ReviewDao dao;
 	
 	@Override
-	public List<Review> selectAll() {
-		return dao.selectAll();
+	public List<Review> selectAll(int id) {
+		return dao.selectAll(id);
 	}
 
 	@Transactional
@@ -37,5 +37,7 @@ public class ReviewServiceImpl implements ReviewService {
 	public void updateReview(Review review) {
 		dao.updateReview(review);;
 	}
+
+
 
 }
