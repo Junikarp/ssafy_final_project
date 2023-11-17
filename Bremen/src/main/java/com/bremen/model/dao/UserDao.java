@@ -17,4 +17,6 @@ public interface UserDao {
 	
 	// 친구 목록 조회
 	List<User> friendsAll(String id);
+	
+	
 }
