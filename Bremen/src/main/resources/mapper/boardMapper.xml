@@ -6,19 +6,15 @@
 
 	<!-- 전체 게시글 조회 -->
 	<select id="selectAll" resultType="Board" parameterType="String">
-		SELECT boardId, boardTitle,
-		boardContent, boardWriter, boardViewCnt, boardRegDate, boardCategory,
-		boardLike, boardHate
-		FROM board;
+		SELECT *
+		FROM board
 		WHERE boardCategory = #{boardCategory};
 	</select>
 
 	<!-- 상세 조회 -->
-	<select id="selectOne" resultType="Board">
-		SELECT boardId, boardTitle,
-		boardContent, boardWriter, boardViewCnt, boardRegDate, boardCategory
-		boardLike, boardHate
-		FROM board
+	<select id="selectOne" parameterType="int" resultType="Board">
+		SELECT *
+		FROM board 	
 		WHERE boardId = #{boardId};
 	</select>
 	
