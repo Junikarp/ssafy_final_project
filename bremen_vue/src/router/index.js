@@ -35,12 +35,12 @@ const router = createRouter({
       component: BoardCreate
     },
     {
-      path: "/board/:category",
+      path: "/board",
       name: "boardUpdate",
       component: BoardUpdate
     },
     {
-      path: '/detail/:id',
+      path: '/:category/detail/:id',
       name: 'detail',
       component: DetailView
     },

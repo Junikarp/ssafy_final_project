@@ -12,7 +12,7 @@
         {{comments.reviewContent}}
         </tr>
 
-        <!-- <button @click="deleteBoard">삭제</button>-->
+        <button @click="deleteBoard">삭제</button>
         <button @click="updateBoard">수정</button>
     </div>
 </template> 
@@ -21,20 +21,23 @@
 import { useRoute, useRouter } from 'vue-router'
 import { useBoardStore } from "@/stores/board";
 import { onMounted } from "vue";
+import axios from 'axios';
 
 const store = useBoardStore()
 
 const route = useRoute();
+const router = useRouter();
 
 onMounted(() => {
     store.getBoard(route.params.id)
 })
-// const deleteBoard = function () {
-//     axios.delete(`http://localhost:8080/api/board/${route.params.id}`)
-//         .then(() => {
-//             router.push({ name: 'BoardList' })
-//         })
-// }
+
+const deleteBoard = function () {
+    axios.delete(`http://localhost:8080/api/board/${route.params.id}`)
+        .then(() => {
+            router.push({ name: 'category' })
+        })
+}
 
 const updateBoard = function () {
     router.push({ name: 'boardUpdate' })

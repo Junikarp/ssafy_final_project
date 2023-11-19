@@ -42,10 +42,13 @@ export const useBoardStore = defineStore('board', () => {
   }
 
   const updateBoard = function () {
-    axios.put(REST_BOARD_API, board.value)
+    axios.put(`${REST_BOARD_API}/board`, board.value)
       .then(() => {
-      router.push({name: 'board'})
-    })
+        router.push({ name: 'detail' , params:{ id: board.value.boardId, category: board.value.boardCategory }});
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   return {
     boardList,
