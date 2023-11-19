@@ -38,25 +38,28 @@ public class UserRestController {
 	}
 
 	// 회원가입
-	@PostMapping("/user")
+	@PostMapping("/signup")
 	@ApiOperation(value = "회원가입 ")
 	public ResponseEntity<?> signUp(@RequestBody User user) {
-
+		System.out.println(user.getUserId());
 		int result = userService.insertUser(user);
 		if (result == 0) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			System.out.println("회원가입 실패 ");
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<>(result, HttpStatus.OK);
+		
+		System.out.println("회원가입 성공 ");
+		return new ResponseEntity<Integer>(result, HttpStatus.OK);
 
 	}
 
 	// 로그인
 	@PostMapping("/login")
-	@ApiOperation(value="로그인")
+	@ApiOperation(value = "로그인")
 	public ResponseEntity<?> login(@RequestBody User user, HttpSession session) {
 		System.out.println(user.getUserId());
 		User loginUser = userService.selectOne(user.getUserId());
-		if(loginUser != null && loginUser.getUserPassword().equals(user.getUserPassword())) {
+		if (loginUser != null && loginUser.getUserPassword().equals(user.getUserPassword())) {
 			session.setAttribute("loginUser", loginUser.getUserName());
 			System.out.println("로그인성공");
 			return new ResponseEntity<User>(loginUser, HttpStatus.OK);
