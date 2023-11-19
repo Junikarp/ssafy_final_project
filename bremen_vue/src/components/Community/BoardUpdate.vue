@@ -5,19 +5,19 @@
             <legend>등록</legend>
             <div>
                 <label for="title">제목 : </label>
-                <input type="text" id="title" v-model="store.board.title">
+                <input type="text" id="title" v-model="store.board.boardId">
             </div>
             <div>
                 <label for="writer">쓰니 : </label>
-                <input type="text" id="writer" readonly v-model="store.board.writer">
+                <textarea type="text" id="writer" readonly v-model="store.board.boardWriter"></textarea>
             </div>
             <div>
-                <label for="category">내용 : </label>
-                <textarea id="category" cols="10" rows="10" readonly v-model="category"></textarea>
+                <label for="category">쓰니 : </label>
+                <textarea type="text" id="category" readonly v-model="store.board.boardCategory"></textarea>
             </div>
             <div>
                 <label for="content">내용 : </label>
-                <textarea id="content" cols="30" rows="10" v-model="store.board.content"></textarea>
+                <textarea id="content" cols="30" rows="10" v-model="store.board.boardContent"></textarea>
             </div>
             <div>
                 <button @click="updateBoard">수정</button>
@@ -28,16 +28,11 @@
 
 <script setup>
 import { useBoardStore } from "@/stores/board";
-import { onMounted } from "vue";
 const store = useBoardStore();
 
 const updateBoard = function () {
     store.updateBoard()
 }
-
-onMounted(() => {
-    console.log(category)
-})
 </script>
 
 <style scoped></style>

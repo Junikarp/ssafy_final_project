@@ -88,8 +88,8 @@ public class BoardRestController {
 	}
 
 	// 게시물 삭제
-	@DeleteMapping("/board")
-	public ResponseEntity<?> deletePost(@RequestBody int id) {
+	@DeleteMapping("/board/{id}")
+	public ResponseEntity<?> deletePost(@PathVariable int id) {
 		try {
 			boardService.deleteBoard(id);
 			return new ResponseEntity<>(HttpStatus.OK);
