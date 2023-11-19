@@ -3,7 +3,7 @@
         <div class="container">
             <div class="login-box">
                 <div class="col-sm-6 offset-sm-3"> <!-- 중앙 정렬을 위한 offset-sm-3 추가 -->
-                    <div class="logo">BREMEN</div>
+                    <div class="logo"><router-link :to="{name:'home'}" style="text-decoration: none; color: black;">BREMEN</router-link></div>
                     <br>
 
                     <form class="login-form" @submit.prevent="signUp">
