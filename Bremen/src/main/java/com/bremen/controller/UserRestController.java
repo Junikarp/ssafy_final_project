@@ -54,6 +54,7 @@ public class UserRestController {
 	@PostMapping("/login")
 	@ApiOperation(value="로그인")
 	public ResponseEntity<?> login(@RequestBody User user, HttpSession session) {
+		System.out.println(user.getUserId());
 		User loginUser = userService.selectOne(user.getUserId());
 		if(loginUser != null && loginUser.getUserPassword().equals(user.getUserPassword())) {
 			session.setAttribute("loginUser", loginUser.getUserName());
