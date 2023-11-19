@@ -7,21 +7,21 @@
                     <h5 class="header-title" style="font-style: normal;" >하나가 되는 스포츠</h5>
                     <form class="login-form">
 
-
-                        <p>이메일 주소</p>
-                        <div class="form-group">
+                        <form class="login-submit" @submit.prevent="login">
+                            <p>이메일 주소</p>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="예)bremen@bremen.co.kr" v-model="user.userId">
+                            </div>
+                            <p>비밀번호</p>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자" v-model="user.userPassword">
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block">로그인</button>
+                            </div>
+                        </form>
                         
-                            <input type="text" class="form-control" placeholder="예)bremen@bremen.co.kr">
-                        </div>
-                        <p>비밀번호</p>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자">
-                        </div>
-
-
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-block">로그인</button>
-                        </div>
                         <div class="social-sign-up">
                             <img src="@/assets/login/google.png">
                             <img src="@/assets/login/naver.png">
@@ -41,6 +41,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useUserStore } from "@/stores/user";
+const store = useUserStore();
+const user = ref({
+    userId: '',
+    userPassword: ''
+})
+const login = function(){
+    store.login(user.value)
+}
 
 </script>
 
