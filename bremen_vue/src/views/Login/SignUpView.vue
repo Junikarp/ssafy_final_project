@@ -9,11 +9,13 @@
                     <form class="login-form" @submit.prevent="signUp">
                         <p>이메일 주소</p>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="예)bremen@bremen.co.kr" v-model="user.userId">
+                            <input type="email" class="form-control" placeholder="예)bremen@bremen.co.kr"
+                                v-model="user.userId">
                         </div>
                         <p>비밀번호</p>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자" v-model="user.userPassword">
+                            <input type="password" class="form-control" placeholder="영문, 숫자, 특수문자 조합 8-16자"
+                                v-model="user.userPassword">
                         </div>
                         <p>비밀번호 확인</p>
                         <div class="form-group">

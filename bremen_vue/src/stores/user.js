@@ -31,7 +31,7 @@ export const useUserStore = defineStore('user', () => {
             params: user
         })
             .then(() => {
-                router.push({ name: '/login' })
+                router.push({ name: 'login' })
                 User.value = user.data
             })
 
