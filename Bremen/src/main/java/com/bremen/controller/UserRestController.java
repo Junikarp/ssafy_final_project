@@ -30,12 +30,6 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 
-	// 예외 처리
-	public ResponseEntity<?> exceptionHandler(Exception e) {
-		String errMsg = "sorry : " + e.getMessage();
-		return new ResponseEntity<String>(errMsg, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
 	// 전체 유저
 	@GetMapping("/user")
 	@ApiOperation(value = "유저 조회 ")
@@ -47,51 +41,37 @@ public class UserRestController {
 	@PostMapping("/user")
 	@ApiOperation(value = "회원가입 ")
 	public ResponseEntity<?> signUp(@RequestBody User user) {
-		try {
 
-			int result = userService.insertUser(user);
-			if (result == 0) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(result, HttpStatus.OK);
-		} catch (Exception e) {
-			return exceptionHandler(e);
+		int result = userService.insertUser(user);
+		if (result == 0) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
+		return new ResponseEntity<>(result, HttpStatus.OK);
+
 	}
 
 	// 로그인
 	@PostMapping("/login")
-	@ApiOperation(value = "로그인 ")
+	@ApiOperation(value="로그인")
 	public ResponseEntity<?> login(@RequestBody User user, HttpSession session) {
-		try {
-
-			User loginUser = userService.selectOne(user.getUserId());
-			if (loginUser != null && loginUser.getUserPassword().equals(user.getUserPassword())) {
-				session.setAttribute("loginUser", loginUser.getUserName());
-				System.out.println("로그인 성공 ");
-				return new ResponseEntity<>(loginUser, HttpStatus.OK);
-			} else {
-				System.out.println(loginUser.getUserId());
-				System.out.println(loginUser.getUserPassword());
-				System.out.println("로그인 실패 ");
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return exceptionHandler(e);
+		User loginUser = userService.selectOne(user.getUserId());
+		if(loginUser != null && loginUser.getUserPassword().equals(user.getUserPassword())) {
+			session.setAttribute("loginUser", loginUser.getUserName());
+			System.out.println("로그인성공");
+			return new ResponseEntity<User>(loginUser, HttpStatus.OK);
 		}
+		System.out.println("로그인실패");
+		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); // 상태 -> 권한이 없다
 	}
 
 	@GetMapping("/logout")
 	@ApiOperation(value = "로그아웃")
 	public ResponseEntity<?> logout(HttpSession session) {
-		try {
 
-			session.invalidate();
-			return new ResponseEntity<>(HttpStatus.OK);
-		} catch (Exception e) {
-			return exceptionHandler(e);
-		}
+		session.invalidate();
+		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
-	
-	// 친구추가 
+
+	// 친구추가
 }
