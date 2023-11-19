@@ -18,8 +18,9 @@ const login = function (user) {
     }).then ((user) => {
         router.push({ name: 'home' })
         User.value = user.data
+    }).catch((err) => {
+        alert("로그인 실패");
     })
 }
-
     return{User, login}
-})
+});
