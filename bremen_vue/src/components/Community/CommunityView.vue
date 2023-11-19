@@ -28,7 +28,7 @@
           <thead>
             <tr>
               <th scope="col" class="th-num">번호</th>
-              <th scope="col" class="th-title">제목</th>
+              <th scope="col" class="th-title">제목</th>  
               <th scope="col" class="th-date">등록일</th>
             </tr>
           </thead>
@@ -39,13 +39,14 @@
               <td>
                 <router-link :to="{ name: 'detail', params: { id: boardItem.boardId } }">
                   {{ boardItem.boardTitle }}
-                </router-link>
+                </router-link>  
               </td>
               <td>{{ boardItem.boardRegDate }}</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <router-link :to="{ name: 'boardCreate'}">글 작성</router-link>
     </div>
   </section>
 </template>
@@ -62,6 +63,7 @@ onMounted(() => {
   // 게시글 목록을 가져오는 메서드 호출
   store.getBoardList(route.params.category);
 });
+
 </script>
 
 

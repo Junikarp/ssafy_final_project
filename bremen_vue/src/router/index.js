@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CommunityView from '../views/Community/CommunityView.vue'
-import CategoryView from '../views/Community/CategoryView.vue'
-import DetailView from '../views/Community/DetailView.vue'
+import CommunityView from '../components/Community/CommunityView.vue'
+import CategoryView from '../components/Community/CategoryView.vue'
+import DetailView from '../components/Community/DetailView.vue'
+import BoardCreate from '../components/Community/BoardCreate.vue'
+import BoardUpdate from '../components/Community/BoardUpdate.vue'
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
 
@@ -22,11 +24,21 @@ const router = createRouter({
         {
           path: ':category',
           name: 'category',
-          component: CategoryView
-        }
+          component: CategoryView,
+        },
       ]
     }
     ,
+    {
+      path: "/board/:category",
+      name: "boardCreate",
+      component: BoardCreate
+    },
+    {
+      path: "/board/:category",
+      name: "boardUpdate",
+      component: BoardUpdate
+    },
     {
       path: '/detail/:id',
       name: 'detail',

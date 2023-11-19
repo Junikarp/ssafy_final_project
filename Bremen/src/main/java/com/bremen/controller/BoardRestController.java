@@ -76,7 +76,7 @@ public class BoardRestController {
 		}
 	}
 
-	// 게시물 생성
+	// 게시물 생성	
 	@PostMapping("/board")
 	public ResponseEntity<?> createPost(@RequestBody Board board) {
 		try {

@@ -12,8 +12,8 @@
         {{comments.reviewContent}}
         </tr>
 
-        <!-- <button @click="deleteBoard">삭제</button>
-        <button @click="updateBoard">수정</button> -->
+        <!-- <button @click="deleteBoard">삭제</button>-->
+        <button @click="updateBoard">수정</button>
     </div>
 </template> 
 
@@ -36,9 +36,9 @@ onMounted(() => {
 //         })
 // }
 
-// const updateBoard = function () {
-//     router.push({ name: 'boardUpdate' })
-// }
+const updateBoard = function () {
+    router.push({ name: 'boardUpdate' })
+}
 </script>
 
 <style scoped>
