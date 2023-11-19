@@ -30,9 +30,6 @@
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">회원가입</button>
                         </div>
-                        
-                        
-
                     </form>
                 </div>
             </div>

@@ -58,7 +58,7 @@ public class BoardRestController {
 	}
 
 	// 게시물 상세조회
-	@GetMapping("/board/detail/{id}")
+	@GetMapping("/detail/{id}")
 	public ResponseEntity<?> getPost(@PathVariable int id) {
 		try {
 			Board board = boardService.selectOne(id);

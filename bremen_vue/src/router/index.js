@@ -23,14 +23,15 @@ const router = createRouter({
           path: ':category',
           name: 'category',
           component: CategoryView
-        },
-        {
-          path: 'detail/:id',
-          name: 'detail',
-          component: DetailView
         }
       ]
-    },
+    }
+    ,
+        {
+          path: '/detail/:id',
+          name: 'detail',
+          component: DetailView
+        },
     {
       path: '/login',
       name: 'login',
