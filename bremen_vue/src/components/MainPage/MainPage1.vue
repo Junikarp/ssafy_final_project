@@ -15,8 +15,9 @@
           <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
-          <li class="nav-item"><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
-          <li class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
+          <li v-if="!store.isAuthenticated" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
+          <li v-if="!store.isAuthenticated" class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
+          <li v-if="store.isAuthenticated" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그아웃</router-link></li>
         </ul>
       </div>
     </div>
@@ -75,6 +76,10 @@
 </template>
 
 <script setup>
+import { useUserStore } from '@/stores/user';
+
+const store = useUserStore()
+
 window.addEventListener('DOMContentLoaded', event => {
 
   var navbarShrink = function () {

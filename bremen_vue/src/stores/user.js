@@ -9,6 +9,8 @@ export const useUserStore = defineStore('user', () => {
 
     const User = ref({})
 
+    const isAuthenticated = ref(false)
+
     // 사용자 로그인
     const login = function (user) {
         axios({
@@ -16,10 +18,14 @@ export const useUserStore = defineStore('user', () => {
             method: 'POST',
             params: user
         }).then((user) => {
-            router.push({ name: 'home' })
             User.value = user.data
+            isAuthenticated.value = true;
+            router.push({ name: 'home' })
+        }).catch(()=>{
+            isAuthenticated.value = false;
         })
     }
+
 
     // 사용자 회원가입
     const router = useRouter();    // 사용자 회원가입
@@ -40,5 +46,5 @@ export const useUserStore = defineStore('user', () => {
 
 
 
-    return { User, login, signUp}
+    return { User, login, signUp, isAuthenticated}
 })
