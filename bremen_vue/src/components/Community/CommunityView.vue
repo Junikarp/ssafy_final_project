@@ -1,17 +1,27 @@
-<template class="community">
+<template>
   <div id="board-list">
     <div class="box">
+    <div class="button-group">
+      <button type="button" class="btn btn-outline-primary">정보</button>
+      <button type="button" class="btn btn-outline-secondary">질문</button>
+      <button type="button" class="btn btn-outline-success">자유</button>
+      <button type="button" class="btn btn-outline-danger">인기글</button>
+      <button type="button" class="btn btn-outline-warning">유머</button>
+    </div>
       <table class="board-table">
         <tbody>
           <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
             <router-link class="detail" :to="{ name: 'detail', params: { id: boardItem.boardId } }">
               <div class="card">
-                <div class="title">
-                  {{ boardItem.boardTitle }}
+                <div class="textbox">
+                  <div class="title">
+                    {{ boardItem.boardTitle }}
+                  </div>
+                  <div class="content">
+                    {{ boardItem.boardContent }}
+                  </div>
                 </div>
-                <div class="content">
-                  {{ boardItem.boardContent }}
-                </div>
+                <img src="../../assets/main/space.jpeg" id="boardImg">
               </div>
             </router-link>
           </tr>
@@ -39,13 +49,20 @@ onMounted(() => {
 
 
 <style scoped>
-template {
-  display: flex;
-  flex-direction: column;
+.box {
+  margin: 300px
 }
 
-.box {
-  margin:300px
+.button-group {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.button-group * {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 80px;
 }
 
 #board-list {
@@ -53,26 +70,42 @@ template {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  width: 1800px;
+  width: 100%;
 }
 
 .card {
   display: flex;
-  justify-content: center;
-  align-items: left;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
   padding: 20px;
   margin-bottom: 30px;
   width: 800px;
   height: 180px;
 }
 
+.card:hover {
+  background-color: rgb(156, 162, 162);
+}
+
 .card * {
   padding: 10px;
+}
+
+.textbox {
+  padding-left: 70px;
 }
 
 .card .title {
   font-size: 25px;
   font-weight: bold;
+}
+
+#boardImg {
+  width: 26%;
+  border-radius: 25px;
+  padding-right: -500px;
 }
 
 .detail {
