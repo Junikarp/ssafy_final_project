@@ -39,7 +39,7 @@
         <div class="text-center">
           <h2 class="section-heading">메인 페이지1</h2>
           <h3 class="section-subheading text-muted">오늘도 커피 한잔과 함께.</h3>
-          <button type="button" class="main-link"> 게시판1 </button>
+          <button type="button" class="main-link"><router-link :to="{name: 'category'}"> 카테고리</router-link> </button>
         </div>
       </div>
     </section>
