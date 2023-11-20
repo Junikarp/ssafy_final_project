@@ -25,7 +25,7 @@
                     {{ groupItem.groupTitle }}
                   </router-link>  
                 </td>
-                <td>{{ groupItem.groupRegDate }}</td>
+                <td>{{ groupItem.groupDate }}</td>
               </tr>
             </tbody>
           </table>
@@ -37,7 +37,7 @@
   
   <script setup>
   import { onMounted } from 'vue';
-  import { useGroupStore } from '@/stores/group';
+  import { useGroupStore } from '../../stores/group';
   import { useRoute } from 'vue-router'
   
   const store = useGroupStore();
