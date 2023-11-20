@@ -34,7 +34,8 @@ export const useBoardStore = defineStore('board', () => {
       data: board
     })
     .then(() => {
-      router.push({ name: 'category'});
+      router.push({ name: 'board'});
+      alert("게시글이 등록되었습니다.")
     })
       .catch((err) => {
       console.log(err)
@@ -45,6 +46,7 @@ export const useBoardStore = defineStore('board', () => {
     axios.put(`${REST_BOARD_API}/board`, board.value)
       .then(() => {
         router.push({ name: 'detail' , params:{ id: board.value.boardId, category: board.value.boardCategory }});
+        alert("게시글이 수정되었습니다.")
       })
       .catch((err) => {
         console.log(err);

@@ -5,8 +5,12 @@ import CategoryView from '../components/Community/CategoryView.vue'
 import DetailView from '../components/Community/DetailView.vue'
 import BoardCreate from '../components/Community/BoardCreate.vue'
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
+import GroupList from '../components/Group/GroupList.vue'
+import GroupCreate from '../components/Group/GroupCreate.vue'
+import GroupDetail from '../components/Group/GroupDetail.vue'
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
+import Map from '@/components/Map/Map.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,16 +21,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/board',
+      path: '/board/:category',
       name: 'board',
       component: CommunityView,
-      children: [
-        {
-          path: ':category',
-          name: 'category',
-          component: CategoryView,
-        },
-      ]
     }
     ,
     {
@@ -53,6 +50,26 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignUpView
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: Map
+    },
+    {
+      path: '/group/:category',
+      name: 'group',
+      component: GroupList,
+    },
+    {
+      path: '/group',
+      name: 'groupCreate',
+      component: GroupCreate,
+    },
+    {
+      path: '/group/detail/:id',
+      name: 'group',
+      component: GroupDetail,
     }
   ]
 })

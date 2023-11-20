@@ -35,7 +35,8 @@ onMounted(() => {
 const deleteBoard = function () {
     axios.delete(`http://localhost:8080/api/board/${route.params.id}`)
         .then(() => {
-            router.push({ name: 'category' })
+            router.push({ name: 'board', params:{ id: route.params.category} })
+            alert("게시글이 삭제되었습니다.")
         })
 }
 
