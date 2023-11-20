@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CommunityView from '../components/Community/CommunityView.vue'
+import CategoryView from '../components/Community/CategoryView.vue'
 import DetailView from '../components/Community/DetailView.vue'
 import BoardCreate from '../components/Community/BoardCreate.vue'
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
-import BoardList from '../components/Community/BoardList.vue'
-import GroupList from '@/components/Group/GroupList.vue'
+import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
 import LoginView from '../views/Login/LoginView.vue'
@@ -24,6 +24,12 @@ const router = createRouter({
       path: '/board/:category',
       name: 'board',
       component: CommunityView,
+    }
+    ,
+    {
+      path: '/category',
+      name: 'category',
+      component: CategoryView,
     }
     ,
     {
@@ -58,23 +64,18 @@ const router = createRouter({
     },
     {
       path: '/group/:category',
-      name: 'groupList',
+      name: 'group',
       component: GroupList,
     },
     {
-      path: '/group/:category',
+      path: '/group',
       name: 'groupCreate',
       component: GroupCreate,
     },
     {
       path: '/group/detail/:id',
-      name: 'groupDetail',
+      name: 'group',
       component: GroupDetail,
-    },
-    {
-      path: '/board/boardlist',
-      name: 'boardList',
-      component: BoardList,
     }
   ]
 })
