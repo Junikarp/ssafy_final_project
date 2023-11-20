@@ -13,7 +13,7 @@ export const useBoardStore = defineStore('board', () => {
         boardList.value = response.data
       })
   }
-
+  
   //게시글 한개
   const board = ref({})
   const getBoard = function (id) {

@@ -55,4 +55,10 @@ public class User {
 	public void setUserFriend(String userFriend) {
 		this.userFriend = userFriend;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName
+				+ ", userNickname=" + userNickname + ", userPoint=" + userPoint + ", userFriend=" + userFriend + "]";
+	}
 }

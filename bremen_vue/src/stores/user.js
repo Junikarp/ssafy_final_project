@@ -7,6 +7,9 @@ const REST_USER_API = `http://localhost:8080/userapi`
 
 export const useUserStore = defineStore('user', () => {
 
+    // 아무데서나 가져다 쓸수있음 이제
+    const loginUserId = ref('')
+
     const User = ref({})
 
     const isAuthenticated = ref(false)
@@ -18,8 +21,19 @@ export const useUserStore = defineStore('user', () => {
             method: 'POST',
             params: user
         }).then((user) => {
+            console.log(user)
             User.value = user.data
             isAuthenticated.value = true;
+
+            sessionStorage.setItem('access-token', user.data["access-token"])
+
+            const token = user.data["access-token"].split('.')
+            let id = token[1]
+            id = atob(id)
+            id = JSON.parse(id)
+            console.log(id['id'])
+            loginUserId.value = id['id']
+
             router.push({ name: 'home' })
         }).catch(()=>{
             isAuthenticated.value = false;
@@ -29,13 +43,13 @@ export const useUserStore = defineStore('user', () => {
     // 로그아웃
     const logout = function(){
         User.value={name: ''}
-        isAuthenticated.value=false;
+        sessionStorage.clear()
     }
 
 
     // 사용자 회원가입
     const router = useRouter();    
-    const signUp = function (user) {
+    const signUp = function (user) {`as`
         console.log(user)
         axios({
             url: REST_USER_API+"/signup",
@@ -52,5 +66,5 @@ export const useUserStore = defineStore('user', () => {
 
 
 
-    return { User, login, signUp, isAuthenticated, logout}
+    return { User, login, signUp, isAuthenticated, logout, loginUserId}
 })

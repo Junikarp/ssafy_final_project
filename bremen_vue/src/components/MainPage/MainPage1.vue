@@ -15,9 +15,9 @@
           <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
-          <li v-if="!store.isAuthenticated" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
-          <li v-if="!store.isAuthenticated" class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
-          <li v-if="store.isAuthenticated" class="nav-item"><router-link class="nav-link" :to="{name:'home'}" @submit.prevent="logout">로그아웃</router-link></li>
+          <li v-if="!loginStatus" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
+          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
+          <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link" :to="{name:'home'}" >로그아웃</router-link></li>
         </ul>
       </div>
     </div>
@@ -77,13 +77,25 @@
 
 <script setup>
 import { useUserStore } from '@/stores/user';
-
+import { computed, onMounted } from 'vue'
 const store = useUserStore()
 
+const loginStatus = computed(()=> {
+  return store.isAuthenticated
+})
+
 const logout = function(){
-  store.logout()
+  sessionStorage.clear()
+  store.isAuthenticated = false;
 }
 
+onMounted(()=> {
+  if(sessionStorage.getItem('access-token')==null) {
+    store.isAuthenticated = false;
+  } else {
+    store.isAuthenticated = true;
+  }
+})
 window.addEventListener('DOMContentLoaded', event => {
 
   var navbarShrink = function () {
@@ -98,7 +110,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
   };
-
+  
   navbarShrink();
 
   document.addEventListener('scroll', navbarShrink);
