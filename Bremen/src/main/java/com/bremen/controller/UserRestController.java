@@ -64,7 +64,7 @@ public class UserRestController {
 			session.setAttribute("loginUser", loginUser.getUserName());
 			System.out.println("로그인성공");
 			return new ResponseEntity<User>(loginUser, HttpStatus.OK);
-		}
+		}	
 		System.out.println("로그인실패");
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); // 상태 -> 권한이 없다
 	}
