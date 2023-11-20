@@ -16,6 +16,7 @@
               <img src="../../assets/main/space.jpeg" id="boardImg">
             </div>
           </router-link>
+          <router-view></router-view>
         </template>
         </tr>
       </tbody>
