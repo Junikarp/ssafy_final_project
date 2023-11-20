@@ -26,9 +26,15 @@ export const useUserStore = defineStore('user', () => {
         })
     }
 
+    // 로그아웃
+    const logout = function(){
+        User.value={name: ''}
+        isAuthenticated.value=false;
+    }
+
 
     // 사용자 회원가입
-    const router = useRouter();    // 사용자 회원가입
+    const router = useRouter();    
     const signUp = function (user) {
         console.log(user)
         axios({
@@ -46,5 +52,5 @@ export const useUserStore = defineStore('user', () => {
 
 
 
-    return { User, login, signUp, isAuthenticated}
+    return { User, login, signUp, isAuthenticated, logout}
 })

@@ -17,7 +17,7 @@
           <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
           <li v-if="!store.isAuthenticated" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
           <li v-if="!store.isAuthenticated" class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
-          <li v-if="store.isAuthenticated" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그아웃</router-link></li>
+          <li v-if="store.isAuthenticated" class="nav-item"><router-link class="nav-link" :to="{name:'home'}" @submit.prevent="logout">로그아웃</router-link></li>
         </ul>
       </div>
     </div>
@@ -79,6 +79,10 @@
 import { useUserStore } from '@/stores/user';
 
 const store = useUserStore()
+
+const logout = function(){
+  store.logout()
+}
 
 window.addEventListener('DOMContentLoaded', event => {
 
