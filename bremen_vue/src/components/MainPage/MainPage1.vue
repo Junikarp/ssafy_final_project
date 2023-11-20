@@ -15,9 +15,12 @@
           <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
-          <li v-if="!loginStatus" class="nav-item" ><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link></li>
-          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link" :to="{ name: 'signup' }">회원가입</router-link></li>
-          <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link" :to="{name:'home'}" >로그아웃</router-link></li>
+          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link>
+          </li>
+          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
+              :to="{ name: 'signup' }">회원가입</router-link></li>
+          <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
+              :to="{ name: 'home' }">로그아웃</router-link></li>
         </ul>
       </div>
     </div>
@@ -36,6 +39,7 @@
         <div class="text-center">
           <h2 class="section-heading">메인 페이지1</h2>
           <h3 class="section-subheading text-muted">오늘도 커피 한잔과 함께.</h3>
+          <button type="button" class="main-link"> 게시판1 </button>
         </div>
       </div>
     </section>
@@ -44,6 +48,7 @@
         <div class="text-center">
           <h2 class="section-heading">메인 페이지2</h2>
           <h3 class="section-subheading text-muted">뒤에 사진 넣고 이것저것 합시다.</h3>
+          <button type="button" class="main-link"> 게시판2 </button>
         </div>
       </div>
     </section>
@@ -52,6 +57,7 @@
         <div class="text-center">
           <h2 class="section-heading">메인페이지3</h2>
           <h3 class="section-subheading text-muted">자 승부예측 드가자~</h3>
+          <button type="button" class="main-link"> 게시판3 </button>
         </div>
       </div>
     </section>
@@ -80,17 +86,17 @@ import { useUserStore } from '@/stores/user';
 import { computed, onMounted } from 'vue'
 const store = useUserStore()
 
-const loginStatus = computed(()=> {
+const loginStatus = computed(() => {
   return store.isAuthenticated
 })
 
-const logout = function(){
+const logout = function () {
   sessionStorage.clear()
   store.isAuthenticated = false;
 }
 
-onMounted(()=> {
-  if(sessionStorage.getItem('access-token')==null) {
+onMounted(() => {
+  if (sessionStorage.getItem('access-token') == null) {
     store.isAuthenticated = false;
   } else {
     store.isAuthenticated = true;
@@ -110,7 +116,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
   };
-  
+
   navbarShrink();
 
   document.addEventListener('scroll', navbarShrink);
@@ -264,7 +270,7 @@ img {
   .container {
     max-width: 1320px;
   }
-  
+
 }
 
 .row {
@@ -568,6 +574,20 @@ section#contact .section-heading {
 }
 
 #logo {
-    width: 100px !important;
-} 
+  width: 100px !important;
+}
+
+.main-link {
+  background-color: #E9ECEF;
+  color: #212529;
+  font-size: 20px;
+  font-weight: 800;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  padding: 12px 2rem;
+  display: inline-block;
+  margin-left: 10px;
+
+}
 </style>
