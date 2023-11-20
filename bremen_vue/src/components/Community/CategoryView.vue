@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="logo"><router-link :to="{name:'home'}" style="text-decoration: none; color: black;">BREMEN</router-link></div>
-       
+    
         <div class="container">
             <button type="button" class="button-color"><img src="../../assets/category/KakaoTalk_Photo_2023-11-20-17-47-31-removebg-preview.png" class="button-img"></button>
             <button type="button" class="button-color"><img src="../../assets/category/KakaoTalk_Photo_2023-11-20-17-47-11-removebg-preview.png" class="button-img"></button>

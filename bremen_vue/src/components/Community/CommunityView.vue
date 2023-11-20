@@ -1,35 +1,18 @@
 <template>
   <div id="board-list">
-  <div id="community-image">asdf</div>
+  <div id="community-image">
+  <p id="main-text">다양한 사람들과 자신의 이야기를 공유하세요!</p>
+  <button type="button" class="btn btn-info" id="create-button">지금 참여하기!!</button></div>
     <div class="box">
     <div class="button-group">
-      <button type="button" class="btn btn-outline-primary">정보</button>
-      <button type="button" class="btn btn-outline-secondary">질문</button>
-      <button type="button" class="btn btn-outline-success">자유</button>
-      <button type="button" class="btn btn-outline-danger">인기글</button>
-      <button type="button" class="btn btn-outline-warning">유머</button>
+      <router-link :to="{name:'info'}" class="btn btn-outline-primary">정보</router-link>
+      <router-link :to="{name:'question'}" class="btn btn-outline-secondary">질문</router-link>
+      <router-link :to="{name:'free'}" class="btn btn-outline-success">자유</router-link>
+      <router-link :to="{name:'info'}" class="btn btn-outline-danger">인기글</router-link>
+      <router-link :to="{name:'humor'}" class="btn btn-outline-warning">유머</router-link>
     </div>
-      <table class="board-table">
-        <tbody>
-          <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
-            <router-link class="detail" :to="{ name: 'detail', params: { id: boardItem.boardId } }">
-              <div class="card">
-                <div class="textbox">
-                  <div class="title">
-                    {{ boardItem.boardTitle }}
-                  </div>
-                  <div class="content">
-                    {{ boardItem.boardContent }}
-                  </div>
-                </div>
-                <img src="../../assets/main/space.jpeg" id="boardImg">
-              </div>
-            </router-link>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <router-link :to="{ name: 'boardCreate' }">글 작성</router-link>
+     <router-view></router-view>
+     </div> 
   </div>
 </template>
 
@@ -56,7 +39,23 @@ onMounted(() => {
   margin-right: 300px;
 }
 
+#main-text {
+  font-weight: 800;
+  font-size: 40px;
+}
+
+#create-button {
+  color: rgb(240, 236, 236);
+  font-size: 20px;
+  font-weight: 550;
+  width:200px;
+}
+
 #community-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url("../../assets/community/123.png");
   height: 300px;
 }

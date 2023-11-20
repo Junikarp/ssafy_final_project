@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+
 import CommunityView from '../components/Community/CommunityView.vue'
 import CategoryView from '../components/Community/CategoryView.vue'
 import DetailView from '../components/Community/DetailView.vue'
 import BoardCreate from '../components/Community/BoardCreate.vue'
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
+
+import TypeHumor from '../components/Community/TypeHumor.vue'
+import TypeInfo from '../components/Community/TypeInfo.vue'
+import TypeFree from '../components/Community/TypeFree.vue'
+import TypeQuestion from '../components/Community/TypeQuestion.vue'
+
 import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
@@ -24,6 +31,28 @@ const router = createRouter({
       path: '/board/:category',
       name: 'board',
       component: CommunityView,
+      children: [
+        {
+          path: "info",
+          name: "info",
+          component: TypeInfo
+        },
+        {
+          path: "humor",
+          name: "humor",
+          component: TypeHumor
+        },
+        {
+          path: "question",
+          name: "question",
+          component: TypeQuestion
+        },
+        {
+          path: "free",
+          name: "free",
+          component: TypeFree
+        }
+      ]
     }
     ,
     {
@@ -35,7 +64,7 @@ const router = createRouter({
     {
       path: "/board/:category",
       name: "boardCreate",
-      component: BoardCreate
+      component: BoardCreate,
     },
     {
       path: "/board",

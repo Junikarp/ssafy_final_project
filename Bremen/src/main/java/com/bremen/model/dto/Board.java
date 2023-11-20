@@ -12,6 +12,16 @@ public class Board {
 	private String boardCategory;
 	private int boardLike;
 	private int boardHate;
+	private String boardType;
+	
+	public String getBoardType() {
+		return boardType;
+	}
+
+	public void setBoardType(String boardType) {
+		this.boardType = boardType;
+	}
+
 	private List<Review> reviewList;
     
 	public List<Review> getReviewList() {
