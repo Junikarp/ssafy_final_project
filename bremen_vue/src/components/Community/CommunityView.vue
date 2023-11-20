@@ -1,5 +1,6 @@
 <template>
   <div id="board-list">
+  <div id="community-image">asdf</div>
     <div class="box">
     <div class="button-group">
       <button type="button" class="btn btn-outline-primary">정보</button>
@@ -50,7 +51,14 @@ onMounted(() => {
 
 <style scoped>
 .box {
-  margin: 300px
+  margin-top: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+#community-image {
+  background-image: url("../../assets/community/123.png");
+  height: 300px;
 }
 
 .button-group {
@@ -94,7 +102,7 @@ onMounted(() => {
 }
 
 .textbox {
-  padding-left: 70px;
+  padding-left: 30px;
 }
 
 .card .title {
