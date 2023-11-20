@@ -23,8 +23,8 @@
 	<!-- 게시글 등록 디폴트랑 regdate 뺏음 -->
 	<insert id="insertBoard" parameterType="Board">
 		INSERT INTO board
-		(boardId, boardTitle, boardContent, boardWriter, boardCategory)
-		VALUES(#{boardId}, #{boardTitle}, #{boardContent}, #{boardWriter}, #{boardCategory})
+		(boardId, boardTitle, boardContent, boardWriter, boardCategory, boardType)
+		VALUES(#{boardId}, #{boardTitle}, #{boardContent}, #{boardWriter}, #{boardCategory}, #{boardType})
 	</insert>
 	
 	<!-- 게시글 삭제  -->
