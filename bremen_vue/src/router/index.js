@@ -15,9 +15,11 @@ import TypeQuestion from '../components/Community/TypeQuestion.vue'
 import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
+import Map from '@/components/Map/Map.vue'
+
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
-import Map from '@/components/Map/Map.vue'
+import KakaoLogin from '../views/Login/KakaoLogin.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,6 +82,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
+    },
+    {
+      path: '/kakaologin',
+      name: 'kakaologin',
+      component: KakaoLogin
     },
     {
       path: '/signup',

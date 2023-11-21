@@ -102,6 +102,7 @@ onMounted(() => {
     store.isAuthenticated = true;
   }
 })
+
 window.addEventListener('DOMContentLoaded', event => {
 
   var navbarShrink = function () {
