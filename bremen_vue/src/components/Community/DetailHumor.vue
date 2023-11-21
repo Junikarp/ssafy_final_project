@@ -36,8 +36,8 @@
               </button>
             </div>
             <div class="crud">
-              <button class="btn btn">수정</button>
-              <button class="btn btn-outlin">삭제</button>
+              <button class="btn" @click.stop="update">수정</button>
+              <button class="btn" @click.stop="deleteBoard(dynamicProps.boardId)">삭제</button>
             </div>
           </div>
         </div>
@@ -49,14 +49,32 @@
 
 <script setup>
 import { ref } from 'vue';
+import axios from 'axios';
+import {useRouter} from 'vue-router'
+import { useBoardStore } from '@/stores/board';
+
+
 defineProps({
   dynamicProps: Object
 })
-
+const router = useRouter();
 const toggle = ref(false);
+const store = useRouterStore();
+
+const updateBoard = function() {
+  store.updateBoard();
+}
 
 const toggleOn = function () {
   toggle.value = !toggle.value
+}
+
+const deleteBoard = function (id) {
+    axios.delete(`http://localhost:8080/api/board/${id}`)
+        .then(() => {
+          alert("게시글이 삭제되었습니다.")
+          router.push({ name: 'humor' })
+        })
 }
 
 </script>

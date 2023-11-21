@@ -16,7 +16,7 @@
     methods: {
       kakaoLogin() {
         window.Kakao.Auth.login({
-          scope: "profile_image, account_email",
+          redirectUri: "http://localhost:5173/userapi/login",
           success: this.getKakaoAccount,
         });
       },
