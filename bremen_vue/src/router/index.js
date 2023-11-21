@@ -15,7 +15,7 @@ import TypeQuestion from '../components/Community/TypeQuestion.vue'
 import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
-import Map from '@/components/Map/Map.vue'
+import newMap from '@/components/Map/newMap.vue'
 
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
@@ -95,8 +95,8 @@ const router = createRouter({
     },
     {
       path: '/map',
-      name: 'map',
-      component: Map
+      name: 'newMap',
+      component: newMap,
     },
     {
       path: '/group/:category',

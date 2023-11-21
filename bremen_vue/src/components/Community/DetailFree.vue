@@ -1,7 +1,7 @@
 <template>
   <tr>
     <template v-if="dynamicProps.boardType === 'free'">
-      <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn">
+      <div type="button" class="card" :class="{ 'toggle': toggle }" v-on:click="toggleOn">
         <div v-if="!toggle" class="textbox">
           <div class="title">
             {{ dynamicProps.boardTitle }}
@@ -18,6 +18,7 @@
             </div>
             <div class="title">
               {{ dynamicProps.boardTitle }}
+              <button @click.stop="tt"> 야미</button>
             </div>
             <div class="content">
               {{ dynamicProps.boardContent }}
