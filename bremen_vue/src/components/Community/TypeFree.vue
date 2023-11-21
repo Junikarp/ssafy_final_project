@@ -1,35 +1,30 @@
 <template>
-    <table class="board-table">
-      <tbody>
-        <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
-        <template v-if="boardItem.boardType === 'free'">
-          <router-link class="detail" :to="{ name: 'detail', params: { id: boardItem.boardId }}">
-            <div class="card">
-              <div class="textbox">
-                <div class="title">
-                  {{ boardItem.boardTitle }}
-                </div>
-                <div class="content">
-                  {{ boardItem.boardContent }}
-                </div>
-              </div>
-              <img src="../../assets/main/space.jpeg" id="boardImg">
-            </div>
-          </router-link>
-          <router-view></router-view>
-        </template>
-        </tr>
-      </tbody>
-    </table>
+  <table class="board-table">
+    <tbody>
+      <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn">
+      asdf
+      </div>
+
+      <DetailFree v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></DetailFree>
+    </tbody>
+  </table>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted,ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
+import DetailFree from './DetailFree.vue';
 
 const store = useBoardStore();
 const route = useRoute();
+
+const toggle = ref(false);
+
+const toggleOn = function() {
+    toggle.value = !toggle.value
+}
+
 
 onMounted(() => {
 // 게시글 목록을 가져오는 메서드 호출
@@ -44,6 +39,10 @@ store.getBoardList(route.params.category);
 margin-top: 50px;
 margin-left: 300px;
 margin-right: 300px;
+}
+
+.toggle {
+  height: 400px;
 }
 
 #main-text {
@@ -97,6 +96,7 @@ padding: 20px;
 margin-bottom: 30px;
 width: 800px;
 height: 180px;
+transition: 0.2s;
 }
 
 .card:hover {

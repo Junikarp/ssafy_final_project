@@ -16,17 +16,16 @@
             </div>
         </template>
         </tr> -->
-        <Detail v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></Detail>
+        <DetailInfo v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></DetailInfo>
       </tbody>
     </table>
-
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
-import Detail from '@/components/Community/Detail.vue'
+import DetailInfo from '@/components/Community/DetailInfo.vue'
 
 const store = useBoardStore();
 const route = useRoute();

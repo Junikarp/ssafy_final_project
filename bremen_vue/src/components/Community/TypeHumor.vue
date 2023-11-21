@@ -1,32 +1,32 @@
 <template>
-    <table class="board-table">
-      <tbody>
-        <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
-          <template v-if="boardItem.boardType === 'humor'">  
-            <router-link class="detail" :to="{ name: 'detail', params: { id: boardItem.boardId } }">
-            <div class="card">
-              <div class="textbox">
-                <div class="title">
-                  {{ boardItem.boardTitle }}
-                </div>
-                <div class="content">
-                  {{ boardItem.boardContent }}
-                </div>
+  <table class="board-table">
+    <tbody>
+      <!-- <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
+      <template v-if="boardItem.boardType === 'info'">
+          <div type="button" class="card" :class="{'toggle':toggle}" @click="toggleOn">
+            <div class="textbox">
+              <div class="title">
+                {{ boardItem.boardTitle }}
               </div>
-              <img src="../../assets/main/space.jpeg" id="boardImg">
+              <div class="content">
+                {{ boardItem.boardContent }}
+              </div>
             </div>
-          </router-link>
-        </template>
-        </tr>
-      </tbody>
-    </table>
-
+            <img src="../../assets/main/space.jpeg" id="boardImg">
+          </div>
+      </template>
+      </tr> -->
+      <DetailHumor v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></DetailHumor>
+    </tbody>
+  </table>
 </template>
+
 
 <script setup>
 import { onMounted } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
+import DetailHumor from './DetailHumor.vue';
 
 const store = useBoardStore();
 const route = useRoute();

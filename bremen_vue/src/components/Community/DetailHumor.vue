@@ -1,42 +1,34 @@
 <template>
-  <table class="board-table">
-    <tbody>
-      <!-- <tr v-for="(boardItem, index) in store.boardList" :key="boardItem.boardId">
-      <template v-if="boardItem.boardType === 'info'">
-          <div type="button" class="card" :class="{'toggle':toggle}" @click="toggleOn">
-            <div class="textbox">
-              <div class="title">
-                {{ boardItem.boardTitle }}
+        <tr>
+        <template v-if="dynamicProps.boardType === 'humor'">
+            <div type="button" class="card" :class="{'toggle':toggle}" @click="toggleOn">
+              <div class="textbox">
+                <div class="title">
+                  {{ dynamicProps.boardTitle }}
+                </div>
+                <div class="content">
+                  {{ dynamicProps.boardContent }}
+                </div>
               </div>
-              <div class="content">
-                {{ boardItem.boardContent }}
-              </div>
+              <img src="../../assets/main/space.jpeg" id="boardImg">
             </div>
-            <img src="../../assets/main/space.jpeg" id="boardImg">
-          </div>
-      </template>
-      </tr> -->
-      <DetailQuestion v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></DetailQuestion>
-    </tbody>
-  </table>
+        </template>
+        </tr>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { useBoardStore } from '@/stores/board';
-import { useRoute } from 'vue-router'
-import DetailQuestion from './DetailQuestion.vue';
+import { ref } from 'vue';
+defineProps ({
+    dynamicProps:Object
+})
 
-const store = useBoardStore();
-const route = useRoute();
+const toggle = ref(false);
 
-onMounted(() => {
-// 게시글 목록을 가져오는 메서드 호출
-store.getBoardList(route.params.category);
-});
+const toggleOn = function() {
+    toggle.value = !toggle.value
+}
 
 </script>
-
 
 <style scoped>
 .box {
@@ -96,12 +88,16 @@ padding: 20px;
 margin-bottom: 30px;
 width: 800px;
 height: 180px;
+transition: 0.2s;
 }
 
 .card:hover {
 background-color: rgb(156, 162, 162);
 }
 
+.toggle {
+    height: 400px;
+}
 .card * {
 padding: 10px;
 }
