@@ -10,7 +10,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#services">메인페이지1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">커뮤니티</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
@@ -29,48 +29,52 @@
   <body id="page-top">
     <header class="masthead" id="introduce" background-color="black">
       <div class="container">
-        <div class="masthead-subheading">브레멘에 어서오세요!!!</div>
-        <div class="masthead-heading">만나서 반갑습니당</div>
-        <a class="btn btn-primary btn-xl" href="#services">브레멘 더 알아보기</a>
+        <div class="masthead-subheading"></div>
+        <div class="masthead-heading"></div>
+        <a class="btn btn-primary btn-xl" href="#services"></a>
       </div>
     </header>
+
+
+    <div class="title">BREMEN</div>
+    <div class="title-text">함께하는 스포츠 커뮤니티 브레멘에 오신것을 환영합니다!</div>
+
+
     <section class="page-section" id="services">
-      <div class="container">
-
         <div class="info-page1">
-          <div class="info-img">zzzz</div>
+          <div class="info-img1"></div>
           <div class="text-center">
-            <h2 class="section-heading">메인 페이지1</h2>
-            <h3 class="section-subheading text-muted">오늘도 커피 한잔과 함께.</h3>
-            <button type="button" class="main-link"><router-link :to="{ name: 'category' }"> 카테고리</router-link> </button>
-
+            <h2 class="info-heading">거대하고 다양한 커뮤니티</h2>
+            <h3 class="info-bottom">다양한 종목의 커뮤니티에서 정보를 공유하며 서로의 선생님이 되어주세요</h3>
+            <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 커뮤니티</router-link> </button>
           </div>
-        </div>
       </div>
     </section>
     <section class="page-section bg-light" id="portfolio">
-      <div class="container">
+      <div class="info-page1">
         <div class="text-center">
-          <h2 class="section-heading">메인 페이지2</h2>
-          <h3 class="section-subheading text-muted">뒤에 사진 넣고 이것저것 합시다.</h3>
-          <button type="button" class="main-link"> 게시판2 </button>
+          <h2 class="info-heading">가까운 이웃과의 동호회</h2>
+          <h3 class="info-bottom">근처의 이웃과 취미를 공유하세요</h3>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 동호회</router-link> </button>
         </div>
+        <div class="info-img2"></div>
       </div>
     </section>
     <section class="page-section" id="about">
-      <div class="container">
+      <div class="info-page1">
+        <div class="info-img3"></div>
         <div class="text-center">
-          <h2 class="section-heading">메인페이지3</h2>
-          <h3 class="section-subheading text-muted">자 승부예측 드가자~</h3>
-          <button type="button" class="main-link"> 게시판3 </button>
+          <h2 class="info-heading">한치 앞도 모르는 승부의 세계</h2>
+          <h3 class="info-bottom">정확한 예측을 통해 짜릿한 순간 함께한다.</h3>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 승부예측</router-link> </button>
         </div>
       </div>
     </section>
     <section class="page-section bg-light" id="team">
       <div class="container">
         <div class="text-center">
-          <h2 class="section-heading">커뮤니티만 하기 심심</h2>
-          <h3 class="section-subheading text-muted">동네에서 같이 운동할 사람도 찾아주자구</h3>
+          <h2 class="info-heading">커뮤니티만 하기 심심</h2>
+          <h3 class="info-bottom">동네에서 같이 운동할 사람도 찾아주자구</h3>
         </div>
 
       </div>
@@ -262,7 +266,7 @@ img {
   }
 
   .container {
-    max-width: 960px;
+    max-width: 1000px;
   }
 }
 
@@ -421,29 +425,11 @@ p {
   line-height: 1.75;
 }
 
-.page-section {
-  padding: 6rem 0;
-}
 
-.page-section h2.section-heading,
-.page-section .section-heading.h2 {
-  font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
 
-.page-section h3.section-subheading,
-.page-section .section-subheading.h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 4rem;
-}
 
-@media (min-width: 768px) {
-  section {
-    padding: 9rem 0;
-  }
-}
+
+
 
 .btn-xl {
   padding: 1.25rem 2.5rem;
@@ -583,6 +569,21 @@ section#contact .section-heading {
   width: 100px !important;
 }
 
+.title{
+  margin: 50px;
+  font-weight: 800;
+  font-size: 50px;
+  text-align: center;
+}
+
+.title-text{
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 80px;
+  font-size: 25px;
+  color: #212529BF;
+}
+
 .main-link {
   background-color: #E9ECEF;
   color: #212529;
@@ -596,12 +597,50 @@ section#contact .section-heading {
   margin-left: 10px;
 
 }
-.info-img{
-  background-image: url('../../assets/main/pt.jpeg');
-  height: 100%;
+
+.info-page1 {
+  display: flex;
+  flex-direction: row;
   width: 100%;
 }
-.info-page1{
-  display: flex;
+
+.info-img1 {
+  background-image: url('../../assets/main/pt.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 500px;
+}
+.info-img2 {
+  background-image: url('../../assets/main/농구2.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 500px;
+}
+.info-img3 {
+  background-image: url('../../assets/main/환호.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 500px;
+}
+.text-center{
+  justify-content: center;
+  width: 50%;
+  padding-top: 10%;
+  
+}
+.info-heading{
+  margin-bottom: 30px;
+}
+.info-bottom{
+  margin: 40px;
+  font-size: 25px;
+  color: #212529BF;
+}
+.button-none{
+  color: #444648;
+  text-decoration: none;
 }
 </style>
