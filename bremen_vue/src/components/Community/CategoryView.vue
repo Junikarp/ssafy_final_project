@@ -15,7 +15,7 @@
                         class="button-img"><span class="button-text">런닝</span></button></RouterLink>
             <RouterLink to="/board/swimming"><button class="button-color"><img src="../../assets/category/swimming.png"
                         class="button-img"><span class="button-text">수영</span></button></RouterLink>
-            <RouterLink to="/board/cycle"><button class="button-color"><img src="../../assets/category/cycle.png"
+            <RouterLink to="/board/cycle"><button class="button-color"><img src="../../assets/ca        ry/cycle.png"
                         class="button-img"><span class="button-text">사이클</span></button></RouterLink>
             <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/badminton.png"
                         class="button-img"><span class="button-text">배드민턴</span></button></RouterLink>
