@@ -21,8 +21,8 @@
 	<!-- 게시글 등록 디폴트랑 regdate 뺏음 -->
 	<insert id="insertGroup" parameterType="Group">
 		INSERT INTO `group`
-		(groupId, groupTitle, groupContent, groupWriter, groupCategory, groupMaxPeople, groupDate)
-		VALUES (#{groupId}, #{groupTitle}, #{groupContent}, #{groupWriter}, #{groupCategory}, #{groupMaxPeople}, #{groupDate})
+		(groupId, groupTitle, groupContent, groupWriter, groupCategory, groupMaxPeople, groupDate, groupPlace)
+		VALUES (#{groupId}, #{groupTitle}, #{groupContent}, #{groupWriter}, #{groupCategory}, #{groupMaxPeople}, #{groupDate}, #{groupPlace})
 	</insert>
 	
 	<!-- 게시글 삭제  -->

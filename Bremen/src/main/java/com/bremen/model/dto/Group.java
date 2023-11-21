@@ -10,6 +10,15 @@ public class Group {
 	private String groupCategory;
 	private int groupMaxPeople;
 	private int groupCurrentPeople;
+	private String groupPlace;
+
+	public String getGroupPlace() {
+		return groupPlace;
+	}
+
+	public void setGroupPlace(String groupPlace) {
+		this.groupPlace = groupPlace;
+	}
 
 	public int getGroupId() {
 		return groupId;
