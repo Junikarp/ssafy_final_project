@@ -1,19 +1,33 @@
 <template>
-        <tr>
-        <template v-if="dynamicProps.boardType === 'question'">
-            <div type="button" class="card" :class="{'toggle':toggle}" @click="toggleOn">
-              <div class="textbox">
-                <div class="title">
-                  {{ dynamicProps.boardTitle }}
-                </div>
-                <div class="content">
-                  {{ dynamicProps.boardContent }}
-                </div>
-              </div>
-              <img src="../../assets/main/space.jpeg" id="boardImg">
+  <tr>
+    <template v-if="dynamicProps.boardType === 'question'">
+      <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn">
+        <div v-if="!toggle" class="textbox">
+          <div class="title">
+            {{ dynamicProps.boardTitle }}
+          </div>
+          <div class="content">
+            {{ dynamicProps.boardContent }}
+          </div>
+        </div>
+        <!-- 펼침상태 -->
+        <div v-else>
+          <div class="textbox">
+            <div class="writer">
+              작성자 : {{ dynamicProps.boardWriter }}
             </div>
-        </template>
-        </tr>
+            <div class="title">
+              {{ dynamicProps.boardTitle }}
+            </div>
+            <div class="content">
+              {{ dynamicProps.boardContent }}
+            </div>
+          </div>
+        </div>
+        <img src="../../assets/main/space.jpeg" id="boardImg">
+      </div>
+    </template>
+  </tr>
 </template>
 
 <script setup>
