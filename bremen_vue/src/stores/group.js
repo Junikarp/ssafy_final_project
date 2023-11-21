@@ -17,7 +17,7 @@ export const useGroupStore = defineStore('group', () => {
   //게시글 한개
   const group = ref({})
   const getGroup = function (id) {
-    axios.get(`${REST_GROUP_API}/detail/${id}`)
+    axios.get(`${REST_GROUP_API}/group/detail/${id}`)
       .then((response) => {
         group.value = response.data
       })
@@ -39,6 +39,16 @@ export const useGroupStore = defineStore('group', () => {
       .catch((err) => {
       console.log(err)
     })
+  }
+  const updateBoard = function () {
+    axios.put(`${REST_BOARD_API}/group`, group.value)
+      .then(() => {
+        router.push({ name: 'groupDetail' , params:{ id: group.value.groupId, category: group.value.groupCategory }});
+        alert("게시글이 수정되었습니다.")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   return {
     groupList,

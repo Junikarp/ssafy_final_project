@@ -46,7 +46,7 @@
   onMounted(() => {
     store.getGroupList(route.params.category);
   });
-  
+
   </script>
   
   
@@ -242,4 +242,5 @@
     margin: -1px;
     width: 1px;
     height: 1px;
-  }</style>
+  }
+  </style>

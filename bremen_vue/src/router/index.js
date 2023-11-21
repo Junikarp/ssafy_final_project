@@ -100,7 +100,7 @@ const router = createRouter({
     },
     {
       path: '/group/:category',
-      name: 'group',
+      name: 'groupList',
       component: GroupList,
     },
     {
@@ -110,7 +110,7 @@ const router = createRouter({
     },
     {
       path: '/group/detail/:id',
-      name: 'group',
+      name: 'groupDetail',
       component: GroupDetail,
     }
   ]
