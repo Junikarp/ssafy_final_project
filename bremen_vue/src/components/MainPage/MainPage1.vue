@@ -36,10 +36,15 @@
     </header>
     <section class="page-section" id="services">
       <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading">메인 페이지1</h2>
-          <h3 class="section-subheading text-muted">오늘도 커피 한잔과 함께.</h3>
-          <button type="button" class="main-link"><router-link :to="{name: 'category'}"> 카테고리</router-link> </button>
+
+        <div class="info-page1">
+          <div class="info-img">zzzz</div>
+          <div class="text-center">
+            <h2 class="section-heading">메인 페이지1</h2>
+            <h3 class="section-subheading text-muted">오늘도 커피 한잔과 함께.</h3>
+            <button type="button" class="main-link"><router-link :to="{ name: 'category' }"> 카테고리</router-link> </button>
+
+          </div>
         </div>
       </div>
     </section>
@@ -562,7 +567,7 @@ section#contact .section-heading {
 }
 
 #introduce {
-  background-image: url(../../assets/main/space.jpeg);
+  background-image: url(../../assets/main/런닝.jpeg);
   padding-top: 100px;
 }
 
@@ -590,5 +595,13 @@ section#contact .section-heading {
   display: inline-block;
   margin-left: 10px;
 
+}
+.info-img{
+  background-image: url('../../assets/main/pt.jpeg');
+  height: 100%;
+  width: 100%;
+}
+.info-page1{
+  display: flex;
 }
 </style>
