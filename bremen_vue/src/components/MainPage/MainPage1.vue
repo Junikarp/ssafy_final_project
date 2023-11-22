@@ -627,7 +627,7 @@ section#contact .section-heading {
 }
 
 .info-img2 {
-  background-image: url('../../assets/main/농구2.jpeg');
+  background-image: url('../../assets/main/농구2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
