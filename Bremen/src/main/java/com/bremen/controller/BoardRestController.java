@@ -50,6 +50,10 @@ public class BoardRestController {
 			if (list == null || list.size() == 0) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			} else {
+				for(Board board : list) {
+					List<Review> reviews = reviewService.selectAll(board.getBoardId());
+					board.setReviewList(reviews);
+				}
 				return new ResponseEntity<>(list, HttpStatus.OK);
 			}
 		} catch (Exception e) {

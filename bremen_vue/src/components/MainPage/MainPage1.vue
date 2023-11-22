@@ -553,7 +553,7 @@ section#contact .section-heading {
 }
 
 #introduce {
-  background-image: url(../../assets/main/런닝.jpeg);
+  background-image: url("../../assets/main/런닝.jpeg");
   padding-top: 100px;
 }
 
@@ -612,7 +612,7 @@ section#contact .section-heading {
   height: 500px;
 }
 .info-img2 {
-  background-image: url('../../assets/main/농구2.jpeg');
+  background-image: url('../../assets/main/농구2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
