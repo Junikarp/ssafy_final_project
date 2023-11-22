@@ -559,7 +559,7 @@ section#contact .section-heading {
 }
 
 #introduce {
-  background-image: url('../../assets/main/런닝.jpeg');
+  background-image: url('../../assets/main//running.jpeg');
   height: 800px;
   padding-top: 100px;
   margin-bottom: 100px;
@@ -627,7 +627,7 @@ section#contact .section-heading {
 }
 
 .info-img2 {
-  background-image: url('../../assets/main/농구2.jpeg');
+  background-image: url('../../assets/main/basketball.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
@@ -635,7 +635,7 @@ section#contact .section-heading {
 }
 
 .info-img3 {
-  background-image: url('../../assets/main/환호.jpg');
+  background-image: url('../../assets/main/wow.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
