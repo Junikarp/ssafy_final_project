@@ -22,20 +22,13 @@
 
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block">로그인</button>
+                                
+                                <RouterLink :to="{ name: 'signup' }" class="btn btn-primary btn-block">회원가입</RouterLink>
                             </div>
                         </form>
 
-                        <div class="social-sign-up">
-                            <img src="@/assets/login/google.png">
-                            <img src="@/assets/login/naver.png">
-                            <button @click="kakaoLogin" class="login-button"><img src="@/assets/login/kakao.png"></button>
-                            <img src="@/assets/login/apple.png">
-                        </div>
-                        <div class="sign-up">
-                            <RouterLink :to="{ name: 'signup' }">회원가입</RouterLink>|
-                            <div class="text-center"> <a href="#!">아이디 찾기</a></div> |
-                            <div class="text-center"> <a href="#!">비밀번호 찾기</a></div>
-                        </div>
+                    
+                        
                     </form>
                 </div>
             </div>
@@ -55,39 +48,9 @@ const user = ref({
 
 const login = function () {
     store.login(user.value)
-}
-
-
-const kakaoLogin = function () {
-    window.Kakao.Auth.login({
-        scope: "profile_nickname",
-        success: getKakaoAccount, // 수정된 부분
-    });
 };
 
-const getKakaoAccount = function (res) {
-    console.log("check")
-    window.Kakao.API.request({
-        url: "/v2/user/me",
-        success: (res) => {
-        const kakao_account = res.kakao_account;
 
-    console.log("check")
-            // 로그인처리구현
-
-            alert("로그인 성공!");
-        },
-        fail: (error) => {
-            console.log(error);
-        },
-    });
-};
-
-const kakaoLogout = function () {
-    window.Kakao.Auth.logout((res) => {
-        console.log(res);
-    });
-};
 
 
 </script>
@@ -132,10 +95,13 @@ p {
 .header-title {
     text-align: center;
     margin-bottom: 50px;
+    color: #212529BF;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .login-form {
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -171,30 +137,15 @@ p {
 
 .login-form .btn.btn-primary {
     width: 100%;
-    background: #3BC3FF;
-    border-color: #31c0ff;
+    background: #000000;
+    border-color: #000000;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 10px;
 }
 
-.sign-up {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
 
-}
 
-.social-sign-up {
-    display: flex;
-    justify-content: space-around;
-    padding-top: 30px;
-}
 
-.social-sign-up img {
-    width: 50px;
 
-}
-
-.login-button{
-    background-color: rgb(253, 253, 253);
-    border: 0;
-}
 </style>

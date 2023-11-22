@@ -2,8 +2,8 @@
   <section class="notice">
 
     <div class="group-img"></div>
-    <div class="main-text">함께 할 동료를 찾아보세요</div>
-    <div class="sub-text">근처에 있는 사람들과 함께할 수 있어요</div>
+    <div class="main-text" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
+    <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
 
 
     <!-- board list area -->
@@ -11,11 +11,13 @@
       <div class="container">
         <router-link class="board-box" :to="{ name: 'groupDetail', params: { id: groupItem.groupId } }"
           v-for="groupItem in store.groupList" :key="groupItem.groupId">
-          <div class="group-title">
-            {{ groupItem.groupTitle }}
+          <div class="box-item">
+            <div class="box-up">
+              <div class="profile-img"></div>
+              <div class="group-title">{{ groupItem.groupTitle }}</div>
+            </div>
+            <div class="group-content"> {{ groupItem.groupContent }}</div>
           </div>
-          <div class="group-content"> {{ groupItem.groupContent }}</div>
-
         </router-link>
       </div>
 
@@ -47,24 +49,24 @@ onMounted(() => {
 }
 
 .main-text {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  margin: 50px;
+  font-weight: 800;
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .sub-text {
   text-align: center;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 25px;
+  color: #212529BF;
 }
 
 #board-list {
   margin: 50px;
   margin-top: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 
 }
 
@@ -73,37 +75,61 @@ onMounted(() => {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+  
 
 }
 
 .board-box {
-  width: 600px;
-  height: 300px;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 150px;
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 40px;
   text-decoration: none;
-  border-width: 5px;
-  border-color: rgb(212, 212, 212);
-  border-style: solid;
-  border-radius: 20px;
-
+  margin-bottom: 30px;
+  
 }
-
+.profile-img{
+  background-image: url(../../assets/group/profile.png);
+  background-size:cover;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
 .group-title {
-  text-align: left;
+
   font-size: 35px;
-  font-weight: 500;
-  color: black;
-  margin-bottom: 20px;
+  font-weight: 600;
+  color: rgb(37, 37, 37);
+  
 }
 
 .group-content {
+
   text-align: left;
-  font-size: 20px;
-  font-weight: 400;
-  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  color: #212529BF;
+  height: 50%;
+  width: 100%;
+  margin-left: 30px;
+
 }
 
 .board-box:hover {
   background-color: rgb(244, 240, 240);
-}</style>
+}
+
+
+.box-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center ;
+  gap: 30px;
+}
+.box-up {
+  display: flex;
+  align-items: center;
+}
+</style>

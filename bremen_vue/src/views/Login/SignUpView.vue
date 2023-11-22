@@ -132,8 +132,11 @@ p {
 
 .login-form .btn.btn-primary {
     width: 100%;
-    background: #3BC3FF;
-    border-color: #31c0ff;
+    background: #000000;
+    border-color: #000000;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 10px;
 }
 
 p {
