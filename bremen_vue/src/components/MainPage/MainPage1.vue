@@ -31,7 +31,7 @@
       <div class="container">
         <div class="masthead-subheading"></div>
         <div class="masthead-heading"></div>
-        <a class="btn btn-primary btn-xl" href="#services"></a>
+        
       </div>
     </header>
 
