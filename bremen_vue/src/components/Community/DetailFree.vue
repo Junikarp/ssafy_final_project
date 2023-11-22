@@ -3,10 +3,13 @@
     <template v-if="dynamicProps.boardType === 'free'">
       <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn()">
         <div v-if="!toggle" class="textbox">
-          <div class="btitle">
-            {{ dynamicProps.boardTitle }}
+          <div class="simple-head">
+            <div class="simple-profile-img"></div>
+            <div class="simple-btitle">
+              {{ dynamicProps.boardTitle }}
+            </div>
           </div>
-          <div class="content">
+          <div class="simple-content">
             {{ dynamicProps.boardContent }}
           </div>
           <div>
@@ -15,17 +18,19 @@
         </div>
         <!-- 펼침상태 -->
         <div v-else>
-          <div class="textbox">
-            <div class="writer">
-              작성자 : {{ dynamicProps.boardWriter }}
-            </div>
-            <div class="btitle">
+          <div class="detail-textbox">
+            <div class="detail-btitle">
               {{ dynamicProps.boardTitle }}
+            </div>
+            <hr>
+            <div class="detail-writer">
+              <div class="detail-profile-img"></div>
+              {{ dynamicProps.boardWriter }}
             </div>
             <div class="a">
               <img src="../../assets/main/space.jpeg" id="boardImg">
             </div>
-            <div class="content">
+            <div class="detail-content">
               {{ dynamicProps.boardContent }}
             </div>
           </div>
@@ -39,49 +44,50 @@
               </button>
             </div>
             <div class="crud">
-              <button class="btn btn" data-bs-toggle="modal" data-bs-target="#aa" data-bs-whatever="@mdo" @click.stop="up(dynamicProps.boardId)">수정</button>
+              <button class="btn btn" data-bs-toggle="modal" data-bs-target="#aa" data-bs-whatever="@mdo"
+                @click.stop="up(dynamicProps.boardId)">수정</button>
               <button class="btn" @click.stop="deleteBoard(dynamicProps.boardId)">삭제</button>
             </div>
           </div>
           <hr>
-            <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
-                {{index+1}} | {{ comm.reviewWriter }} |  {{ comm.reviewContent }}
-            </div>
-            <div>
+          <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
+            {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
+          </div>
+          <div>
             <br>
             <br>
             <hr>
-            </div>
+          </div>
         </div>
       </div>
-    <div class="modal fade" id="aa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <!-- 모달 내용 -->
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">제목</label>
-            <input type="text" class="form-control"  v-model="store.board.boardTitle">
+      <div class="modal fade" id="aa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <!-- 모달 내용 -->
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">제목</label>
+                  <input type="text" class="form-control" v-model="store.board.boardTitle">
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">작성자</label>
+                  <input type="text" class="form-control" v-model="store.board.boardWriter" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">내용</label>
+                  <textarea class="form-control" rows="10" v-model="store.board.boardContent"></textarea>
+                </div>
+              </form>
+            </div>
+            <!-- 모달 푸터 -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-primary" @click="update" data-bs-dismiss="modal">수정</button>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">작성자</label>
-            <input type="text" class="form-control" v-model="store.board.boardWriter" readonly>
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">내용</label>
-            <textarea class="form-control" rows="10"  v-model="store.board.boardContent"></textarea>
-          </div>
-        </form>
+        </div>
       </div>
-      <!-- 모달 푸터 -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary" @click="update" data-bs-dismiss="modal">수정</button>
-      </div>
-    </div>
-  </div>
-</div>
     </template>
   </tr>
 </template>
@@ -90,11 +96,11 @@
 import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router'
-import {useBoardStore} from '@/stores/board'
+import { useBoardStore } from '@/stores/board'
 
 
 defineProps({
-  dynamicProps: Object  
+  dynamicProps: Object
 })
 
 const router = useRouter();
@@ -102,13 +108,13 @@ const toggle = ref(false);
 const edit = ref({});
 const store = useBoardStore();
 
-const up = function(id) {
+const up = function (id) {
   store.getBoard(id)
 }
 
-const update = function() {
+const update = function () {
   updateBoard();
-} 
+}
 
 const toggleOn = function () {
   toggle.value = !toggle.value
@@ -125,16 +131,16 @@ const deleteBoard = function (id) {
 }
 
 const updateBoard = function () {
-    axios.put(`http://localhost:8080/api/board`, store.board)
-      .then(() => {
-        window.location.reload()
-        router.push({ name: edit.boardType , params:{ id: edit.value.boardId, category: edit.value.boardCategory }});
-        alert("게시글이 수정되었습니다.")
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  axios.put(`http://localhost:8080/api/board`, store.board)
+    .then(() => {
+      window.location.reload()
+      router.push({ name: edit.boardType, params: { id: edit.value.boardId, category: edit.value.boardCategory } });
+      alert("게시글이 수정되었습니다.")
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 </script>
 
@@ -144,6 +150,7 @@ const updateBoard = function () {
   justify-content: center;
   align-items: center;
 }
+
 .textbox {
   position: relative;
   padding-left: 30px;
@@ -177,15 +184,10 @@ const updateBoard = function () {
 .review-list {
   display: flex;
   flex-direction: column !important;
-  padding:3px;
-  margin-left:30px
+  padding: 3px;
+  margin-left: 30px
 }
 
-.review-box {
-  position: absolute;
-  bottom: 3px;
-  width: 30%;
-}
 
 #boomup-img {
   width: 40px;
@@ -193,10 +195,6 @@ const updateBoard = function () {
   padding: 0px !important;
 }
 
-.boomdown {
-  padding: 0px !important;
-  margin: 10px;
-}
 
 #boomdown-img {
   width: 40px;
@@ -204,16 +202,6 @@ const updateBoard = function () {
   padding: 0px !important;
 }
 
-.boomup {
-  padding: 0px !important;
-  margin: 10px;
-}
-
-.box {
-  margin-top: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-}
 
 .crud {
   display: flex;
@@ -254,18 +242,6 @@ const updateBoard = function () {
   height: 300px;
 }
 
-.button-group {
-  display: flex;
-  margin-bottom: 40px;
-  justify-content: center;
-}
-
-.button-group * {
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 80px;
-}
-
 #board-list {
   display: flex;
   flex-direction: column;
@@ -298,7 +274,7 @@ const updateBoard = function () {
 }
 
 .card * {
-  padding: 10px;
+  padding: 5px;
 }
 
 .textbox {
@@ -307,9 +283,17 @@ const updateBoard = function () {
   padding-left: 30px;
 }
 
-.card .btitle {
+.card {
   font-size: 25px;
-  font-weight: bold;
+
+}
+
+.simple-btitle {
+  font-weight: 700;
+}
+
+.detail-btitle {
+  font-weight: 700;
 }
 
 #boardImg {
@@ -318,7 +302,48 @@ const updateBoard = function () {
   border-radius: 25px;
 }
 
-.detail {
-  text-decoration: none;
+.detail-writer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 400;
 }
-</style>
+
+.simple-head{
+  display: flex;
+  align-items: center;
+}
+.simple-profile-img {
+  background-image: url(../../assets/group/profile.png);
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+.detail-profile-img {
+  background-image: url(../../assets/group/profile.png);
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.simple-content {
+  margin-top: 8px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #212529BF;
+
+}
+
+.detail-content {
+  margin-top: 30px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #212529BF;
+
+}</style>

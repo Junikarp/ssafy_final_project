@@ -73,6 +73,7 @@ store.getBoardList(route.params.category);
 
 
 <style scoped>
+
 #main-text {
   font-weight: 800;
   font-size: 40px;
@@ -94,17 +95,6 @@ store.getBoardList(route.params.category);
   height: 300px;
 }
 
-.button-group {
-  display: flex;
-  margin-bottom: 40px;
-  justify-content: center;
-}
-
-.button-group * {
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 80px;
-}
 
 #board-list {
   display: flex;
@@ -131,19 +121,11 @@ store.getBoardList(route.params.category);
   background-color: rgb(156, 162, 162);
 }
 
-.toggle {
-  height: 400px;
-}
-
 .card * {
   padding: 10px;
 }
 
-.textbox {
-  padding-left: 30px;
-}
-
-.card .title {
+.card{
   font-size: 25px;
   font-weight: bold;
 }
@@ -152,10 +134,6 @@ store.getBoardList(route.params.category);
   width: 26%;
   border-radius: 25px;
   padding-right: -500px;
-}
-
-.detail {
-  text-decoration: none;
 }
 
 #create-board {
