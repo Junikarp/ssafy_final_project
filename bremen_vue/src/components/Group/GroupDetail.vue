@@ -7,7 +7,7 @@
          <div class="detail-writer">{{ store.group.groupWriter }}</div>
          <div class="detail-button">
             <button @click="updateBoard" style="background-color: white; border: 0;"><img src="../../assets/group/update.png" class="button-img"></button>
-            <button @click="deleteBoard" style="background-color: white; border: 0;"><img src="../../assets/group/trash2.png" class="button-img"></button>
+            <button @click="deleteGroup" style="background-color: white; border: 0;"><img src="../../assets/group/trash2.png" class="button-img"></button>
          </div>
       </div>
       <div class="detail-content">{{ store.group.groupContent }}</div>
@@ -38,7 +38,7 @@ onMounted(() => {
    store.getGroup(route.params.id)
 })
 
-const deleteBoard = function () {
+const deleteGroup = function () {
    axios.delete(`http://localhost:8080/groupapi/group/${route.params.id}`)
       .then(() => {
          router.push({ name: 'group', params: { id: route.params.category } })

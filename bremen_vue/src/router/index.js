@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 import CommunityView from '../components/Community/CommunityView.vue'
-import CategoryView from '../components/Community/CategoryView.vue'
+import BoardCategoryView from '../components/Community/BoardCategoryView.vue'
+import GroupCategoryView from '../components/Community/GroupCategoryView.vue'
 import DetailView from '../components/Community/DetailView.vue'
 import BoardCreate from '../components/Community/BoardCreate.vue'
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
@@ -63,9 +64,14 @@ const router = createRouter({
     }
     ,
     {
-      path: '/category',
+      path: '/boardcategory',
       name: 'category',
-      component: CategoryView,
+      component: BoardCategoryView,
+    },
+    {
+      path: '/groupcategory',
+      name: 'groupcategory',
+      component: GroupCategoryView,
     }
     ,
     {
@@ -87,11 +93,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
-    },
-    {
-      path: '/kakaologin',
-      name: 'kakaologin',
-      component: KakaoLogin
     },
     {
       path: '/signup',

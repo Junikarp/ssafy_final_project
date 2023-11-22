@@ -57,7 +57,7 @@
         <div class="text-center" data-aos="fade-up" data-aos-duration="2000">
           <h2 class="info-heading">가까운 이웃과의 동호회</h2>
           <h3 class="info-bottom">근처의 이웃과 취미를 공유하세요</h3>
-          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'groupcategory' }">
               동호회</router-link> </button>
         </div>
         <div class="info-img2" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"></div>

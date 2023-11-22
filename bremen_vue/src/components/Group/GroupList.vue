@@ -52,7 +52,7 @@ hr {
 }
 
 .group-img {
-  background-image: url("../../assets/group/단체이미지.jpeg");
+  background-image: url("../../assets/group/shutterstock_364241294-580x387.jpg");
   height: 600px;
   width: 100%;
 }
