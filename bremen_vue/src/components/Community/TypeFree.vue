@@ -72,12 +72,6 @@ onMounted(() => {
 
 
 <style scoped>
-.box {
-  margin-top: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-}
-
 #main-text {
   font-weight: 800;
   font-size: 40px;
@@ -140,7 +134,7 @@ onMounted(() => {
   height: 400px;
 }
 
-.card * {
+.card text {
   padding: 10px;
 }
 

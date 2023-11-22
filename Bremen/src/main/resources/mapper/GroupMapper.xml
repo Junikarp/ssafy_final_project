@@ -2,46 +2,53 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bremen.model.dao.GroupDao">
+<mapper namespace="com.bremen.model.dao.TradeDao">
 
 	<!-- 전체 게시글 조회 -->
-	<select id="selectAll" resultType="group" parameterType="String">
+	<select id="selectAll" resultType="trade" parameterType="String">
 		SELECT *
-		FROM `group`
-		WHERE groupCategory = #{groupCategory};
+		FROM trade
+		WHERE tradePlace = #{tradePlace};
 	</select>
 
 	<!-- 상세 조회 -->
-	<select id="selectOne" parameterType="int" resultType="group">
+	<select id="selectOne" parameterType="int" resultType="trade">
 		SELECT *
-		FROM `group` 	
-		WHERE groupId = #{groupId};
+		FROM trade 	
+		WHERE tradeId = #{tradeId};
 	</select>
 	
 	<!-- 게시글 등록 디폴트랑 regdate 뺏음 -->
+<<<<<<< HEAD
+	<insert id="insertTrade" parameterType="trade">
+		INSERT INTO trade
+		(tradeId, tradeTitle, tradeContent, tradeWriter, tradeDate, tradePrice, tradePlace)
+		VALUES (#{tradeId}, #{tradeTitle},#{tradeContent}, #{tradeWriter}, #{tradeDate}, #{tradePrice}, #{tradePlace})
+=======
 	<insert id="insertGroup" parameterType="Group">
 		INSERT INTO `group`
 		(groupId, groupTitle, groupContent, groupWriter, groupCategory, groupMaxPeople, groupDate, groupPlace)
 		VALUES (#{groupId}, #{groupTitle}, #{groupContent}, #{groupWriter}, #{groupCategory}, #{groupMaxPeople}, #{groupDate}, #{groupPlace})
+>>>>>>> 902da3b2fc27897ef81e495ba46da522677317ad
 	</insert>
 	
 	<!-- 게시글 삭제  -->
-	<delete id="deleteGroup" parameterType="int">
-		DELETE FROM `group`
-		WHERE groupId = #{groupId};
+	<delete id="deleteTrade" parameterType="int">
+		DELETE FROM trade
+		WHERE tradeId = #{tradeId};
 	</delete>
 	
 	<!-- 게시글 수정  -->
-	<update id="updateGroup" parameterType="Group">
-		UPDATE `group`
-		SET groupTitle = #{groupTitle}, groupContent = #{groupContent}
-		WHERE groupId = #{groupId};
+	<update id="updateTrade" parameterType="trade">
+		UPDATE trade
+		SET tradeTitle = #{tradeTitle}, tradeContent = #{tradeContent}, tradePrice = #{tradePrice}, tradePlace = #{tradePlace}
+		WHERE tradeId = #{tradeId};
 	</update>
 	
 	<!-- 조회수 증가  -->
 	<update id="updateViewCnt" parameterType="int">
-		UPDATE `group`
-		SET groupViewCnt = groupViewCnt+1
-		WHERE groupId = #{groupId};
+		UPDATE trade
+		SET tradeViewCnt = tradeViewCnt+1
+		WHERE tradeId = #{tradeId};
 	</update>
 </mapper>

@@ -52,15 +52,15 @@ const toggleOn = function () {
 </script>
 
 <style scoped>
-.boomup-btn {
+.boomup-btn .btn {
   display: flex;
   flex-direction: row;
   padding: 0px !important;
 }
 
 #boomup-img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   padding: 0px !important;
 }
 
@@ -70,8 +70,8 @@ const toggleOn = function () {
 }
 
 #boomdown-img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   padding: 0px !important;
 }
 
