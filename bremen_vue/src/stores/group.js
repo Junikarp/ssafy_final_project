@@ -34,7 +34,8 @@ export const useGroupStore = defineStore('group', () => {
       data: group
     })
     .then(() => {
-      router.push({ name: 'category'});
+      window.location.reload()
+      alert("게시글이 등록되었습니다.")
     })
       .catch((err) => {
       console.log(err)

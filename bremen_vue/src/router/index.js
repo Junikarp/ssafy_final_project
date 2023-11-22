@@ -110,7 +110,7 @@ const router = createRouter({
       component: GroupList,
     },
     {
-      path: '/group',
+      path: '/group/:category',
       name: 'groupCreate',
       component: GroupCreate,
     },

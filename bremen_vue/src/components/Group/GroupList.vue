@@ -26,7 +26,7 @@
           <hr>
         </router-link>
       </div>
-      <router-link :to="{ name: 'groupCreate' }">글 작성</router-link>
+      <router-link :to="{ name: 'groupCreate'}">글 작성</router-link>
     </div>
   </section>
 </template>
