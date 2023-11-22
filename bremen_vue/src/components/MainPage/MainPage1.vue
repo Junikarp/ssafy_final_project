@@ -559,7 +559,7 @@ section#contact .section-heading {
 }
 
 #introduce {
-  background-image: url('../../assets/main/런닝.jpeg');
+  background-image: url('../../assets/main/런닝.jpeg');
   height: 800px;
   padding-top: 100px;
   margin-bottom: 100px;
