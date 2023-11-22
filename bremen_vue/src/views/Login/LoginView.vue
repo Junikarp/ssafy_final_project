@@ -177,7 +177,7 @@ p {
 
 .sign-up {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 20px;
 
 }
