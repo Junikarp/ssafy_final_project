@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="category-image"></div>
-        <div class="logo" data-aos="fade-up"><router-link :to="{ name: 'home' }"
+        <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
                 style="text-decoration: none; color: black;">BREMEN</router-link>
         </div>
         <div class="category-text" data-aos="fade-up">다양한 종목의 커뮤니티에서 함께 정보를 공유하세요</div>

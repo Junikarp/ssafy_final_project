@@ -27,7 +27,7 @@
   </nav>
 
   <body id="page-top">
-    <header class="masthead" id="introduce" background-color="black">
+    <header class="masthead" id="introduce" background-color="black" data-aos="fade-up" data-aos-duration="3000">
       <div class="container">
         <div class="masthead-subheading"></div>
         <div class="masthead-heading"></div>
@@ -36,7 +36,7 @@
     </header>
 
 
-    <div class="title">BREMEN</div>
+    <div class="title" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
     <div class="intro-bremen" data-aos="fade-up">
       <div class="title-text">함께하는 스포츠 커뮤니티 브레멘에 오신것을 환영합니다!</div>
     </div>
@@ -54,7 +54,7 @@
     </section>
     <section class="page-section" id="portfolio">
       <div class="info-page1">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center" data-aos="fade-up" data-aos-duration="2000">
           <h2 class="info-heading">가까운 이웃과의 동호회</h2>
           <h3 class="info-bottom">근처의 이웃과 취미를 공유하세요</h3>
           <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
@@ -65,8 +65,8 @@
     </section>
     <section class="page-section bg-light" id="about">
       <div class="info-page1">
-        <div class="info-img3" data-aos="fade-up" data-aos-anchor-placement="center-bottom"></div>
-        <div class="text-center" data-aos="fade-down" data-aos-anchor-placement="center-bottom">
+        <div class="info-img3" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom"></div>
+        <div class="text-center" data-aos="fade-down" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
           <h2 class="info-heading">한치 앞도 모르는 승부의 세계</h2>
           <h3 class="info-bottom">정확한 예측을 통해 짜릿한 순간 함께한다.</h3>
           <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
