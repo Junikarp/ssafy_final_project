@@ -19,17 +19,13 @@
 	</select>
 	
 	<!-- 게시글 등록 디폴트랑 regdate 뺏음 -->
-<<<<<<< HEAD
+
 	<insert id="insertTrade" parameterType="trade">
 		INSERT INTO trade
 		(tradeId, tradeTitle, tradeContent, tradeWriter, tradeDate, tradePrice, tradePlace)
 		VALUES (#{tradeId}, #{tradeTitle},#{tradeContent}, #{tradeWriter}, #{tradeDate}, #{tradePrice}, #{tradePlace})
-=======
-	<insert id="insertGroup" parameterType="Group">
-		INSERT INTO `group`
-		(groupId, groupTitle, groupContent, groupWriter, groupCategory, groupMaxPeople, groupDate, groupPlace)
-		VALUES (#{groupId}, #{groupTitle}, #{groupContent}, #{groupWriter}, #{groupCategory}, #{groupMaxPeople}, #{groupDate}, #{groupPlace})
->>>>>>> 902da3b2fc27897ef81e495ba46da522677317ad
+
+	
 	</insert>
 	
 	<!-- 게시글 삭제  -->

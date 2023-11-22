@@ -1,37 +1,65 @@
 <template>
     <div>
         <div class="category-image"></div>
-        <div class="logo"><router-link :to="{ name: 'home' }"
+        <div class="logo" data-aos="fade-up"><router-link :to="{ name: 'home' }"
                 style="text-decoration: none; color: black;">BREMEN</router-link>
         </div>
+        <div class="category-text" data-aos="fade-up">다양한 종목의 커뮤니티에서 함께 정보를 공유하세요</div>
 
-        <div class="container">
+        <div class="container" data-aos="fade-right">
             <RouterLink to="/board/soccer"><button class="button-color"><img src="../../assets/category/soccer.png"
                         class="button-img">
                     <span class="button-text">축구</span></button></RouterLink>
+            <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/baseball.png"
+                        class="button-img"><span class="button-text">야구</span></button></RouterLink>
+
+            <RouterLink to="/board/footVolleyBall"><button class="button-color"><img
+                        src="../../assets/category/basketball.png" class="button-img"><span
+                        class="button-text">농구</span></button></RouterLink>
+
             <RouterLink to="/board/volleyball"><button class="button-color"><img src="../../assets/category/volleyball.png"
                         class="button-img"><span class="button-text">배구</span></button></RouterLink>
+
             <RouterLink to="/board/running"><button class="button-color"><img src="../../assets/category/running.png"
                         class="button-img"><span class="button-text">런닝</span></button></RouterLink>
+
             <RouterLink to="/board/swimming"><button class="button-color"><img src="../../assets/category/swimming.png"
                         class="button-img"><span class="button-text">수영</span></button></RouterLink>
-            <RouterLink to="/board/cycle"><button class="button-color"><img src="../../assets/ca        ry/cycle.png"
-                        class="button-img"><span class="button-text">사이클</span></button></RouterLink>
-            <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/badminton.png"
-                        class="button-img"><span class="button-text">배드민턴</span></button></RouterLink>
-            <RouterLink to="/board/soccer"><button class="button-color"><img src="../../assets/category/soccer.png"
-                        class="button-img">
-                    <span class="button-text">축구</span></button></RouterLink>
-            <RouterLink to="/board/volleyball"><button class="button-color"><img src="../../assets/category/volleyball.png"
-                        class="button-img"><span class="button-text">배구</span></button></RouterLink>
-            <RouterLink to="/board/running"><button class="button-color"><img src="../../assets/category/running.png"
-                        class="button-img"><span class="button-text">런닝</span></button></RouterLink>
-            <RouterLink to="/board/swimming"><button class="button-color"><img src="../../assets/category/swimming.png"
-                        class="button-img"><span class="button-text">수영</span></button></RouterLink>
+
             <RouterLink to="/board/cycle"><button class="button-color"><img src="../../assets/category/cycle.png"
                         class="button-img"><span class="button-text">사이클</span></button></RouterLink>
+
             <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/badminton.png"
                         class="button-img"><span class="button-text">배드민턴</span></button></RouterLink>
+
+            <RouterLink to="/board/bowling"><button class="button-color"><img src="../../assets/category/bowling.png"
+                        class="button-img">
+                    <span class="button-text">볼링</span></button></RouterLink>
+
+            <RouterLink to="/board/boxing"><button class="button-color"><img src="../../assets/category/boxing.png"
+                        class="button-img"><span class="button-text">복싱</span></button></RouterLink>
+
+            <RouterLink to="/board/football"><button class="button-color"><img src="../../assets/category/football.png"
+                        class="button-img"><span class="button-text">럭비</span></button></RouterLink>
+
+            <RouterLink to="/board/golf"><button class="button-color"><img src="../../assets/category/golf.png"
+                        class="button-img"><span class="button-text">골프</span></button></RouterLink>
+
+            <RouterLink to="/board/health"><button class="button-color"><img src="../../assets/category/health.png"
+                        class="button-img"><span class="button-text">헬스</span></button></RouterLink>
+
+            <RouterLink to="/board/tabbleTennis"><button class="button-color"><img
+                        src="../../assets/category/tableTennis.png" class="button-img"><span
+                        class="button-text">탁구</span></button></RouterLink>
+
+            <RouterLink to="/board/tennis"><button class="button-color"><img src="../../assets/category/tennis.png"
+                        class="button-img"><span class="button-text">테니스</span></button></RouterLink>
+
+
+            <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/billiard.png"
+                        class="button-img"><span class="button-text">당구</span></button></RouterLink>
+
+
         </div>
     </div>
 </template>
@@ -41,7 +69,6 @@
 </script>
 
 <style scoped>
-
 .category-image {
     background-image: url("../../assets/main/community.jpeg");
     height: 350px;
@@ -49,14 +76,22 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 30px;
-    
-    
+
+
 }
+
 .logo {
     font-weight: 800;
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 50px;
+}
+.category-text{
+    margin: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #212529BF;
 }
 
 .container {
@@ -64,6 +99,7 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
 
 .button-color {
