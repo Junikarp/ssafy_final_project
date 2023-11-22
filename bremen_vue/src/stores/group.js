@@ -40,7 +40,7 @@ export const useGroupStore = defineStore('group', () => {
       console.log(err)
     })
   }
-  const updateBoard = function () {
+  const updateGroup = function () {
     axios.put(`${REST_BOARD_API}/group`, group.value)
       .then(() => {
         router.push({ name: 'groupDetail' , params:{ id: group.value.groupId, category: group.value.groupCategory }});
@@ -55,6 +55,7 @@ export const useGroupStore = defineStore('group', () => {
     getGroupList,
     group,
     getGroup,
-    createGroup
+    createGroup,
+    updateGroup
   }
 });

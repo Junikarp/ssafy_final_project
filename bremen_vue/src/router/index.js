@@ -21,6 +21,11 @@ import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
 import KakaoLogin from '../views/Login/KakaoLogin.vue'
 
+import TradeCreate from '../components/Trade/TradeCreate.vue'
+import TradeList from '../components/Trade/TradeList.vue'
+import TradeDetail from '../components/Trade/TradeDetail.vue'
+import TradeUpdate from '../components/Trade/TradeUpdate.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -112,6 +117,25 @@ const router = createRouter({
       path: '/group/detail/:id',
       name: 'groupDetail',
       component: GroupDetail,
+    },
+    {
+      path: '/trade/:category',
+      name: 'tradeList',
+      component: TradeList,
+    },
+    {
+      path: '/trade',
+      name: 'tradeCreate',
+      component: TradeCreate,
+    },
+    {
+      path: '/trade/detail/:id',
+      name: 'tradeDetail',
+      component: TradeDetail,
+    },{
+      path: '/trade/:id',
+      name: 'tradeUpdate',
+      component: TradeUpdate,
     }
   ]
 })

@@ -9,32 +9,33 @@
     <!-- board list area -->
     <div id="board-list">
       <div class="container">
-        <router-link class="board-box" :to="{ name: 'groupDetail', params: { id: groupItem.groupId } }"
-          v-for="groupItem in store.groupList" :key="groupItem.groupId">
+        <router-link class="board-box" :to="{ name: 'TradeDetail', params: { id: tradeItem.groupId } }"
+          v-for="tradeItem in store.tradeList" :key="tradeItem.tradeId">
           <div class="box-item">
             <div class="box-up">
               <div class="profile-img"></div>
-              <div class="group-title">{{ groupItem.groupTitle }}</div>
+              <div class="group-title">{{ tradeItem.tradeTitle }}</div>
             </div>
-            <div class="group-content"> {{ groupItem.groupContent }}</div>
+            <div class="group-content"> {{ tradeItem.tradeContent }}</div>
           </div>
         </router-link>
       </div>
-      <router-link :to="{ name: 'groupCreate' }">글 작성</router-link>
+
+      <router-link :to="{ name: 'tradeCreate' }">글 작성</router-link>
     </div>
   </section>
 </template>
   
 <script setup>
 import { onMounted } from 'vue';
-import { useGroupStore } from '../../stores/group';
+import { useTradeStore } from '../../stores/trade';
 import { useRoute } from 'vue-router'
 
-const store = useGroupStore();
+const store = useTradeStore();
 const route = useRoute();
 
 onMounted(() => {
-  store.getGroupList(route.params.category);
+  store.getTradeList(route.params.category);
 });
 
 </script>
@@ -42,7 +43,7 @@ onMounted(() => {
   
 <style scoped>
 .group-img {
-  background-image: url("../../assets/group/단체이미지.jpeg");
+  background-image: url("../../assets/community");
   height: 600px;
   width: 100%;
 }
