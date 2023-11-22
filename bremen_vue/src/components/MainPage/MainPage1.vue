@@ -19,7 +19,7 @@
           </li>
           <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
               :to="{ name: 'signup' }">회원가입</router-link></li>
-          <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
+          <li v-if="loginStatus" class="nav-item" @click="logout" data-aos="fade-right"><router-link class="nav-link"
               :to="{ name: 'home' }">로그아웃</router-link></li>
         </ul>
       </div>
@@ -37,40 +37,44 @@
 
 
     <div class="title">BREMEN</div>
-    <div class="title-text">함께하는 스포츠 커뮤니티 브레멘에 오신것을 환영합니다!</div>
+    <div class="intro-bremen" data-aos="fade-up">
+      <div class="title-text">함께하는 스포츠 커뮤니티 브레멘에 오신것을 환영합니다!</div>
+    </div>
 
-
-    <section class="page-section" id="services">
-        <div class="info-page1">
-          <div class="info-img1"></div>
-          <div class="text-center">
-            <h2 class="info-heading">거대하고 다양한 커뮤니티</h2>
-            <h3 class="info-bottom">다양한 종목의 커뮤니티에서 정보를 공유하며 서로의 선생님이 되어주세요</h3>
-            <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 커뮤니티</router-link> </button>
-          </div>
+    <section class="page-section bg-light" id="services">
+      <div class="info-page1">
+        <div class="info-img1" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"></div>
+        <div class="text-center" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <h2 class="info-heading">거대하고 다양한 커뮤니티</h2>
+          <h3 class="info-bottom">다양한 종목의 커뮤니티에서 정보를 공유하며 서로의 선생님이 되어주세요</h3>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+              커뮤니티</router-link> </button>
+        </div>
       </div>
     </section>
-    <section class="page-section bg-light" id="portfolio">
+    <section class="page-section" id="portfolio">
       <div class="info-page1">
-        <div class="text-center">
+        <div class="text-center" data-aos="fade-up">
           <h2 class="info-heading">가까운 이웃과의 동호회</h2>
           <h3 class="info-bottom">근처의 이웃과 취미를 공유하세요</h3>
-          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 동호회</router-link> </button>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+              동호회</router-link> </button>
         </div>
-        <div class="info-img2"></div>
+        <div class="info-img2" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"></div>
       </div>
     </section>
-    <section class="page-section" id="about">
+    <section class="page-section bg-light" id="about">
       <div class="info-page1">
-        <div class="info-img3"></div>
-        <div class="text-center">
+        <div class="info-img3" data-aos="fade-up" data-aos-anchor-placement="center-bottom"></div>
+        <div class="text-center" data-aos="fade-down" data-aos-anchor-placement="center-bottom">
           <h2 class="info-heading">한치 앞도 모르는 승부의 세계</h2>
           <h3 class="info-bottom">정확한 예측을 통해 짜릿한 순간 함께한다.</h3>
-          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }" > 승부예측</router-link> </button>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+              승부예측</router-link> </button>
         </div>
       </div>
     </section>
-    <section class="page-section bg-light" id="team">
+    <section class="page-section" id="team">
       <div class="container">
         <div class="text-center">
           <h2 class="info-heading">커뮤니티만 하기 심심</h2>
@@ -111,6 +115,8 @@ onMounted(() => {
     store.isAuthenticated = true;
   }
 })
+
+
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -553,8 +559,10 @@ section#contact .section-heading {
 }
 
 #introduce {
-  background-image: url(../../assets/main/런닝.jpeg);
+  background-image: url('../../assets/main/런닝.jpeg');
+  height: 800px;
   padding-top: 100px;
+  margin-bottom: 100px;
 }
 
 .login-nav {
@@ -569,17 +577,22 @@ section#contact .section-heading {
   width: 100px !important;
 }
 
-.title{
-  margin: 50px;
+.intro-bremen {
+  margin: 100px;
+}
+
+.title {
+  margin-top: 100px;
+  margin-bottom: 100px;
   font-weight: 800;
   font-size: 50px;
   text-align: center;
 }
 
-.title-text{
+.title-text {
   text-align: center;
-  font-weight: 400;
-  margin-bottom: 80px;
+  font-weight: 500;
+  margin-bottom: 100px;
   font-size: 25px;
   color: #212529BF;
 }
@@ -588,7 +601,7 @@ section#contact .section-heading {
   background-color: #E9ECEF;
   color: #212529;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 500;
   border: none;
   border-radius: 6px;
   text-decoration: none;
@@ -602,6 +615,7 @@ section#contact .section-heading {
   display: flex;
   flex-direction: row;
   width: 100%;
+  position: relative;
 }
 
 .info-img1 {
@@ -609,37 +623,43 @@ section#contact .section-heading {
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
-  height: 500px;
+  height: 600px;
 }
+
 .info-img2 {
   background-image: url('../../assets/main/농구2.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
-  height: 500px;
+  height: 600px;
 }
+
 .info-img3 {
   background-image: url('../../assets/main/환호.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 50%;
-  height: 500px;
+  height: 600px;
 }
-.text-center{
+
+.text-center {
   justify-content: center;
   width: 50%;
   padding-top: 10%;
-  
+
 }
-.info-heading{
+
+.info-heading {
   margin-bottom: 30px;
 }
-.info-bottom{
+
+.info-bottom {
   margin: 40px;
-  font-size: 25px;
+  font-size: 23px;
   color: #212529BF;
 }
-.button-none{
+
+.button-none {
   color: #444648;
   text-decoration: none;
 }
