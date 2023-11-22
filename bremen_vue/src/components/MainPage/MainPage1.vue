@@ -2,7 +2,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo.png" alt="..." id="logo" /></a>
+      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo_white.png">BREMEN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -75,22 +75,17 @@
       </div>
     </section>
     <section class="page-section" id="team">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="info-heading">커뮤니티만 하기 심심</h2>
-          <h3 class="info-bottom">동네에서 같이 운동할 사람도 찾아주자구</h3>
-        </div>
+      <div class="info-page1">
+        <div class="text-center" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+          <h2 class="info-heading">믿을 수 있는 중고거래</h2>
+          <h3 class="info-bottom">직접 만나서 취미 생활중 필요한 물품을 거래하세요</h3>
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+            중고거래</router-link> </button>
+          </div>
+          <div class="info-img4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"></div>
+      </div>
+    </section>
 
-      </div>
-    </section>
-    <section class="page-section" id="contact">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading">여긴 뭐넣지</h2>
-          <h3 class="section-subheading text-muted">일단은 사진넣고 하면 될 듯 하네.</h3>
-        </div>
-      </div>
-    </section>
   </body>
 </template>
 
@@ -330,6 +325,7 @@ img {
 }
 
 .nav-link {
+  font-weight: 600;
   display: block;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -616,6 +612,7 @@ section#contact .section-heading {
   flex-direction: row;
   width: 100%;
   position: relative;
+  align-items: center;
 }
 
 .info-img1 {
@@ -641,11 +638,18 @@ section#contact .section-heading {
   width: 50%;
   height: 600px;
 }
+.info-img4 {
+  background-image: url('../../assets/main/trading.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 600px;
+}
 
 .text-center {
   justify-content: center;
   width: 50%;
-  padding-top: 10%;
+  
 
 }
 
