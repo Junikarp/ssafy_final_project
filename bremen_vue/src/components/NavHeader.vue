@@ -12,7 +12,7 @@
         <ul class="navbar-nav">
           <router-link class="nav-link" :to="{ name: 'category' }">커뮤니티</router-link>
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">동호회</router-link>
-          <router-link class="nav-link" :to="{ name: 'tradecategory' }">하이라이트</router-link>
+          <router-link class="nav-link" :to="{ name: 'youtube' }">하이라이트</router-link>
           <router-link class="nav-link" :to="{ name: 'tradecategory' }">중고거래</router-link>
         </ul>
         

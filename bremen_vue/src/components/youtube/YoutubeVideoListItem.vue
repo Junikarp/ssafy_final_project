@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickVideo">
+  <div @click="clickVideo" type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
     <div class="videos" data-aos="fade-up" data-aos-duration="1000">
       <img :src="getHighQualityThumbnailUrl(video)" class="highlight-video">
       <span class="video-title">{{video.snippet.title}}</span>
