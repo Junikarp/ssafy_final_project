@@ -2,17 +2,19 @@
   <div id="board-list">
     <div id="community-image">
     </div>
-    <div class="main-text" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
+    <div class="main-text" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
+                            style="text-decoration: none; color: black;">BREMEN</router-link></div>
     <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
     <div class="box">
-      <div class="button-group">
+      <div class="button-group" data-aos="fade-up" data-aos-duration="5000">
         <router-link :to="{ name: 'info' }" class="btn">정보</router-link>
         <router-link :to="{ name: 'question' }" class="btn ">질문</router-link>
         <router-link :to="{ name: 'free' }" class="btn">자유</router-link>
         <router-link :to="{ name: 'info' }" class="btn">인기글</router-link>
         <router-link :to="{ name: 'humor' }" class="btn">유머</router-link>
       </div>
-      <router-view class="community-board"></router-view>
+        <router-view class="community-board" ></router-view>
+      
     </div>
   </div>
 </template>

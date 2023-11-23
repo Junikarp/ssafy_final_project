@@ -2,7 +2,8 @@
   <section class="notice">
 
     <div class="group-img"></div>
-    <div class="main-text" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
+    <div class="main-text" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
+                            style="text-decoration: none; color: black;">BREMEN</router-link></div>
     <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
 
 

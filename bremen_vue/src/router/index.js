@@ -4,8 +4,8 @@ import HomeView from '../views/HomeView.vue'
 import CommunityView from '../components/Community/CommunityView.vue'
 import BoardCategoryView from '../components/Community/BoardCategoryView.vue'
 import GroupCategoryView from '../components/Community/GroupCategoryView.vue'
-import DetailView from '../components/Community/DetailView.vue'
-import BoardCreate from '../components/Community/BoardCreate.vue'
+
+
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
 
 import TypeHumor from '../components/Community/TypeHumor.vue'
@@ -21,7 +21,6 @@ import MapComponent from '@/components/Map/MapComponent.vue'
 
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
-import KakaoLogin from '../views/Login/KakaoLogin.vue'
 
 import TradeCreate from '../components/Trade/TradeCreate.vue'
 import TradeList from '../components/Trade/TradeList.vue'
@@ -75,21 +74,13 @@ const router = createRouter({
       component: GroupCategoryView,
     }
     ,
-    {
-      path: "/board/:category",
-      name: "boardCreate",
-      component: BoardCreate,
-    },
+    
     {
       path: "/board",
       name: "boardUpdate",
       component: BoardUpdate
     },
-    {
-      path: '/:category/detail/:id',
-      name: 'detail',
-      component: DetailView
-    },
+    
     {
       path: '/login',
       name: 'login',
