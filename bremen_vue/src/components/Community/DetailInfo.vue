@@ -54,16 +54,14 @@
             </div>
             
           </div>
-<<<<<<< HEAD
           <div>
             <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop></textarea>
             <button @click.stop="addReview(dynamicProps.boardId)">리뷰 등록</button>
           </div>
           <hr>
-=======
->>>>>>> 70bedc2ec5ebde7846ac2b5d27738594fc0dad9a
           <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
             {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
+            <button @click.stop="deleteReview(comm.reviewId)">삭제</button>
           </div>
           <div>
             <hr>
@@ -121,6 +119,8 @@ const toggle = ref(false);
 const edit = ref({});
 const store = useBoardStore();
 
+
+
 const up = function (id) {
   store.getBoard(id)
 }
@@ -148,11 +148,23 @@ const addReview = function (id) {
 
   axios.post(`http://localhost:8080/api/review`, newReview)
     .then(() => {
-      // router.push({ name: "Detail"})
+      window.location.reload()
     })
     .catch((error) => {
       console.error('Error adding review:', error);
     });
+};
+
+const deleteReview = async (reviewId) => {
+  try {
+    await axios.delete(`http://localhost:8080/api/review/${reviewId}`)
+    .then(() => {
+      alert("삭제완료")
+      window.location.reload()
+    });
+  } catch (error) {
+    console.error('리뷰 삭제 실패:', error);
+  }
 };
 
 const deleteBoard = function (id) {

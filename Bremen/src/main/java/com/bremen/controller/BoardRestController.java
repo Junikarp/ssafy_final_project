@@ -135,8 +135,8 @@ public class BoardRestController {
 		}
 	}
 	
-	@DeleteMapping("/review")
-	public ResponseEntity<?> deleteReview(@RequestBody int id) {
+	@DeleteMapping("/review/{id}")
+	public ResponseEntity<?> deleteReview(@RequestBody @PathVariable int id) {
 		try {
 			reviewService.deleteReview(id);
 			return new ResponseEntity<>(HttpStatus.OK);
