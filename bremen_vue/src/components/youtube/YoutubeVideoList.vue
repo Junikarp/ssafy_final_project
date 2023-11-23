@@ -12,9 +12,13 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import {useYoutubeStore} from '@/stores/youtube'
 import YoutubeVideoListItem from './YoutubeVideoListItem.vue';
 
+onMounted(() => {
+    store.youtubeSearch("경기 하이라이트")
+})
 const store = useYoutubeStore()
 </script>
 
