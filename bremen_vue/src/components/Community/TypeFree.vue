@@ -115,7 +115,7 @@ store.getBoardList(route.params.category);
 }
 
 .card:hover {
-  background-color: rgb(156, 162, 162);
+  background-color: rgb(239, 241, 241);
 }
 
 .card * {
