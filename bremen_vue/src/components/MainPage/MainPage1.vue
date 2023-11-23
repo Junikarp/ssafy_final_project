@@ -8,20 +8,22 @@
         Menu
         <i class="fas fa-bars ms-1"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#services">커뮤니티</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">승부예측</a></li>
-          <li class="nav-item"><a class="nav-link" href="#team">그냥페이지</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">자드가자</a></li>
-          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link" :to="{ name: 'login' }">로그인</router-link>
-          </li>
-          <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
-              :to="{ name: 'signup' }">회원가입</router-link></li>
-          <li v-if="loginStatus" class="nav-item" @click="logout" data-aos="fade-right"><router-link class="nav-link"
-              :to="{ name: 'home' }">로그아웃</router-link></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">동호회</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">하이라이트</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">중고거래</a></li>
         </ul>
+        <ul class="navbar-nav">
+            <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
+                :to="{ name: 'login' }">로그인</router-link>
+            </li>
+            <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
+                :to="{ name: 'signup' }">회원가입</router-link></li>
+            <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
+                :to="{ name: 'home' }">로그아웃</router-link></li>
+          </ul>
       </div>
     </div>
   </nav>
@@ -68,9 +70,9 @@
         <div class="info-img3" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom"></div>
         <div class="text-center" data-aos="fade-down" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
           <h2 class="info-heading">한치 앞도 모르는 승부의 세계</h2>
-          <h3 class="info-bottom">정확한 예측을 통해 짜릿한 순간 함께한다.</h3>
+          <h3 class="info-bottom">다양한 스포츠의 최고의 순간들을 함께 즐기세요.</h3>
           <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
-              승부예측</router-link> </button>
+              하이라이트</router-link> </button>
         </div>
       </div>
     </section>
@@ -326,6 +328,7 @@ img {
 
 .nav-link {
   font-weight: 600;
+  margin-right: 7px;
   display: block;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -357,6 +360,7 @@ img {
 .navbar-brand {
   text-decoration: none;
   white-space: nowrap;
+  margin-right: 50px;
 }
 
 .navbar-nav {
@@ -429,10 +433,6 @@ p {
 
 
 
-
-
-
-
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-size: 1.125rem;
@@ -443,12 +443,12 @@ p {
 }
 
 #mainNav .navbar-brand img {
-  height: 100%;
-  width: auto;
+  
+  width: 30px;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
-  font-size: 0.95rem;
+  font-size: 17px;
   color: #fff;
   letter-spacing: 0.0625em;
 }

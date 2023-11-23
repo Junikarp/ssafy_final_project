@@ -15,7 +15,7 @@
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">경기영상</router-link>
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">중고거래</router-link>
         </ul>
-        <div class="navbar-login">
+        
           <ul class="navbar-nav">
             <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
                 :to="{ name: 'login' }">로그인</router-link>
@@ -25,7 +25,7 @@
             <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
                 :to="{ name: 'home' }">로그아웃</router-link></li>
           </ul>
-        </div>
+        
       </div>
     </div>
   </nav>
@@ -71,6 +71,14 @@ const logout = function () {
 .logo {
   width: 30px;
 }
-
+.nav-link {
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  margin-right: 7px;
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
 
 </style>

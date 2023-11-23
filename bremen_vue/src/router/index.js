@@ -19,8 +19,8 @@ import GroupDetail from '../components/Group/GroupDetail.vue'
 import newMap from '@/components/Map/newMap.vue'
 import MapComponent from '@/components/Map/MapComponent.vue'
 
-import LoginView from '../views/Login/LoginView.vue'
-import SignUpView from '../views/Login/SignUpView.vue'
+import LoginView from '../components/Login/LoginView.vue'
+import SignUpView from '../components/Login/SignUpView.vue'
 
 import TradeCreate from '../components/Trade/TradeCreate.vue'
 import TradeList from '../components/Trade/TradeList.vue'
