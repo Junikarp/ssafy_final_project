@@ -113,6 +113,8 @@ public class UserRestController {
 
 	@PostMapping("/groupuser")
 	public ResponseEntity<?> insertGroupUser(@RequestBody GroupUser groupUser) {
+		System.out.println(groupUser.getGroupUserGroupId());
+		System.out.println(groupUser.getGroupUserUserId());
 		int result = userService.insertGroupUser(groupUser);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}

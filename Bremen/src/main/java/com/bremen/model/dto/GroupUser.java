@@ -1,19 +1,31 @@
 package com.bremen.model.dto;
 
 public class GroupUser {
-	private String GroupUserUserId;
-	private int GroupUserGroupId;
+	private String groupUserUserId;
+	private int groupUserGroupId;
 	
+	
+	public GroupUser() {}
+	
+	
+	public GroupUser(String groupUserUserId, int groupUserGroupId) {
+		this.groupUserUserId = groupUserUserId;
+		this.groupUserGroupId = groupUserGroupId;
+	}
+
+
 	public String getGroupUserUserId() {
-		return GroupUserUserId;
+		return groupUserUserId;
 	}
 	public void setGroupUserUserId(String groupUserUserId) {
-		GroupUserUserId = groupUserUserId;
+		this.groupUserUserId = groupUserUserId;
 	}
 	public int getGroupUserGroupId() {
-		return GroupUserGroupId;
+		return groupUserGroupId;
 	}
 	public void setGroupUserGroupId(int groupUserGroupId) {
-		GroupUserGroupId = groupUserGroupId;
+		this.groupUserGroupId = groupUserGroupId;
 	}
+	
+	
 }

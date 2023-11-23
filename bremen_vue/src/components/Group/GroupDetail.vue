@@ -28,7 +28,7 @@
             </div>
             <div>일정 : {{ store.group.groupDate }} {{ store.group.groupTime }}</div>
          </div>
-         <button class="participate-button">참가하기</button>
+         <button class="participate-button" @click="joinGroup(store.group.groupId)">참가하기</button>
       </div>
       <div class="detail-else">
          <div>조회수 : {{ store.group.groupViewCnt }}</div>
@@ -40,13 +40,20 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
 import { useGroupStore } from "../../stores/group";
-import { onMounted } from "vue";
+import { useUserStore } from "../../stores/user";
+import { onMounted,ref } from "vue";
 import axios from 'axios';
 import NavHeader from '../NavHeader.vue';
 
 const store = useGroupStore()
+const userStore = useUserStore();
 const route = useRoute();
 const router = useRouter();
+
+const groupUser = ref({
+   groupUserUserId: userStore.loginUserId,
+   groupUserGroupId: '',
+})
 
 onMounted(() => {
    store.getGroup(route.params.id);
@@ -54,6 +61,21 @@ onMounted(() => {
    // 카카오 맵 초기화
    loadKakaoMap();
 });
+
+const joinGroup = function(id) {
+    groupUser.value.groupUserGroupId = id;
+    console.log(groupUser.value)
+   //  axios({
+   //    url: `http://localhost:8080/userapi/groupuser`,
+   //    method: 'POST',
+   //    headers: {
+   //      "Content-Type": "application/json"
+   //    },
+   //    data: groupUser.value
+   //  })
+
+    axios.post(`http://localhost:8080/userapi/groupuser`, groupUser.value)
+}
 
 const deleteGroup = function () {
    axios.delete(`http://localhost:8080/groupapi/group/${route.params.id}`)

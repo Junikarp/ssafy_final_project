@@ -21,8 +21,8 @@
 	</select>
 	
 	<insert id="insertGroupUser" parameterType="GroupUser">
-		INSERT INTO groupUser (groupUserGroupId, GroupUserUserId)
-		VALUES (#{groupUserGroupId}, #{GroupUserUserId})
+		INSERT INTO groupUser (groupUserGroupId, groupUserUserId)
+		VALUES (#{groupUserGroupId}, #{groupUserUserId})
 	</insert>
 	
 	<select id="selectUsersByGroupId" parameterType="int" resultType="User">

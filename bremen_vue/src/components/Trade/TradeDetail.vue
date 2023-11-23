@@ -25,7 +25,6 @@ const router = useRouter();
 
 onMounted(() => {
    store.getTrade(route.params.id)
-   console.log(store.trade)
 })
 
 const deleteTrade = function () {
