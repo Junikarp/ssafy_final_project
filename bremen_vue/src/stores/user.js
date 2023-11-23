@@ -48,7 +48,7 @@ export const useUserStore = defineStore('user', () => {
 
     // 사용자 회원가입
     const router = useRouter();    
-    const signUp = function (user) {`as`
+    const signUp = function (user) {
         console.log(user)
         axios({
             url: REST_USER_API+"/signup",
@@ -63,12 +63,9 @@ export const useUserStore = defineStore('user', () => {
 
     }
 
-
-
     return { User, login, signUp, isAuthenticated, logout, loginUserId}},
     {
-        persist: {
-            enabled: true,
-            key: 'userStore',
+        persist: true,
+            
         },
-    })
+)
