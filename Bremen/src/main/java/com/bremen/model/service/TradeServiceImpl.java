@@ -43,4 +43,9 @@ public class TradeServiceImpl implements TradeService{
 	public void updateViewCnt(int id) {
 		dao.updateViewCnt(id);
 	}
+
+	@Override
+	public List<Trade> search(String place) {
+		return dao.search(place);
+	}
 }

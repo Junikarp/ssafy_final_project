@@ -6,7 +6,7 @@
        <div>{{ store.trade.tradeWriter }}</div>
        <div>{{ store.trade.tradeDate }}</div>
        <div>{{ store.trade.tradeViewCnt }}</div>
-       <div>{{ store.trade.tradeontent }}</div>
+       <div>{{ store.trade.tradeContent }}</div>
 
        <button @click="deleteTrade">삭제</button>
        <button @click="updateTrade">수정</button>
@@ -25,17 +25,19 @@ const router = useRouter();
 
 onMounted(() => {
    store.getTrade(route.params.id)
+   console.log(store.trade)
 })
 
-const deleteBoard = function () {
+const deleteTrade = function () {
    axios.delete(`http://localhost:8080/tradeapi/trade/${route.params.id}`)
        .then(() => {
+         window.location.reload()
            router.push({ name: 'trade', params:{ id: route.params.category} })
            alert("게시글이 삭제되었습니다.")
        })
 }
 
-const updateBoard = function () {
+const updateTrade = function () {
    router.push({ name: 'tradeUpdate' })
 }
 </script>

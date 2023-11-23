@@ -3,7 +3,7 @@
       <footer>
         <div class="inner">
           <div class="footer-message">
-            강준규 권준구 최준호 오건영 김근형 임현승
+            강준규 권준구 최준호 오건영 김근형 임현승 이성현
           </div>
           <div class="footer-contact">컨택: dream@fun-coding.org</div>
           <div class="footer-copyright">Copyrigh 2020 All ⓒ rights reserved</div>

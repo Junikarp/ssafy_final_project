@@ -22,5 +22,7 @@ public interface TradeService {
 
 	// 조회수 증가
 	void updateViewCnt(int id);
-
+	
+	// 지역 검색
+	List<Trade> search(String place);
 }

@@ -17,7 +17,7 @@ export const useTradeStore = defineStore('trade', () => {
   //게시글 한개
   const trade = ref({})
   const getTrade = function (id) {
-    axios.get(`${REST_BOARD_API}/detail/${id}`)
+    axios.get(`${REST_BOARD_API}/trade/detail/${id}`)
       .then((response) => {
         trade.value = response.data
       })
@@ -44,7 +44,7 @@ export const useTradeStore = defineStore('trade', () => {
   const updateTrade = function () {
     axios.put(`${REST_BOARD_API}/trade`, trade.value)
       .then(() => {
-        router.push({ name: 'category' , params:{ id: trade.value.boardId, category: trade.value.boardCategory }});
+        router.push({ name: 'category' , params:{ id: trade.value.tradeId, category: trade.value.tradeCategory }});
         alert("게시글이 수정되었습니다.")
       })
       .catch((err) => {

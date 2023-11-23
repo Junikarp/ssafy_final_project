@@ -55,6 +55,7 @@ onMounted(() => {
 const deleteGroup = function () {
    axios.delete(`http://localhost:8080/groupapi/group/${route.params.id}`)
       .then(() => {
+         window.location.reload()
          router.push({ name: 'group', params: { id: route.params.category } })
          alert("게시글이 삭제되었습니다.")
       })

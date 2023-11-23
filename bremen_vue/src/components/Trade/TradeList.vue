@@ -8,6 +8,10 @@
 
     <!-- board list area -->
     <div id="board-list">
+      <div class="search">
+        <input type="text" placeholder="검색어 입력" v-model="place">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" type="button" @click="search">
+      </div>
       <div class="container">
         <router-link class="board-box" :to="{ name: 'tradeDetail', params: { id: tradeItem.tradeId } }"
           v-for="tradeItem in store.tradeList" :key="tradeItem.tradeId">
@@ -17,22 +21,31 @@
               <div class="group-title">{{ tradeItem.tradeTitle }}</div>
             </div>
             <div class="group-content"> {{ tradeItem.tradeContent }}</div>
+            <div class="group-content"> {{ tradeItem.tradePlace }}</div>
           </div>
         </router-link>
       </div>
-
       <router-link :to="{ name: 'tradeCreate' }">글 작성</router-link>
     </div>
   </section>
 </template>
   
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted,ref } from 'vue';
 import { useTradeStore } from '../../stores/trade';
 import { useRoute } from 'vue-router'
+import axios from 'axios';
 
 const store = useTradeStore();
 const route = useRoute();
+const place = ref();
+
+const search = function () {
+   axios.get(`http://localhost:8080/tradeapi/trade/search/${place.value}`)
+       .then((response) => {
+          store.tradeList = response.data
+       })
+}
 
 onMounted(() => {
   store.getTradeList(route.params.category);
@@ -76,7 +89,7 @@ onMounted(() => {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  
+
 
 }
 
@@ -88,21 +101,23 @@ onMounted(() => {
   padding: 40px;
   text-decoration: none;
   margin-bottom: 30px;
-  
+
 }
-.profile-img{
+
+.profile-img {
   background-image: url(../../assets/group/profile.png);
-  background-size:cover;
+  background-size: cover;
   width: 50px;
   height: 50px;
   margin-right: 15px;
 }
+
 .group-title {
 
   font-size: 35px;
   font-weight: 600;
   color: rgb(37, 37, 37);
-  
+
 }
 
 .group-content {
@@ -126,11 +141,32 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center ;
+  justify-content: center;
   gap: 30px;
 }
+
 .box-up {
   display: flex;
   align-items: center;
 }
-</style>
+
+.search {
+  position: relative;
+  width: 300px;
+}
+
+.search input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.search img {
+  position: absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}</style>

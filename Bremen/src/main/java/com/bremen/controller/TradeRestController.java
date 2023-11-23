@@ -111,4 +111,14 @@ public class TradeRestController {
 			return exceptionHandler(e);
 		}
 	}
+	
+	@GetMapping("/trade/search/{place}")
+	public ResponseEntity<?> search(@PathVariable String place) {
+		try {
+			List<Trade> list = tradeService.search(place);
+			return new ResponseEntity<>(list, HttpStatus.OK);		
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
 }

@@ -44,4 +44,9 @@
 		SET tradeViewCnt = tradeViewCnt+1
 		WHERE tradeId = #{tradeId};
 	</update>
+	
+	<select id="search" parameterType="String" resultType="trade">
+		SELECT * FROM trade
+		WHERE tradePlace LIKE CONCAT('%', #{tradePlace}, '%')
+	</select>
 </mapper>
