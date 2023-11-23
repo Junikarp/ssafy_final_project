@@ -11,7 +11,7 @@
         <router-link :to="{ name: 'info' }" class="btn">정보</router-link>
         <router-link :to="{ name: 'question' }" class="btn ">질문</router-link>
         <router-link :to="{ name: 'free' }" class="btn">자유</router-link>
-        <router-link :to="{ name: 'info' }" class="btn">인기글</router-link>
+        <router-link :to="{ name: 'pop' }" class="btn">인기글</router-link>
         <router-link :to="{ name: 'humor' }" class="btn">유머</router-link>
       </div>
         <router-view class="community-board" ></router-view>
