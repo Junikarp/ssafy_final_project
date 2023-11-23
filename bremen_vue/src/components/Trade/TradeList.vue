@@ -8,12 +8,13 @@
 
     <!-- board list area -->
     <div id="board-list">
-      <div class="search">
-        <input type="text" placeholder="검색어 입력" v-model="place">
-        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" type="button" @click="search">
-      </div>
       <div class="container">
-        <router-link :to="{ name: 'groupCreate'}" type="button" class="card">
+        <div class="search">
+          <input type="text" placeholder="희망 지역을 입력하세요" style="font-size: 20px;" v-model="place">
+          <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" type="button"
+            @click="search">
+        </div>
+        <router-link :to="{ name: 'tradeCreate' }" type="button" class="card">
           <img src="../../assets/plus.png" id="create-board-img">
         </router-link>
         <router-link class="board-box" :to="{ name: 'tradeDetail', params: { id: tradeItem.tradeId } }"
@@ -24,7 +25,10 @@
               <div class="group-title">{{ tradeItem.tradeTitle }}</div>
             </div>
             <div class="group-content"> {{ tradeItem.tradeContent }}</div>
-            <div class="group-content"> {{ tradeItem.tradePlace }}</div>
+            <div class="detail-bind">
+              <div class="group-detail"> 지역 : {{ tradeItem.tradePlace }}</div>
+              <div class="group-detail"> 가격 : {{ tradeItem.tradePrice }} 원</div>
+            </div>
           </div>
         </router-link>
       </div>
@@ -33,7 +37,7 @@
 </template>
   
 <script setup>
-import { onMounted,ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useTradeStore } from '../../stores/trade';
 import { useRoute } from 'vue-router'
 import axios from 'axios';
@@ -44,10 +48,10 @@ const route = useRoute();
 const place = ref();
 
 const search = function () {
-   axios.get(`http://localhost:8080/tradeapi/trade/search/${place.value}`)
-       .then((response) => {
-          store.tradeList = response.data
-       })
+  axios.get(`http://localhost:8080/tradeapi/trade/search/${place.value}`)
+    .then((response) => {
+      store.tradeList = response.data
+    })
 }
 
 onMounted(() => {
@@ -59,10 +63,10 @@ onMounted(() => {
   
   
 <style scoped>
-
 #create-board-img {
   width: 70px;
 }
+
 .card {
   display: flex;
   flex-direction: row;
@@ -126,7 +130,7 @@ onMounted(() => {
 }
 
 .profile-img {
-  background-image: url(../../assets/group/profile.png);
+  background-image: url('../../assets/profile.png');
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -152,9 +156,19 @@ onMounted(() => {
   margin-left: 30px;
 
 }
+.group-detail {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529BF;
+  margin-left: 30px;
+
+}
 
 .board-box:hover {
-  background-color: rgb(244, 240, 240);
+  height: auto;
+  opacity: 0.6;
+  border-radius: 5px;
 }
 
 
@@ -173,7 +187,9 @@ onMounted(() => {
 
 .search {
   position: relative;
-  width: 300px;
+  width: 87%;
+  margin-bottom: 40px;
+
 }
 
 .search input {
@@ -190,4 +206,9 @@ onMounted(() => {
   top: 10px;
   right: 12px;
   margin: 0;
-}</style>
+}
+.detail-bind{
+  display: flex;
+  flex-wrap: nowrap;
+}
+</style>

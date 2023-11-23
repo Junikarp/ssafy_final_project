@@ -5,7 +5,7 @@
         <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
                 style="text-decoration: none; color: black;">BREMEN</router-link>
         </div>
-        <div class="category-text" data-aos="fade-up">가까운 이웃과 강력한 팀을 이뤄 함께하세요</div>
+        <div class="category-text" data-aos="fade-up">직접 만나 취미 생활중 필요한 물품을 거래하세요</div>
 
         <div class="container" data-aos="fade-right">
             <RouterLink to="/trade/soccer"><button class="button-color"><img src="../../assets/category/soccer.png"
@@ -72,11 +72,11 @@ import NavHeader from '../NavHeader.vue';
 
 <style scoped>
 .category-image {
-    background-image: url("../../assets/group/groupcategorymain.jpg");
+    background-image: url("../../assets/trade/1.jpeg");
     height: 700px;
     width: 100%;
     background-size: cover;
-    
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 30px;
