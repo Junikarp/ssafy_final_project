@@ -78,7 +78,6 @@ hr {
   margin-top: 100px;
   padding-left: 30px;
   padding-right: 30px;
-
 }
 
 .container {
@@ -86,8 +85,6 @@ hr {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-
-
 }
 
 .board-box {
