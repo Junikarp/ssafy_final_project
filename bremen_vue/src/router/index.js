@@ -126,7 +126,7 @@ const router = createRouter({
       component: TradeList,
     },
     {
-      path: '/trade',
+      path: '/trade/:category',
       name: 'tradeCreate',
       component: TradeCreate,
     },
