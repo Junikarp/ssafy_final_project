@@ -54,21 +54,25 @@
                 <div>{{ dynamicProps.boardHate }}</div>
               </button>
             </div>
-            
-          </div>
-          <div>
-            <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop></textarea>
-            <button @click.stop="addReview(dynamicProps.boardId)">리뷰 등록</button>
           </div>
           <hr>
-          <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
-            {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
-            <button @click.stop="deleteReview(comm.reviewId)">삭제</button>
-          </div>
-          <div>
-            <hr>
-            <br>
-            <br> 
+          <div class="review-box">
+            <div class="review-create">
+              <input type="text" v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop class="review-textbox">
+              <button @click.stop="addReview(dynamicProps.boardId)" class="review-createbutton"></button>
+            </div>
+            <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
+              <div class="review-writer">
+                <img src="../../assets/profile.png" class="review-profile-img">
+                {{ comm.reviewWriter }}
+              </div>
+              <div class="review-content">
+                {{ comm.reviewContent }}
+              </div>
+              <hr>
+            </div>
+            <div>
+            </div>
           </div>
         </div>
       </div>
@@ -171,6 +175,7 @@ const addReview = function (id) {
 
   axios.post(`http://localhost:8080/api/review`, newReview)
     .then(() => {
+      alert("리뷰등록성공")
       window.location.reload()
     })
     .catch((error) => {
