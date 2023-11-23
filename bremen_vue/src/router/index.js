@@ -17,6 +17,7 @@ import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
 import newMap from '@/components/Map/newMap.vue'
+import MapComponent from '@/components/Map/MapComponent.vue'
 
 import LoginView from '../views/Login/LoginView.vue'
 import SignUpView from '../views/Login/SignUpView.vue'
@@ -137,6 +138,10 @@ const router = createRouter({
       path: '/trade/:id',
       name: 'tradeUpdate',
       component: TradeUpdate,
+    },{
+      path: '/select',
+      name: 'mapComponent',
+      component: MapComponent,
     }
   ]
 })

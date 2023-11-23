@@ -2,14 +2,14 @@
     <div>
        <h4>게시글 상세</h4>
        <hr>
-       <div>{{ store.group.groupTitle }}</div>
-       <div>{{ store.group.groupWriter }}</div>
-       <div>{{ store.group.groupDate }}</div>
-       <div>{{ store.group.groupViewCnt }}</div>
-       <div>{{ store.group.groupontent }}</div>
+       <div>{{ store.trade.tradeTitle }}</div>
+       <div>{{ store.trade.tradeWriter }}</div>
+       <div>{{ store.trade.tradeDate }}</div>
+       <div>{{ store.trade.tradeViewCnt }}</div>
+       <div>{{ store.trade.tradeontent }}</div>
 
-       <button @click="deleteBoard">삭제</button>
-       <button @click="updateBoard">수정</button>
+       <button @click="deleteTrade">삭제</button>
+       <button @click="updateTrade">수정</button>
    </div>
 </template> 
 

@@ -24,7 +24,6 @@
 		INSERT INTO `group`
 		(groupId, groupTitle, groupContent, groupWriter, groupCategory, groupMaxPeople, groupDate, positionX, positionY, groupTime)
 		VALUES (#{groupId}, #{groupTitle}, #{groupContent}, #{groupWriter}, #{groupCategory}, #{groupMaxPeople}, #{groupDate}, #{positionX},  #{positionY},  #{groupTime})
-
 	</insert>
 	
 	<!-- 게시글 삭제  -->

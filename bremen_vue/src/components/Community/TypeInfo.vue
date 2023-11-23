@@ -16,10 +16,6 @@
                   <input type="text" class="form-control" id="title" v-model="board.boardTitle">
                 </div>
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">작성자</label>
-                  <input type="text" class="form-control" id="writer" v-model="board.boardWriter">
-                </div>
-                <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">카테고리</label>
                   <input type="text" class="form-control" id="category" readonly :placeholder="board.boardCategory">
                 </div>
@@ -48,8 +44,10 @@ import { onMounted, ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
 import DetailInfo from '@/components/Community/DetailInfo.vue'
+import {useUserStore} from '@/stores/user'
 
 const store = useBoardStore();
+const ustore = useUserStore();
 const route = useRoute();
 const createBoard = function () {
   store.createBoard(board.value)
@@ -57,7 +55,7 @@ const createBoard = function () {
 
 const board = ref({
   boardTitle: '',
-  boardWriter: '',
+  boardWriter: ustore.loginUserId,
   boardCategory: route.params.category,
   boardContent: '', 
   boardType: 'info'
