@@ -6,7 +6,6 @@ import BoardCategoryView from '../components/Community/BoardCategoryView.vue'
 import GroupCategoryView from '../components/group/GroupCategoryView.vue'
 import TradeCategoryView from '../components/Trade/TradeCategoryView.vue'
 
-import BoardUpdate from '../components/Community/BoardUpdate.vue'
 
 import TypeHumor from '../components/Community/TypeHumor.vue'
 import TypeInfo from '../components/Community/TypeInfo.vue'
@@ -77,12 +76,6 @@ const router = createRouter({
       component: BoardCategoryView,
     },
     
-    
-    {
-      path: "/board",
-      name: "boardUpdate",
-      component: BoardUpdate
-    },
     
     {
       path: '/login',
