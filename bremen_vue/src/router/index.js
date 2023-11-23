@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 
 import CommunityView from '../components/Community/CommunityView.vue'
 import BoardCategoryView from '../components/Community/BoardCategoryView.vue'
-import GroupCategoryView from '../components/Community/GroupCategoryView.vue'
+import GroupCategoryView from '../components/group/GroupCategoryView.vue'
 
 
 import BoardUpdate from '../components/Community/BoardUpdate.vue'

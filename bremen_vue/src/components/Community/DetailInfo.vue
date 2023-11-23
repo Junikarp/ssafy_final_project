@@ -53,28 +53,8 @@
                 <img src="../../assets/boomdown.png" id="boomdown-img">
               </button>
             </div>
-<<<<<<< HEAD
-            
           </div>
-          <div>
-            <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop></textarea>
-            <button @click.stop="addReview(dynamicProps.boardId)">리뷰 등록</button>
-=======
->>>>>>> cff8bfc68b6ce6f9aa8e4b50032e08e30355c685
-          </div>
-
           <hr>
-<<<<<<< HEAD
-          <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
-            {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
-            <button @click.stop="deleteReview(comm.reviewId)">삭제</button>
-          </div>
-          <div>
-            <hr>
-            <br>
-            <br>
-            
-=======
           <div class="review-box">
             <div class="review-create">
               <input type="text" v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop class="review-textbox">
@@ -92,9 +72,6 @@
             </div>
             <div>
             </div>
-
-
->>>>>>> cff8bfc68b6ce6f9aa8e4b50032e08e30355c685
           </div>
         </div>
       </div>
@@ -175,6 +152,7 @@ const addReview = function (id) {
 
   axios.post(`http://localhost:8080/api/review`, newReview)
     .then(() => {
+      alert("리뷰등록성공")
       window.location.reload()
     })
     .catch((error) => {

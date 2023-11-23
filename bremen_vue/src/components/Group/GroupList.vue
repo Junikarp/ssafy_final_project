@@ -2,8 +2,8 @@
   <section class="notice">
 
     <div class="group-img"></div>
-    <div class="main-text" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
-                            style="text-decoration: none; color: black;">BREMEN</router-link></div>
+    <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
+                style="text-decoration: none; color: black;">BREMEN</router-link></div>
     <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
 
 
@@ -54,16 +54,20 @@ hr {
 }
 
 .group-img {
-  background-image: url("../../assets/group/shutterstock_364241294-580x387.jpg");
-  height: 600px;
+  background-image: url("../../assets/group/grouplistimg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
   width: 100%;
+  
 }
 
-.main-text {
-  margin: 50px;
+.logo {
   font-weight: 800;
-  text-align: center;
-  font-size: 50px;
+    font-size: 50px;
+    text-align: center;
+    margin: 50px;
 }
 
 .sub-text {
