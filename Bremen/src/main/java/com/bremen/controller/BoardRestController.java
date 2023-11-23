@@ -155,4 +155,23 @@ public class BoardRestController {
 		}
 	}
 
+	@PutMapping("/like/{id}")
+	public ResponseEntity<?> updateLike(@PathVariable int id) {
+		try {
+			boardService.updateLike(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
+		
+	@PutMapping("/hate/{id}")
+	public ResponseEntity<?> updateHate(@PathVariable int id) {
+		try {
+			boardService.updateHate(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			return exceptionHandler(e);
+		}
+	}
 }

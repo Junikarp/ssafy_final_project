@@ -44,6 +44,18 @@
 	<update id="updateViewCnt" parameterType="int">
 		UPDATE board
 		SET boardViewCnt = boardViewCnt+1
-		WHERE = boardId = #{boardId};
+		WHERE boardId = #{boardId};
+	</update>
+	
+	<update id="updateLike" parameterType="int">
+		UPDATE board
+		SET boardLike = boardLike+1
+		WHERE boardId = #{boardId};
+	</update>
+	
+	<update id="updateHate" parameterType="int">
+		UPDATE board
+		SET boardHate = boardHate+1
+		WHERE boardId = #{boardId};
 	</update>
 </mapper>

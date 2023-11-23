@@ -45,10 +45,10 @@
           </div>
           <div class="button-box">
             <div class="boomup-btn">
-              <button class="btn btn-primary">
+              <button class="btn btn-primary" @click.stop="increaseLike">
                 <img src="../../assets/boomup.png" id="boomup-img">
               </button>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" @click.stop="increaseDislike">
                 <img src="../../assets/boomdown.png" id="boomdown-img">
               </button>
             </div>
@@ -133,9 +133,32 @@ const toggleOn = function () {
   toggle.value = !toggle.value
 }
 
-
 const newReviewContent = ref('');
 
+// 좋아요 및 싫어요 수를 보여주기 위한 변수
+const likeCount = ref(dynamicProps.likeCount || 0);
+const dislikeCount = ref(dynamicProps.dislikeCount || 0);
+
+
+// 좋아요를 클릭했을 때 실행되는 함수
+const increaseLike = async () => {
+  try {
+    await axios.put(`http://localhost:8080/api/like`);
+    likeCount.value += 1;
+  } catch (error) {
+    console.error('좋아요 업데이트 실패:', error);
+  }
+};
+
+// 싫어요를 클릭했을 때 실행되는 함수
+const increaseDislike = async () => {
+  try {
+    await axios.put(`http://localhost:8080/api/hate`);
+    dislikeCount.value += 1;
+  } catch (error) {
+    console.error('싫어요 업데이트 실패:', error);
+  }
+};
 const addReview = function (id) {
   const postId = id;  // 적절한 postId 값을 가져와야 함
 

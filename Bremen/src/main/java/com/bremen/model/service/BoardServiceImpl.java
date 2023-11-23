@@ -48,5 +48,15 @@ public class BoardServiceImpl implements BoardService {
 	public void updateViewCnt(int id) {
 		dao.updateViewCnt(id);
 	}
+
+	@Override
+	public void updateLike(int id) {
+		dao.updateLike(id);
+	}
+
+	@Override
+	public void updateHate(int id) {
+		dao.updateHate(id);
+	}
 	
 }

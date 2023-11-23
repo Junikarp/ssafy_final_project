@@ -23,4 +23,10 @@ public interface BoardService {
 	
 	// 조회수 증가
 	void updateViewCnt(int id);
+	
+	// 좋아요 증가
+		void updateLike(int id);
+		
+		// 싫어요 증가
+		void updateHate(int id);
 }
