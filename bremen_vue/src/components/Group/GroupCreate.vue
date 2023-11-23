@@ -41,7 +41,7 @@ import { ref, onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
 import { useUserStore } from '../../stores/user';
 import { useRoute } from 'vue-router'
-import {useUserStore} from '../../stores/user'
+
 
 const store = useGroupStore();
 const userStore = useUserStore();
