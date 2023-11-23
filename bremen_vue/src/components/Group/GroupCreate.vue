@@ -44,13 +44,14 @@ const store = useGroupStore();
 // 맵, 마커, 위치, 폼 데이터 등을 담을 변수들
 let map = null;
 const route = useRoute();
+const userStore = useUserStore();
 
 
 let marker = null;
 let currentPosition = null;
 const formData = ref({
     groupTitle: '',
-    groupWriter: '',
+    groupWriter: userStore.loginUserId,
     groupContent: '',
     groupMaxPeople: 0,
     groupCategory: route.params.category,

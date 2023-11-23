@@ -112,7 +112,6 @@ store.getBoardList(route.params.category);
   margin-bottom: 30px;
   width: 800px;
   height: 180px;
-  transition: 0.2s;
 }
 
 .card:hover {

@@ -1,7 +1,7 @@
 <template>
   <tr>
     <template v-if="dynamicProps.boardType === 'free'">
-      <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn()">
+      <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn(dynamicProps.boardId)">
         <div v-if="!toggle" class="textbox">
           <div class="simple-head">
             <div class="simple-profile-img"></div>
@@ -135,8 +135,11 @@ const update = function () {
   updateBoard();
 }
 
-const toggleOn = function () {
+const toggleOn = function (id) {
   toggle.value = !toggle.value
+  if(toggle.value) {
+    axios.put(`http://localhost:8080/api/board/${id}`)
+  }
 }
 
 

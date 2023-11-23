@@ -10,6 +10,9 @@
     <!-- board list area -->
     <div id="board-list">
       <div class="container">
+        <router-link :to="{ name: 'groupCreate'}" type="button" class="card">
+          <img src="../../assets/plus.png" id="create-board-img">
+        </router-link>
         <router-link class="board-box"
           v-for="groupItem in store.groupList" :key="groupItem.groupId" :to="{ name: 'groupDetail', params: { id: groupItem.groupId }}" data-aos="fade-up" data-aos-duration="5000">
           <div class="box-item">
@@ -27,7 +30,6 @@
           <hr>
         </router-link>
       </div>
-      <router-link :to="{ name: 'groupCreate'}">글 작성</router-link>
     </div>
   </section>
 </template>
@@ -52,6 +54,21 @@ onMounted(() => {
 hr {
   color: black;
 }
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  width: 87%;
+  height: 150px;
+}
+
+.card:hover {
+  background-color: rgb(156, 162, 162);
+}
 
 .group-img {
   background-image: url("../../assets/group/grouplistimg.jpg");
@@ -61,6 +78,16 @@ hr {
   height: 700px;
   width: 100%;
   
+}
+
+#create-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#create-board-img {
+  width: 70px;
 }
 
 .logo {
@@ -88,7 +115,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .board-box {

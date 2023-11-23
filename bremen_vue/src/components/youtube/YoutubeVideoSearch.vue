@@ -14,7 +14,7 @@ const keyword = ref('')
 const store = useYoutubeStore()
 
 const search = function() {
-    store.youtubeSearch("운동경기 하이라이트")
+    store.youtubeSearch("경기 하이라이트")
 }
 </script>
 
