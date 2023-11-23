@@ -12,8 +12,8 @@
         <ul class="navbar-nav">
           <router-link class="nav-link" :to="{ name: 'category' }">커뮤니티</router-link>
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">동호회</router-link>
-          <router-link class="nav-link" :to="{ name: 'tradecategory' }">경기영상</router-link>
-          <router-link class="nav-link" :to="{ name: 'groupcategory' }">중고거래</router-link>
+          <router-link class="nav-link" :to="{ name: 'youtube' }">하이라이트</router-link>
+          <router-link class="nav-link" :to="{ name: 'tradecategory' }">중고거래</router-link>
         </ul>
         
           <ul class="navbar-nav">
@@ -22,10 +22,11 @@
             </li>
             <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
                 :to="{ name: 'signup' }">회원가입</router-link></li>
+            <li v-if="loginStatus" class="nav-item"><div class="nav-link"
+                ><img src="../assets/profile.png" id="profile">{{store.loginUserId}}님</div></li>
             <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
                 :to="{ name: 'home' }">로그아웃</router-link></li>
-          </ul>
-        
+          </ul> 
       </div>
     </div>
   </nav>
@@ -62,6 +63,10 @@ const logout = function () {
 <style scoped>
 .navbar {
   background-color: rgb(20, 20, 20);
+}
+
+#profile {
+  height: 30px;
 }
 
 #navbarorigin {

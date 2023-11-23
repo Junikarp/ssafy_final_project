@@ -115,6 +115,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router'
 import { useBoardStore } from '@/stores/board'
+import { useUserStore } from '@/stores/user'
 import NavHeader from '../NavHeader.vue';
 
 
@@ -126,6 +127,7 @@ const router = useRouter();
 const toggle = ref(false);
 const edit = ref({});
 const store = useBoardStore();
+const userStore = useUserStore();
 
 
 
@@ -174,7 +176,7 @@ const addReview = function (id) {
 
   const newReview = {
     reviewContent: newReviewContent.value,
-    reviewWriter: "ssafy",  // 또는 다른 방식으로 작성자 정보를 가져와야 함
+    reviewWriter: userStore.loginUserId,  // 또는 다른 방식으로 작성자 정보를 가져와야 함
     reviewId: '',  // 랜덤하게 또는 고유한 방식으로 아이디 생성
     postId: postId
   };

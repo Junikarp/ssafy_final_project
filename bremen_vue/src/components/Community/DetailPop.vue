@@ -1,7 +1,7 @@
 <template>
   <NavHeader></NavHeader>
   <tr>
-    <template v-if="dynamicProps.boardType === 'humor'">
+    <template v-if="dynamicProps.boardLike > 9">
       <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn()">
         <div v-if="!toggle" class="textbox">
           <div class="simple-head">
