@@ -1,13 +1,13 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#page-top"><img src="../../assets/logo_white.png">BREMEN</a>
+      <a class="navbar-brand"><img src="../../assets/logo_white.png">BREMEN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars ms-1"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#services">커뮤니티</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">커뮤니티</a></li>
@@ -31,6 +31,8 @@
 </script>
 
 <style scoped>
-
+.navbar {
+  background-color: rgb(20, 20, 20);
+}
 
 </style>

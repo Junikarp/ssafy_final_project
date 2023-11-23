@@ -47,7 +47,7 @@ const router = useRouter();
 
 onMounted(() => {
    store.getGroup(route.params.id);
-   axios.put(`http://localhost:8080/groupapi/group/${store.group.groupId}`)
+   axios.put(`http://localhost:8080/groupapi/group/${route.params.id}`)
    // 카카오 맵 초기화
    loadKakaoMap();
 });
