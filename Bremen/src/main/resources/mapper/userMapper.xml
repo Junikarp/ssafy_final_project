@@ -20,4 +20,15 @@
 		WHERE userId = #{userId}
 	</select>
 	
+	<insert id="insertGroupUser" parameterType="GroupUser">
+		INSERT INTO groupUser (groupUserGroupId, GroupUserUserId)
+		VALUES (#{groupUserGroupId}, #{GroupUserUserId})
+	</insert>
+	
+	<select id="selectUsersByGroupId" parameterType="int" resultType="User">
+		SELECT u.*
+        FROM user u
+        JOIN groupUser gu ON u.userId = gu.groupUserUserId
+        WHERE gu.groupUserGroupId = #{groupId};
+	</select>
 </mapper>

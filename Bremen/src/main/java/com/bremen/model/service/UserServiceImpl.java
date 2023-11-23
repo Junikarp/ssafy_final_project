@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bremen.model.dao.UserDao;
+import com.bremen.model.dto.GroupUser;
 import com.bremen.model.dto.User;
 
 @Service
@@ -32,6 +33,16 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> friendsAll(String id) {
 		return dao.friendsAll(id);
+	}
+
+	@Override
+	public List<User> selectUsersByGroupId(int groupId) {
+		return dao.selectUsersByGroupId(groupId);
+	}
+
+	@Override
+	public int insertGroupUser(GroupUser groupUser) {
+		return dao.insertGroupUser(groupUser);
 	}
 	
 	
