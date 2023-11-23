@@ -126,7 +126,7 @@ const initializeMap = () => {
 }
 
 .profile-img {
-   background-image: url('../../assets/group/profile.png');
+   background-image: url('../../assets/profile.png');
    background-size: cover;
    height: 50px;
    width: 50px;

@@ -34,7 +34,7 @@
     </div>
     <table class="board-table">
       <tbody>
-        <DetailHumor v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem"></DetailHumor>
+        <DetailHumor v-for="boardItem in store.boardList" :key="boardItem.boardId" :dynamic-props="boardItem" data-aos="fade-up" data-aos-duration="1000"></DetailHumor>
       </tbody>
     </table>
 </template>

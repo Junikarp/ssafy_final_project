@@ -78,7 +78,6 @@ hr {
   margin-top: 100px;
   padding-left: 30px;
   padding-right: 30px;
-
 }
 
 .container {
@@ -86,8 +85,6 @@ hr {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-
-
 }
 
 .board-box {
@@ -102,7 +99,7 @@ hr {
 }
 
 .profile-img {
-  background-image: url(../../assets/group/profile.png);
+  background-image: url('../../assets/profile.png');
   background-size: cover;
   width: 50px;
   height: 50px;
