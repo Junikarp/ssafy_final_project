@@ -64,10 +64,15 @@
               <button @click.stop="addReview(dynamicProps.boardId)" class="review-createbutton"></button>
             </div>
             <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
-              <div class="review-writer">
-                <img src="../../assets/profile.png" class="review-profile-img">
-                {{ comm.reviewWriter }}
-              </div>
+              <div class="review-top">
+                
+                <div class="review-writer">
+                  <img src="../../assets/profile.png" class="review-profile-img">
+                  {{ comm.reviewWriter }}
+                </div>
+                <button class="ud-button1" @click.stop="deleteReview(dynamicProps.boardId)"><img
+                  src="../../assets/trash2.png" id="crud-img"></button>
+                </div>
               <div class="review-content">
                 {{ comm.reviewContent }}
               </div>
@@ -303,6 +308,7 @@ const updateBoard = function () {
   background-color: white;
   border: 0;
   border-radius: 10px;
+  
 }
 
 
@@ -504,5 +510,9 @@ const updateBoard = function () {
 .review-content {
   margin-left: 30px;
   color: #212529BF;
+}
+.review-top{
+  display: flex;
+  justify-content: space-between;
 }
 </style>
