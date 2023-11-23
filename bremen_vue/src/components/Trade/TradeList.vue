@@ -1,7 +1,7 @@
 <template>
+  <NavHeader></NavHeader>
   <section class="notice">
 
-    <div class="group-img"></div>
     <div class="main-text" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
     <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">쓰지않는 물건 서로 판다 윈윈</div>
 
@@ -13,6 +13,9 @@
         <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" type="button" @click="search">
       </div>
       <div class="container">
+        <router-link :to="{ name: 'groupCreate'}" type="button" class="card">
+          <img src="../../assets/plus.png" id="create-board-img">
+        </router-link>
         <router-link class="board-box" :to="{ name: 'tradeDetail', params: { id: tradeItem.tradeId } }"
           v-for="tradeItem in store.tradeList" :key="tradeItem.tradeId">
           <div class="box-item">
@@ -25,7 +28,6 @@
           </div>
         </router-link>
       </div>
-      <router-link :to="{ name: 'tradeCreate' }">글 작성</router-link>
     </div>
   </section>
 </template>
@@ -35,6 +37,7 @@ import { onMounted,ref } from 'vue';
 import { useTradeStore } from '../../stores/trade';
 import { useRoute } from 'vue-router'
 import axios from 'axios';
+import NavHeader from '../NavHeader.vue';
 
 const store = useTradeStore();
 const route = useRoute();
@@ -56,6 +59,26 @@ onMounted(() => {
   
   
 <style scoped>
+
+#create-board-img {
+  width: 70px;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  width: 87%;
+  height: 150px;
+}
+
+.card:hover {
+  background-color: rgb(156, 162, 162);
+}
+
 .group-img {
   background-image: url("../../assets/community");
   height: 600px;
@@ -88,9 +111,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-
-
+  justify-content: center;
 }
 
 .board-box {

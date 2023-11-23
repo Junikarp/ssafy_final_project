@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import CommunityView from '../components/Community/CommunityView.vue'
 import BoardCategoryView from '../components/Community/BoardCategoryView.vue'
 import GroupCategoryView from '../components/group/GroupCategoryView.vue'
+import TradeCategoryView from '../components/Trade/TradeCategoryView.vue'
 
 
 import BoardUpdate from '../components/Community/BoardUpdate.vue'
@@ -70,12 +71,7 @@ const router = createRouter({
       name: 'category',
       component: BoardCategoryView,
     },
-    {
-      path: '/groupcategory',
-      name: 'groupcategory',
-      component: GroupCategoryView,
-    }
-    ,
+    
     
     {
       path: "/board",
@@ -139,7 +135,18 @@ const router = createRouter({
       path: '/youtube',
       name: 'youtube',
       component: YoutubeTest,
+    },
+    {
+      path: '/tradecategory',
+      name: 'tradecategory',
+      component: TradeCategoryView,
+    },
+    {
+      path: '/groupcategory',
+      name: 'groupcategory',
+      component: GroupCategoryView,
     }
+    
   ]
 })
 
