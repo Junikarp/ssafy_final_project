@@ -54,6 +54,14 @@
             </div>
             
           </div>
+<<<<<<< HEAD
+          <div>
+            <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop></textarea>
+            <button @click.stop="addReview(dynamicProps.boardId)">리뷰 등록</button>
+          </div>
+          <hr>
+=======
+>>>>>>> 70bedc2ec5ebde7846ac2b5d27738594fc0dad9a
           <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
             {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
           </div>
@@ -126,6 +134,26 @@ const toggleOn = function () {
 }
 
 
+const newReviewContent = ref('');
+
+const addReview = function (id) {
+  const postId = id;  // 적절한 postId 값을 가져와야 함
+
+  const newReview = {
+    reviewContent: newReviewContent.value,
+    reviewWriter: "ssafy",  // 또는 다른 방식으로 작성자 정보를 가져와야 함
+    reviewId: '',  // 랜덤하게 또는 고유한 방식으로 아이디 생성
+    postId: postId
+  };
+
+  axios.post(`http://localhost:8080/api/review`, newReview)
+    .then(() => {
+      // router.push({ name: "Detail"})
+    })
+    .catch((error) => {
+      console.error('Error adding review:', error);
+    });
+};
 
 const deleteBoard = function (id) {
   axios.delete(`http://localhost:8080/api/board/${id}`)

@@ -51,19 +51,22 @@ const ustore = useUserStore();
 
 const board = ref({
   boardTitle: '',
-  boardWriter: ustore.loginUserId,
+  boardWriter: '',
   boardCategory: route.params.category,
   boardContent: '', 
   boardType: 'free'
 })
 
 const createBoard = function () {
+  console.log(ustore.loginUserId)
+  board.value.boardWriter = ustore.loginUserId;
   store.createBoard(board.value)
 }
 
 onMounted(() => {
   store.getBoardList(route.params.category);
 });
+
 
 </script>
 

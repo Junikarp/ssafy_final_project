@@ -3,7 +3,6 @@ package com.bremen.model.dao;
 import java.util.List;
 
 import com.bremen.model.dto.Trade;
-import com.ssafy.ws.model.dto.Movie;
 
 public interface TradeDao {
 		// 전체 목록
