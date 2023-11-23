@@ -14,7 +14,7 @@
             <RouterLink to="/board/badminton"><button class="button-color"><img src="../../assets/category/baseball.png"
                         class="button-img"><span class="button-text">야구</span></button></RouterLink>
 
-            <RouterLink to="/board/footVolleyBall"><button class="button-color"><img
+            <RouterLink to="/board/basketball"><button class="button-color"><img
                         src="../../assets/category/basketball.png" class="button-img"><span
                         class="button-text">농구</span></button></RouterLink>
 
