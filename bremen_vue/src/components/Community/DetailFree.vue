@@ -49,6 +49,10 @@
               <button class="btn" @click.stop="deleteBoard(dynamicProps.boardId)">삭제</button>
             </div>
           </div>
+          <div>
+            <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요"></textarea>
+            <button @click="addReview">리뷰 등록</button>
+          </div>
           <hr>
           <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
             {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
@@ -141,6 +145,27 @@ const updateBoard = function () {
       console.log(err);
     });
 }
+
+const newReviewContent = ref('');
+
+const addReview = function () {
+  const postId = dynamicProps.postId;  // 적절한 postId 값을 가져와야 함
+
+  const newReview = {
+    reviewContent: newReviewContent.value,
+    reviewWriter: ustore.loginUserId,  // 또는 다른 방식으로 작성자 정보를 가져와야 함
+    reviewId: generateReviewId(),  // 랜덤하게 또는 고유한 방식으로 아이디 생성
+    postId: postId
+  };
+
+  axios.post(`http://localhost:8080/api/review`, newReview)
+    .then(() => {
+      router.push({ name: "Detail"})
+    })
+    .catch((error) => {
+      console.error('Error adding review:', error);
+    });
+};
 
 </script>
 
@@ -310,10 +335,11 @@ const updateBoard = function () {
   font-weight: 400;
 }
 
-.simple-head{
+.simple-head {
   display: flex;
   align-items: center;
 }
+
 .simple-profile-img {
   background-image: url(../../assets/group/profile.png);
   background-size: cover;
@@ -321,6 +347,7 @@ const updateBoard = function () {
   height: 30px;
   margin-right: 15px;
 }
+
 .detail-profile-img {
   background-image: url(../../assets/group/profile.png);
   background-size: cover;
