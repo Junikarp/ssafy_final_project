@@ -70,9 +70,9 @@
         <div class="info-img3" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom"></div>
         <div class="text-center" data-aos="fade-down" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
           <h2 class="info-heading">한치 앞도 모르는 승부의 세계</h2>
-          <h3 class="info-bottom">정확한 예측을 통해 짜릿한 순간 함께한다.</h3>
+          <h3 class="info-bottom">다양한 스포츠의 최고의 순간들을 함께 즐기세요.</h3>
           <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
-              승부예측</router-link> </button>
+              하이라이트</router-link> </button>
         </div>
       </div>
     </section>
