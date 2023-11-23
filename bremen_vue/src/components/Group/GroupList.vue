@@ -4,8 +4,9 @@
     <div class="group-img"></div>
     <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
                 style="text-decoration: none; color: black;">BREMEN</router-link></div>
-    <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
+    <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">같은 지역에 있는 사람들과 함께할 수 있어요</div>
 
+    <router-link :to="{ name: 'groupCreate'}" type="button" class="create-button" :class="{ 'toggle': toggle }">asdfadsf</router-link>
 
     <!-- board list area -->
     <div id="board-list">
@@ -27,7 +28,6 @@
           <hr>
         </router-link>
       </div>
-      <router-link :to="{ name: 'groupCreate'}">글 작성</router-link>
     </div>
   </section>
 </template>
@@ -158,5 +158,18 @@ hr {
   font-size: 15px;
   font-weight: 600;
   color: #212529BF;
+}
+.create-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  width: 800px;
+  height: 180px;
+  transition: 0.2s;
+  
 }
 </style>
