@@ -23,7 +23,7 @@
             <li v-if="!loginStatus" class="nav-item"><router-link class="nav-link"
                 :to="{ name: 'signup' }">회원가입</router-link></li>
             <li v-if="loginStatus" class="nav-item"><div class="nav-link"
-                ><img src="../assets/profile.png" id="profile">{{store.loginUserId}}님</div></li>
+                >{{store.loginUserId}}님</div></li>
             <li v-if="loginStatus" class="nav-item" @click="logout"><router-link class="nav-link"
                 :to="{ name: 'home' }">로그아웃</router-link></li>
           </ul> 
