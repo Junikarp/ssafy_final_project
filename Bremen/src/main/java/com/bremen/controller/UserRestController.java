@@ -13,10 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bremen.model.dto.GroupUser;
 import com.bremen.model.dto.User;
 import com.bremen.model.service.UserService;
 import com.bremen.model.util.JwtUtil;
@@ -102,5 +104,16 @@ public class UserRestController {
 
 	}
 
-	// 친구추가
+	@GetMapping("/groupuser/{groupId}")
+	@ApiOperation(value = "유저 조회 ")
+	public ResponseEntity<?> userList(@PathVariable int groupId) {
+		List<User> list = userService.selectUsersByGroupId(groupId);
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+
+	@PostMapping("/groupuser")
+	public ResponseEntity<?> insertGroupUser(@RequestBody GroupUser groupUser) {
+		int result = userService.insertGroupUser(groupUser);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
 }
