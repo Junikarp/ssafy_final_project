@@ -1,29 +1,36 @@
 <template>
-    <div>
+    <div class="group-create">
         <!-- 맵을 표시할 컨테이너 -->
         <div id="map" style="width: 100%; height: 400px;"></div>
 
         <!-- 입력 폼 -->
-        <form @submit.prevent="handleSubmit">
-            <label for="groupTitle">제목:</label>
-            <input v-model="formData.groupTitle" type="text" id="groupTitle" required>
+        <form @submit.prevent="handleSubmit" class="create-form">
+            <div>
+                <div class="group-text">제목</div>
+                <input v-model="formData.groupTitle" type="text" required class="create-text">
+            </div>
 
-            <label for="groupWriter">작성자:</label>
-            <input v-model="formData.groupWriter" type="text" id="groupWriter" required>
+            <div>
+                <div class="group-text">내용</div>
+                <textarea v-model="formData.groupContent" :rows="calculateTextareaRows(formData.groupContent)" required class="create-text"></textarea>
+            </div>
 
-            <label for="groupContent">글 내용:</label>
-            <textarea v-model="formData.groupContent" id="groupContent" required></textarea>
+            <div>
+                <div class="group-text">모집 인원</div>
+                <input v-model="formData.groupMaxPeople" type="number" required class="create-text">
+            </div>
 
-            <label for="groupMaxPeople">모집 인원:</label>
-            <input v-model="formData.groupMaxPeople" type="number" id="groupMaxPeople" required>
+            <div>
+                <div class="group-text">날짜</div>
+                <input v-model="formData.groupDate" type="date" required class="create-text">
+            </div>
 
-            <label for="groupDate">날짜:</label>    
-            <input v-model="formData.groupDate" type="date" id="groupDate" required>
+            <div>
+                <div class="group-text">시간</div>
+                <input v-model="formData.groupTime" type="time" required class="create-text">
+            </div>
 
-            <label for="groupTime">시간:</label>
-            <input v-model="formData.groupTime" type="time" id="groupTime" required>
-
-            <button type="submit">글 작성</button>
+            <button type="submit" class="create-button">등록</button>
         </form>
     </div>
 </template>
@@ -31,24 +38,27 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
+import { useUserStore } from '../../stores/user';
 import { useRoute } from 'vue-router'
 
 const store = useGroupStore();
 // 맵, 마커, 위치, 폼 데이터 등을 담을 변수들
 let map = null;
 const route = useRoute();
+const userStore = useUserStore();
+
 let marker = null;
 let currentPosition = null;
 const formData = ref({
     groupTitle: '',
-    groupWriter: '',
+    groupWriter: userStore.loginUserId,
     groupContent: '',
     groupMaxPeople: 0,
     groupCategory: route.params.category,
     groupDate: '',
     groupTime: '',
-    positionX:'',
-    positionY:''
+    positionX: '',
+    positionY: ''
 });
 
 // 카카오 맵 스크립트 로딩 함수
@@ -127,18 +137,63 @@ onMounted(async () => {
 const handleSubmit = () => {
     // 마커의 현재 위치 정보를 폼 데이터에 추가
     formData.value.positionX = currentPosition.lat,
-    formData.value.positionY = currentPosition.lng,
+        formData.value.positionY = currentPosition.lng,
 
-    store.createGroup(formData.value);
+        store.createGroup(formData.value);
     // TODO: 입력된 데이터를 서버로 전송하는 로직 추가
     console.log('Form submitted:', formData.value);
+};
+
+const calculateTextareaRows = (content) => {
+    const rowCount = Math.max(content.split('\n').length, 3); // 최소 1행
+    return rowCount;
 };
 </script>
   
 <style scoped>
+.group-create {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
 #map {
     width: 100%;
     height: 400px;
+    margin-bottom: 40px;
 }
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+}
+.group-text{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.create-text{
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    justify-content: center;
+    align-items: centers;
+    border-bottom: 1px solid #b9b7b7;
+    margin-bottom: 10px;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #212529BF;
+}
+.create-button{
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+}
+
 </style>
   
