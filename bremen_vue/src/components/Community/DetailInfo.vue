@@ -24,15 +24,16 @@
             </div>
             <hr>
             <div class="detail-writer">
-              <div>
+              <div class="writer">
                 <div class="detail-profile-img"></div>
                 {{ dynamicProps.boardWriter }}
               </div>
 
               <div class="ud-button">
                 <button class="ud-button1" data-bs-toggle="modal" data-bs-target="#aa" data-bs-whatever="@mdo"
-                @click.stop="up(dynamicProps.boardId)"><img src="../../assets/update.png" id="crud-img"></button>
-                <button class="ud-button1" @click.stop="deleteBoard(dynamicProps.boardId)"><img src="../../assets/trash2.png" id="crud-img"></button>
+                  @click.stop="up(dynamicProps.boardId)"><img src="../../assets/update.png" id="crud-img"></button>
+                <button class="ud-button1" @click.stop="deleteBoard(dynamicProps.boardId)"><img
+                    src="../../assets/trash2.png" id="crud-img"></button>
               </div>
 
             </div>
@@ -52,24 +53,28 @@
                 <img src="../../assets/boomdown.png" id="boomdown-img">
               </button>
             </div>
-            
           </div>
-<<<<<<< HEAD
-          <div>
-            <textarea v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop></textarea>
-            <button @click.stop="addReview(dynamicProps.boardId)">리뷰 등록</button>
-          </div>
+
           <hr>
-=======
->>>>>>> 70bedc2ec5ebde7846ac2b5d27738594fc0dad9a
-          <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
-            {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
-          </div>
-          <div>
-            <hr>
-            <br>
-            <br>
-            
+          <div class="review-box">
+            <div class="review-create">
+              <input type="text" v-model="newReviewContent" placeholder="리뷰를 입력하세요" @click.stop class="review-textbox">
+              <button @click.stop="addReview(dynamicProps.boardId)" class="review-createbutton"></button>
+            </div>
+            <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
+              <div class="review-writer">
+                <img src="../../assets/profile.png" class="review-profile-img">
+                {{ comm.reviewWriter }}
+              </div>
+              <div class="review-content">
+                {{ comm.reviewContent }}
+              </div>
+              <hr>
+            </div>
+            <div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -197,16 +202,15 @@ const updateBoard = function () {
 
 .button-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .boomup-btn {
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 15%;
-  position: absolute;
-  right: 43%;
   bottom: 10px;
 }
 
@@ -247,11 +251,12 @@ const updateBoard = function () {
   gap: 20px;
 }
 
-.ud-button{
+.ud-button {
   display: flex;
   gap: 10px;
 }
-.ud-button1{
+
+.ud-button1 {
   background-color: white;
   border: 0;
   border-radius: 10px;
@@ -346,23 +351,30 @@ const updateBoard = function () {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-size: 20px;
+}
+
+.writer {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
   font-weight: 400;
 }
 
-.simple-head{
+.simple-head {
   display: flex;
   align-items: center;
 }
+
 .simple-profile-img {
-  background-image: url(../../assets/group/profile.png);
+  background-image: url('../../assets/profile.png');
   background-size: cover;
   width: 30px;
   height: 30px;
   margin-right: 15px;
 }
+
 .detail-profile-img {
-  background-image: url(../../assets/group/profile.png);
+  background-image: url('../../assets/profile.png');
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -388,9 +400,66 @@ const updateBoard = function () {
 
 }
 
-#crud-img{
+#crud-img {
   height: 30px;
   width: 30px;
   padding: 0;
+}
+
+.review-box {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.review-create {
+  display: flex;
+  justify-content: center;
+  
+  
+  gap: 10px;
+
+}
+
+.review-textbox { 
+  width: 90%;
+  border: 0;
+  padding-left: 20px;
+  border-bottom: 1px solid #d0cece;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 50px;
+  
+
+}
+
+.review-createbutton {
+  background-color: white;
+  background-image: url('../../assets/plus.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 8px;
+  height: 35px;
+  width: 35px;
+}
+
+.review-profile-img {
+  background-image: url('../../assets/profile.png');
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin-left: -30px;
+  margin-right: 10px;
+}
+
+.review-writer {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.review-content {
+  margin-left: 30px;
+  color: #212529BF;
 }
 </style>

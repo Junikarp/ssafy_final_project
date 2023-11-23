@@ -99,7 +99,7 @@ hr {
 }
 
 .profile-img {
-  background-image: url(../../assets/group/profile.png);
+  background-image: url('../../assets/profile.png');
   background-size: cover;
   width: 50px;
   height: 50px;
