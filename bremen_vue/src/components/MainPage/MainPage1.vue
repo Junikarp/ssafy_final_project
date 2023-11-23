@@ -100,7 +100,6 @@ const loginStatus = computed(() => {
   return store.isAuthenticated
 })
 
-
 onMounted(() => {
   if (sessionStorage.getItem('access-token') == null) {
     store.isAuthenticated = false;

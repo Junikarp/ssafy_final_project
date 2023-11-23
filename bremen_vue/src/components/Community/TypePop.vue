@@ -8,16 +8,28 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
 import DetailPop from '../../components/Community/DetailPop.vue'
+import { onMounted, ref, computed } from 'vue';
 import {useUserStore} from '@/stores/user'
 import NavHeader from '../NavHeader.vue';
 
 const store = useBoardStore();
 const ustore = useUserStore();
 const route = useRoute();
+
+const loginStatus = computed(() => {
+  return ustore.isAuthenticated
+})
+
+onMounted(() => {
+  if (sessionStorage.getItem('access-token') == null) {
+    ustore.isAuthenticated = false;
+  } else {
+    ustore.isAuthenticated = true;
+  }
+})
 
 onMounted(() => {
 // 게시글 목록을 가져오는 메서드 호출

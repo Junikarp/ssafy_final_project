@@ -1,6 +1,6 @@
 <template>
   <NavHeader></NavHeader>
-  <div type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+  <div v-if="loginStatus" type="button" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
       <img src="../../assets/plus.png" id="create-board-img">
     </div>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,16 +41,29 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
 import DetailFree from '@/components/Community/DetailFree.vue'
+import { onMounted, ref, computed } from 'vue';
 import {useUserStore} from '@/stores/user'
 import NavHeader from '../NavHeader.vue';
 
 const store = useBoardStore();
 const ustore = useUserStore();
 const route = useRoute();
+
+const loginStatus = computed(() => {
+  return ustore.isAuthenticated
+})
+
+onMounted(() => {
+  if (sessionStorage.getItem('access-token') == null) {
+    ustore.isAuthenticated = false;
+  } else {
+    ustore.isAuthenticated = true;
+  }
+})
+
 const createBoard = function () {
   store.createBoard(board.value)
 }

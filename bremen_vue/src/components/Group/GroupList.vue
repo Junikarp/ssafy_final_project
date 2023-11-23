@@ -11,9 +11,9 @@
     <!-- board list area -->
     <div id="board-list">
       <div class="container">
-        <router-link :to="{ name: 'groupCreate'}" type="button" class="card">
-          <img src="../../assets/plus.png" id="create-board-img">
-        </router-link>
+          <router-link :to="{ name: 'groupCreate'}" type="button" class="card" v-if="loginStatus" data-aos="fade-up" data-aos-duration="5000">
+            <img src="../../assets/plus.png" id="create-board-img">
+          </router-link>
         <router-link class="board-box"
           v-for="groupItem in store.groupList" :key="groupItem.groupId" :to="{ name: 'groupDetail', params: { id: groupItem.groupId }}" data-aos="fade-up" data-aos-duration="5000">
           <div class="box-item">
@@ -36,15 +36,28 @@
 </template>
   
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useGroupStore } from '../../stores/group';
+import { useUserStore } from '../../stores/user';
 import { useRoute } from 'vue-router'
 import NavHeader from '../NavHeader.vue';
 
 const store = useGroupStore();
 const route = useRoute();
+const ustore = useUserStore();
+
+const loginStatus = computed(() => {
+  return ustore.isAuthenticated
+})
+onMounted(() => {
+})
 
 onMounted(() => {
+  if (sessionStorage.getItem('access-token') == null) {
+    ustore.isAuthenticated = false;
+  } else {
+    ustore.isAuthenticated = true;
+  }
   store.getGroupList(route.params.category);
   console.log(route.params.category)
 });
