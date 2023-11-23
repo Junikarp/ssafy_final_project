@@ -43,11 +43,15 @@
 import { onMounted, ref } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
+import DetailFree from '@/components/Community/DetailFree.vue'
 import {useUserStore} from '@/stores/user'
 
-const route = useRoute();
 const store = useBoardStore();
 const ustore = useUserStore();
+const route = useRoute();
+const createBoard = function () {
+  store.createBoard(board.value)
+}
 
 const board = ref({
   boardTitle: '',
@@ -57,16 +61,11 @@ const board = ref({
   boardType: 'free'
 })
 
-const createBoard = function () {
-  console.log(ustore.loginUserId)
-  board.value.boardWriter = ustore.loginUserId;
-  store.createBoard(board.value)
-}
 
 onMounted(() => {
-  store.getBoardList(route.params.category);
+// 게시글 목록을 가져오는 메서드 호출
+store.getBoardList(route.params.category);
 });
-
 
 </script>
 
