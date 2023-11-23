@@ -1,7 +1,7 @@
 <template>
   <li @click="clickVideo">
-    <img :src="video.snippet.thumbnails.default.url" >
-    <span>{{video.snippet.title}}</span>
+    <img :src="video.snippet.thumbnails.default.url">
+    <span>{{ video.snippet.title }}</span>
   </li>
 </template>
 
@@ -18,8 +18,8 @@ const props = defineProps({
 
 
 
-const clickVideo = function() {
-    store.clickVideo(props.video)
+const clickVideo = function () {
+  store.clickVideo(props.video)
 }
 
 

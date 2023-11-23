@@ -7,17 +7,15 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
-import {useYoutubeStore} from '@/stores/youtube'
+import { ref } from 'vue'
+import { useYoutubeStore } from '@/stores/youtube'
 const keyword = ref('')
 
 const store = useYoutubeStore()
 
-const search = function() {
+const search = function () {
     store.youtubeSearch("경기 하이라이트")
 }
 </script>
 
-<style  scoped>
-
-</style>
+<style  scoped></style>
