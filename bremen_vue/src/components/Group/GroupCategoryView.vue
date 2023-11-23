@@ -1,4 +1,5 @@
 <template>
+    <NavHeader></NavHeader>
     <div>
         <div class="category-image"></div>
         <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
@@ -65,6 +66,7 @@
 </template>
 
 <script setup>
+import NavHeader from '../NavHeader.vue';
 
 </script>
 

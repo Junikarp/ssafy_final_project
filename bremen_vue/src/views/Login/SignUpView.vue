@@ -1,4 +1,5 @@
 <template>
+    <NavHeader></NavHeader>
     <section class="body">
         <div class="container">
             <div class="login-box">
@@ -42,6 +43,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
+import NavHeader from '../../components/NavHeader.vue';
 
 const store = useUserStore()
 const user = ref({

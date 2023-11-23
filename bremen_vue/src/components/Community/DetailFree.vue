@@ -1,4 +1,5 @@
 <template>
+  <NavHeader></NavHeader>
   <tr>
     <template v-if="dynamicProps.boardType === 'free'">
       <div type="button" class="card" :class="{ 'toggle': toggle }" @click="toggleOn(dynamicProps.boardId)">
@@ -114,6 +115,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router'
 import { useBoardStore } from '@/stores/board'
+import NavHeader from '../NavHeader.vue';
 
 
 defineProps({
