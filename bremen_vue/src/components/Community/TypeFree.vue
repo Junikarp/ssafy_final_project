@@ -51,7 +51,7 @@ const ustore = useUserStore();
 
 const board = ref({
   boardTitle: '',
-  boardWriter: '',
+  boardWriter: ustore.loginUserId,
   boardCategory: route.params.category,
   boardContent: '', 
   boardType: 'free'

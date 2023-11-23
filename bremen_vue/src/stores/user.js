@@ -33,7 +33,6 @@ export const useUserStore = defineStore('user', () => {
             id = JSON.parse(id)
             console.log(id['id'])
             loginUserId.value = id['id']
-
             router.push({ name: 'home' })
         }).catch(()=>{
             isAuthenticated.value = false;
@@ -66,5 +65,10 @@ export const useUserStore = defineStore('user', () => {
 
 
 
-    return { User, login, signUp, isAuthenticated, logout, loginUserId}
-})
+    return { User, login, signUp, isAuthenticated, logout, loginUserId}},
+    {
+        persist: {
+            enabled: true,
+            key: 'userStore',
+        },
+    })
