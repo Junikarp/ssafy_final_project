@@ -1,4 +1,5 @@
 <template>
+  <NavHeader></NavHeader>
   <div id="board-list">
     <div id="community-image">
     </div>
@@ -23,6 +24,7 @@
 import { onMounted } from 'vue';
 import { useBoardStore } from '@/stores/board';
 import { useRoute } from 'vue-router'
+import NavHeader from '../NavHeader.vue';
 
 const store = useBoardStore();
 const route = useRoute();

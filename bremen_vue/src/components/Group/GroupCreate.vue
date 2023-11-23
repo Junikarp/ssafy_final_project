@@ -1,4 +1,5 @@
 <template>
+    <NavHeader></NavHeader>
     <div class="group-create">
         <!-- 맵을 표시할 컨테이너 -->
         <div id="map" style="width: 100%; height: 400px;"></div>
@@ -39,6 +40,7 @@ import { ref, onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
 import { useUserStore } from '../../stores/user';
 import { useRoute } from 'vue-router'
+import NavHeader from '../NavHeader.vue';
 
 const store = useGroupStore();
 // 맵, 마커, 위치, 폼 데이터 등을 담을 변수들

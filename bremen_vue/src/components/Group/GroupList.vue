@@ -1,10 +1,12 @@
 <template>
+  <NavHeader></NavHeader>
   <section class="notice">
 
     <div class="group-img"></div>
     <div class="logo" data-aos="fade-up" data-aos-duration="5000"><router-link :to="{ name: 'home' }"
                 style="text-decoration: none; color: black;">BREMEN</router-link></div>
     <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">같은 지역에 있는 사람들과 함께할 수 있어요</div>
+
 
     <!-- board list area -->
     <div id="board-list">
@@ -37,6 +39,7 @@
 import { onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
 import { useRoute } from 'vue-router'
+import NavHeader from '../NavHeader.vue';
 
 const store = useGroupStore();
 const route = useRoute();

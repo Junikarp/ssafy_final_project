@@ -1,4 +1,5 @@
 <template>
+    <NavHeader></NavHeader>
     <div>
         <h4>게시글 수정</h4>
         <fieldset>
@@ -28,6 +29,7 @@
 
 <script setup>
 import { useBoardStore } from "@/stores/board";
+import NavHeader from '../NavHeader.vue';
 const store = useBoardStore();
 
 const updateBoard = function () {

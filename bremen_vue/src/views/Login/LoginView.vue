@@ -1,4 +1,5 @@
 <template>
+    <NavHeader></NavHeader>
     <section class="body">
         <div class="container">
             <div class="login-box">
@@ -39,6 +40,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useUserStore } from "@/stores/user";
+import NavHeader from '../../components/NavHeader.vue';
 
 const store = useUserStore();
 const user = ref({
@@ -56,6 +58,7 @@ const login = function () {
 </script>
 
 <style scoped>
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
 
 body {

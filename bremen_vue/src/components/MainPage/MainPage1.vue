@@ -98,10 +98,6 @@ const loginStatus = computed(() => {
   return store.isAuthenticated
 })
 
-const logout = function () {
-  sessionStorage.clear()
-  store.isAuthenticated = false;
-}
 
 onMounted(() => {
   if (sessionStorage.getItem('access-token') == null) {
@@ -111,6 +107,10 @@ onMounted(() => {
   }
 })
 
+const logout = function () {
+  sessionStorage.clear()
+  store.isAuthenticated = false;
+}
 
 
 window.addEventListener('DOMContentLoaded', event => {

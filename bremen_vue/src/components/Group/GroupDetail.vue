@@ -4,31 +4,34 @@
       <h4>{{ store.group.groupTitle }}</h4>
       <hr />
       <div class="detail-head">
-      <div class="detail-user">
-         <div class="profile-img"></div>
-         <div class="detail-writer">{{ store.group.groupWriter }}</div>
-      </div>
+         <div class="detail-user">
+            <div class="profile-img"></div>
+            <div class="detail-writer">{{ store.group.groupWriter }}</div>
+         </div>
          <div class="detail-button">
             <button @click="updateBoard" style="background-color: white; border: 0;">
-               <img src="../../assets/group/update.png" class="button-img" />
+               <img src="../../assets/update.png" class="button-img" />
             </button>
             <button @click="deleteGroup" style="background-color: white; border: 0;">
-               <img src="../../assets/group/trash2.png" class="button-img" />
+               <img src="../../assets/trash2.png" class="button-img" />
             </button>
          </div>
       </div>
-      <div>
+      <div class="map-container">
          <!-- 카카오 맵 코드 직접 작성 -->
-         <div id="map" style="width: 40%; height: 400px; border-radius:20px;"></div>
-      </div>
-      <div class="detail-content">{{ store.group.groupContent }}</div>
-      <div class="detail-recruit">
-         <div>현재 인원 : {{ store.group.groupCurrentPeople }}</div>
-         <div>모집 인원 : {{ store.group.groupMaxPeople }}</div>
+         <div id="map"></div>
+         <div class="detail-content">{{ store.group.groupContent }}</div>
+         <div class="detail-recruit">
+            <div class="detail-recruit2">
+               <div>현재 인원 : {{ store.group.groupCurrentPeople }}</div>
+               <div>모집 인원 : {{ store.group.groupMaxPeople }}</div>
+            </div>
+            <div>일정 : {{ store.group.groupDate }} {{ store.group.groupTime }}</div>
+         </div>
+         <button class="participate-button">참가하기</button>
       </div>
       <div class="detail-else">
          <div>조회수 : {{ store.group.groupViewCnt }}</div>
-         <div>일정 : {{ store.group.groupDate }} {{ store.group.groupTime }}</div>
       </div>
       <hr />
    </div>
@@ -122,7 +125,7 @@ const initializeMap = () => {
 .detail-user {
    display: flex;
    align-items: center;
-   gap:20px;
+   gap: 20px;
 }
 
 .profile-img {
@@ -149,14 +152,17 @@ const initializeMap = () => {
 }
 
 .detail-content {
+   margin-top: 40px;
    font-size: 25px;
    font-weight: 500;
    color: #212529BF;
    margin-bottom: 30px;
+   justify-content: left;
 }
 
 .detail-recruit {
    display: flex;
+   flex-direction: column;
    gap: 20px;
    font-size: 20px;
    font-weight: 500;
@@ -164,9 +170,39 @@ const initializeMap = () => {
    margin-bottom: 50px;
 }
 
+.detail-recruit2 {
+   display: flex;
+   gap: 20px;
+}
+
 .detail-else {
    display: flex;
+   flex-direction: row-reverse;
    gap: 40px;
-   margin-left: 600px;
-}</style>
+   margin-right: 20px;
+}
+
+.map-container {
+   margin-left: 50px;
+   margin-right: 50px;
+}
+
+#map {
+   width: 100%;
+   height: 400px;
+   border-radius: 20px;
+}
+.participate-button{
+   background-color: #E9ECEF;
+    color: #212529;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 12px 2rem;
+    display: inline-block;
+    
+}
+</style>
  
