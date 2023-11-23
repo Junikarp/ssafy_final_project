@@ -10,6 +10,7 @@
                 <input v-model="formData.groupTitle" type="text" required class="create-text">
             </div>
 
+
             <div>
                 <div class="group-text">내용</div>
                 <textarea v-model="formData.groupContent" :rows="calculateTextareaRows(formData.groupContent)" required class="create-text"></textarea>
@@ -40,12 +41,14 @@ import { ref, onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
 import { useUserStore } from '../../stores/user';
 import { useRoute } from 'vue-router'
+import {useUserStore} from '../../stores/user'
 
 const store = useGroupStore();
+const userStore = useUserStore();
 // 맵, 마커, 위치, 폼 데이터 등을 담을 변수들
 let map = null;
 const route = useRoute();
-const userStore = useUserStore();
+
 
 let marker = null;
 let currentPosition = null;

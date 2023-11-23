@@ -27,6 +27,8 @@ import TradeList from '../components/Trade/TradeList.vue'
 import TradeDetail from '../components/Trade/TradeDetail.vue'
 import TradeUpdate from '../components/Trade/TradeUpdate.vue'
 
+import YoutubeTest from '../components/youtube/YoutubeTest.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -133,6 +135,10 @@ const router = createRouter({
       path: '/select',
       name: 'mapComponent',
       component: MapComponent,
+    },{
+      path: '/youtube',
+      name: 'youtube',
+      component: YoutubeTest,
     }
   ]
 })
