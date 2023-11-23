@@ -81,7 +81,7 @@
         <div class="text-center" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
           <h2 class="info-heading">믿을 수 있는 중고거래</h2>
           <h3 class="info-bottom">직접 만나서 취미 생활중 필요한 물품을 거래하세요</h3>
-          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'category' }">
+          <button type="button" class="main-link"><router-link class="button-none" :to="{ name: 'tradecategory' }">
             중고거래</router-link> </button>
           </div>
           <div class="info-img4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine"></div>

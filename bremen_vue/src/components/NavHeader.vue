@@ -1,7 +1,7 @@
 <template>
   <nav id="navbarorigin" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#page-top"><img src="../assets/logo_white.png" class="logo">BREMEN</a>
+      <a class="navbar-brand" href="/"><img src="../assets/logo_white.png" class="logo">BREMEN</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
         <ul class="navbar-nav">
           <router-link class="nav-link" :to="{ name: 'category' }">커뮤니티</router-link>
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">동호회</router-link>
-          <router-link class="nav-link" :to="{ name: 'groupcategory' }">경기영상</router-link>
+          <router-link class="nav-link" :to="{ name: 'tradecategory' }">경기영상</router-link>
           <router-link class="nav-link" :to="{ name: 'groupcategory' }">중고거래</router-link>
         </ul>
         
