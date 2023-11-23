@@ -24,8 +24,17 @@
             </div>
             <hr>
             <div class="detail-writer">
-              <div class="detail-profile-img"></div>
-              {{ dynamicProps.boardWriter }}
+              <div>
+                <div class="detail-profile-img"></div>
+                {{ dynamicProps.boardWriter }}
+              </div>
+
+              <div class="ud-button">
+                <button class="ud-button1" data-bs-toggle="modal" data-bs-target="#aa" data-bs-whatever="@mdo"
+                @click.stop="up(dynamicProps.boardId)"><img src="../../assets/update.png" id="crud-img"></button>
+                <button class="ud-button1" @click.stop="deleteBoard(dynamicProps.boardId)"><img src="../../assets/trash2.png" id="crud-img"></button>
+              </div>
+
             </div>
             <div class="a">
               <img src="../../assets/main/space.jpeg" id="boardImg">
@@ -43,20 +52,16 @@
                 <img src="../../assets/boomdown.png" id="boomdown-img">
               </button>
             </div>
-            <div class="crud">
-              <button class="btn btn" data-bs-toggle="modal" data-bs-target="#aa" data-bs-whatever="@mdo"
-                @click.stop="up(dynamicProps.boardId)">수정</button>
-              <button class="btn" @click.stop="deleteBoard(dynamicProps.boardId)">삭제</button>
-            </div>
+            
           </div>
-          <hr>
           <div class="review-list" v-for="(comm, index) in dynamicProps.reviewList" :key="comm.reviewId">
             {{ index + 1 }} | {{ comm.reviewWriter }} | {{ comm.reviewContent }}
           </div>
           <div>
-            <br>
-            <br>
             <hr>
+            <br>
+            <br>
+            
           </div>
         </div>
       </div>
@@ -211,15 +216,19 @@ const updateBoard = function () {
   position: absolute;
   bottom: 10px;
   right: 10px;
+  gap: 20px;
 }
 
-.crud .btn {
-  font-weight: 550;
-  color: rgb(114, 112, 112);
-  width: 25%;
-  margin-left: 10px;
-  background-color: #E9ECEF;
+.ud-button{
+  display: flex;
+  gap: 10px;
 }
+.ud-button1{
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+}
+
 
 #main-text {
   font-weight: 800;
@@ -240,6 +249,7 @@ const updateBoard = function () {
   align-items: center;
   background-image: url("../../assets/community/123.png");
   height: 300px;
+
 }
 
 #board-list {
@@ -293,6 +303,7 @@ const updateBoard = function () {
 }
 
 .detail-btitle {
+  margin-left: 10px;
   font-weight: 700;
 }
 
@@ -306,6 +317,7 @@ const updateBoard = function () {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   font-size: 20px;
   font-weight: 400;
 }
@@ -346,4 +358,11 @@ const updateBoard = function () {
   font-weight: 500;
   color: #212529BF;
 
-}</style>
+}
+
+#crud-img{
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+</style>
