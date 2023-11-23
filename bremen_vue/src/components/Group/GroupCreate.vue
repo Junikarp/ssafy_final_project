@@ -8,9 +8,6 @@
             <label for="groupTitle">제목:</label>
             <input v-model="formData.groupTitle" type="text" id="groupTitle" required>
 
-            <label for="groupWriter">작성자:</label>
-            <input v-model="formData.groupWriter" type="text" id="groupWriter" required>
-
             <label for="groupContent">글 내용:</label>
             <textarea v-model="formData.groupContent" id="groupContent" required></textarea>
 
@@ -32,8 +29,10 @@
 import { ref, onMounted } from 'vue';
 import { useGroupStore } from '../../stores/group';
 import { useRoute } from 'vue-router'
+import {useUserStore} from '../../stores/user'
 
 const store = useGroupStore();
+const userStore = useUserStore();
 // 맵, 마커, 위치, 폼 데이터 등을 담을 변수들
 let map = null;
 const route = useRoute();
@@ -41,7 +40,7 @@ let marker = null;
 let currentPosition = null;
 const formData = ref({
     groupTitle: '',
-    groupWriter: '',
+    groupWriter: userStore.loginUserId,
     groupContent: '',
     groupMaxPeople: 0,
     groupCategory: route.params.category,
