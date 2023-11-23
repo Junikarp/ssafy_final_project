@@ -30,7 +30,7 @@ export const useTradeStore = defineStore('trade', () => {
       headers: {
         "Content-Type": "application/json"
       },
-      data: board
+      data: trade
     })
     .then(() => {
       window.location.reload()

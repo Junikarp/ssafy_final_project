@@ -9,6 +9,7 @@ public class Trade {
 	private String tradeDate;
 	private String tradePlace;
 	private int tradePrice;
+	private String tradeCategory;
 	
 	public int getTradeId() {
 		return tradeId;
@@ -57,5 +58,11 @@ public class Trade {
 	}
 	public void setTradePrice(int tradePrice) {
 		this.tradePrice = tradePrice;
+	}
+	public String getTradeCategory() {
+		return tradeCategory;
+	}
+	public void setTradeCategory(String tradeCategory) {
+		this.tradeCategory = tradeCategory;
 	}
 }

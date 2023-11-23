@@ -8,7 +8,7 @@ const REST_USER_API = `http://localhost:8080/userapi`
 export const useUserStore = defineStore('user', () => {
 
     // 아무데서나 가져다 쓸수있음 이제
-    const loginUserId = ref('')
+    const loginUserId = ref()
 
     const User = ref({})
 

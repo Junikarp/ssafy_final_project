@@ -21,12 +21,12 @@
                     </div>
                 </div>
                 <div class="create-input-box">
-                    <label for="writer"></label>
-                    <input type="text" id="writer" v-model="trade.tradeWriter" placeholder="writer">
+                    <label for="price"></label>
+                    <input id="price" cols="30" rows="10" v-model="trade.tradePrice" placeholder="희망가격">
                 </div>
                 <div class="create-input-box">
                     <label for="category"></label>
-                    <input id="category" cols="30" rows="10" readonly>
+                    <input id="category" cols="30" rows="10" v-model="trade.tradeCategory" readonly>
                 </div>
                 <div class="create-input-box">
                     <label for="content"></label>
@@ -90,10 +90,11 @@ const store = useTradeStore()
 const ustore = useUserStore()
 const trade = ref({
     tradeTitle: '',
-    tradeWriter: ustore.loginUserId,
+    tradeWriter: 'ssafy',
     tradeCategory: route.params.category,
     tradeContent: '',
-    tradePlace: ''
+    tradePlace: '',
+    tradePrice:''
 })
 
 const createTrade = function () {

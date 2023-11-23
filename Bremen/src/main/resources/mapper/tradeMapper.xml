@@ -8,7 +8,7 @@
 	<select id="selectAll" resultType="trade" parameterType="String">
 		SELECT *
 		FROM trade
-		WHERE tradePlace = #{tradePlace};
+		WHERE tradeCategory = #{tradeCategory};
 	</select>
 
 	<!-- 상세 조회 -->
@@ -21,9 +21,9 @@
 	<!-- 게시글 등록 디폴트랑 regdate 뺏음 -->
 	<insert id="insertTrade" parameterType="trade">
 		INSERT INTO trade
-		(tradeId, tradeTitle, tradeContent, tradeWriter, tradeDate, tradePrice, tradePlace)
-		VALUES (#{tradeId}, #{tradeTitle},#{tradeContent}, #{tradeWriter}, #{tradeDate}, #{tradePrice}, #{tradePlace})
-</insert>
+		(tradeId, tradeTitle, tradeContent, tradeWriter, tradeDate, tradePrice, tradePlace, tradeCategory)
+		VALUES (#{tradeId}, #{tradeTitle},#{tradeContent}, #{tradeWriter}, #{tradeDate}, #{tradePrice}, #{tradePlace}, #{tradeCategory})
+	</insert>
 	
 	<!-- 게시글 삭제  -->
 	<delete id="deleteTrade" parameterType="int">

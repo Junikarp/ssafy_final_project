@@ -1,4 +1,5 @@
 <template>
+   <NavHeader></NavHeader>
    <div class="group-detail">
       <h4>{{ store.group.groupTitle }}</h4>
       <hr />
@@ -38,6 +39,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useGroupStore } from "../../stores/group";
 import { onMounted } from "vue";
 import axios from 'axios';
+import NavHeader from '../NavHeader.vue';
 
 const store = useGroupStore()
 const route = useRoute();

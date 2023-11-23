@@ -9,8 +9,8 @@
     <!-- board list area -->
     <div id="board-list">
       <div class="container">
-        <router-link class="board-box" :to="{ name: 'groupDetail', params: { id: groupItem.groupId } }"
-          v-for="groupItem in store.groupList" :key="groupItem.groupId" data-aos="fade-up" data-aos-duration="5000">
+        <router-link class="board-box"
+          v-for="groupItem in store.groupList" :key="groupItem.groupId" :to="{ name: 'groupDetail', params: { id: groupItem.groupId }}" data-aos="fade-up" data-aos-duration="5000">
           <div class="box-item">
             <div class="box-up">
               <div class="profile-img"></div>
@@ -41,6 +41,7 @@ const route = useRoute();
 
 onMounted(() => {
   store.getGroupList(route.params.category);
+  console.log(route.params.category)
 });
 
 </script>

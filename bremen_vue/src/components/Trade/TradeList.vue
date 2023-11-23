@@ -3,13 +3,13 @@
 
     <div class="group-img"></div>
     <div class="main-text" data-aos="fade-up" data-aos-duration="5000">BREMEN</div>
-    <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">근처에 있는 사람들과 함께할 수 있어요</div>
+    <div class="sub-text" data-aos="fade-up" data-aos-duration="5000">쓰지않는 물건 서로 판다 윈윈</div>
 
 
     <!-- board list area -->
     <div id="board-list">
       <div class="container">
-        <router-link class="board-box" :to="{ name: 'TradeDetail', params: { id: tradeItem.groupId } }"
+        <router-link class="board-box" :to="{ name: 'tradeDetail', params: { id: tradeItem.tradeId } }"
           v-for="tradeItem in store.tradeList" :key="tradeItem.tradeId">
           <div class="box-item">
             <div class="box-up">
@@ -36,6 +36,7 @@ const route = useRoute();
 
 onMounted(() => {
   store.getTradeList(route.params.category);
+  console.log(store.tradeList)
 });
 
 </script>
