@@ -1,7 +1,6 @@
 <template>
     <div>
         <YoutubeVideoList></YoutubeVideoList>
-        <YoutubeVideoDetail></YoutubeVideoDetail>
     </div>
 </template>
 
