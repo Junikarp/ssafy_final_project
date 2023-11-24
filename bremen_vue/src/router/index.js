@@ -16,6 +16,7 @@ import TypePop from '../components/Community/TypePop.vue'
 import GroupList from '../components/Group/GroupList.vue'
 import GroupCreate from '../components/Group/GroupCreate.vue'
 import GroupDetail from '../components/Group/GroupDetail.vue'
+import GroupUpdate from '../components/Group/GroupUpdate.vue'
 import newMap from '@/components/Map/newMap.vue'
 import MapComponent from '@/components/Map/MapComponent.vue'
 
@@ -106,6 +107,10 @@ const router = createRouter({
       path: '/group/detail/:id',
       name: 'groupDetail',
       component: GroupDetail,
+    },{
+      path: '/group/:id',
+      name: 'groupUpdate',
+      component: GroupUpdate,
     },
     {
       path: '/trade/:category',

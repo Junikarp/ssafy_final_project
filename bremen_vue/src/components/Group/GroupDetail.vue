@@ -89,7 +89,7 @@ const deleteGroup = function () {
 }
 
 const updateBoard = function () {
-   router.push({ name: 'groupUpdate' })
+   router.push({ name: 'groupUpdate',  params: { id: store.group.groupId }})
 }
 
 // 카카오 맵 초기화 함수
