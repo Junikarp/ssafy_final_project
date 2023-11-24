@@ -62,8 +62,24 @@ export const useUserStore = defineStore('user', () => {
 
 
     }
+    const getUser = function (id) {
+        axios.get(`${REST_USER_API}/user/${id}`)
+          .then((response) => {
+            User.value = response.data
+          })
+      }
 
-    return { User, login, signUp, isAuthenticated, logout, loginUserId}},
+    const updateUser = function () {
+        axios.put(`${REST_USER_API}/user`, User.value)
+          .then(() => {
+            alert("신청이 완료되었습니다.")
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+
+    return { User, login, signUp, isAuthenticated, logout, loginUserId, updateUser, getUser}},
     {
         persist: true,
             

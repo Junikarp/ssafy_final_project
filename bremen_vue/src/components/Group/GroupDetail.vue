@@ -28,7 +28,8 @@
             </div>
             <div>일정 : {{ store.group.groupDate }} {{ store.group.groupTime }}</div>
          </div>
-         <button class="participate-button" @click="joinGroup(store.group.groupId)">참가하기</button>
+         <button class="participate-button" v-if="store.group.groupId !== uGroup" @click="joinGroup(store.group.groupId)">참가하기</button>
+         <button class="participate-button" v-else @click="outGroup()">신청취소</button>
       </div>
       <div class="detail-else">
          <div>조회수 : {{ store.group.groupViewCnt }}</div>
@@ -50,10 +51,7 @@ const userStore = useUserStore();
 const route = useRoute();
 const router = useRouter();
 
-const groupUser = ref({
-   groupUserUserId: userStore.loginUserId,
-   groupUserGroupId: '',
-})
+let uGroup = ''
 
 onMounted(() => {
    store.getGroup(route.params.id);
@@ -63,25 +61,29 @@ onMounted(() => {
 });
 
 const joinGroup = function(id) {
-    groupUser.value.groupUserGroupId = id;
-    console.log(groupUser.value)
-   //  axios({
-   //    url: `http://localhost:8080/userapi/groupuser`,
-   //    method: 'POST',
-   //    headers: {
-   //      "Content-Type": "application/json"
-   //    },
-   //    data: groupUser.value
-   //  })
+   userStore.getUser(userStore.loginUserId)
+    userStore.User.userGroup = id
+    uGroup = userStore.User.userGroup;
+    console.log(uGroup)
+    userStore.updateUser(); 
+    store.group.groupCurrentPeople = store.group.groupCurrentPeople+1;
+    store.updateGroup();
+}
 
-    axios.post(`http://localhost:8080/userapi/groupuser`, groupUser.value)
+
+const outGroup = function() {
+   userStore.getUser(userStore.loginUserId)
+    userStore.User.userGroup = -1 
+    uGroup = ''
+    userStore.updateUser(); 
+    store.group.groupCurrentPeople = store.group.groupCurrentPeople-1;
+    store.updateGroup();
 }
 
 const deleteGroup = function () {
    axios.delete(`http://localhost:8080/groupapi/group/${route.params.id}`)
       .then(() => {
-         window.location.reload()
-         router.push({ name: 'group', params: { id: route.params.category } })
+         router.push({ name: 'groupList', params: { category: store.group.groupCategory } })
          alert("게시글이 삭제되었습니다.")
       })
 }

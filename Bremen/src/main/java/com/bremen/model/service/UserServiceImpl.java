@@ -44,6 +44,11 @@ public class UserServiceImpl implements UserService{
 	public int insertGroupUser(GroupUser groupUser) {
 		return dao.insertGroupUser(groupUser);
 	}
+
+	@Override
+	public void updateUser(User user) {
+		dao.updateUser(user);
+	}
 	
 	
 }

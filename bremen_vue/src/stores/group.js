@@ -42,10 +42,9 @@ export const useGroupStore = defineStore('group', () => {
     })
   }
   const updateGroup = function () {
-    axios.put(`${REST_BOARD_API}/group`, group.value)
+    axios.put(`${REST_GROUP_API}/group`, group.value)
       .then(() => {
         router.push({ name: 'groupDetail' , params:{ id: group.value.groupId, category: group.value.groupCategory }});
-        alert("게시글이 수정되었습니다.")
       })
       .catch((err) => {
         console.log(err);

@@ -35,7 +35,7 @@
 	<!-- 게시글 수정  -->
 	<update id="updateGroup" parameterType="Group">
 		UPDATE `group`
-		SET groupTitle = #{groupTitle}, groupContent = #{groupContent}
+		SET groupTitle = #{groupTitle}, groupContent = #{groupContent}, groupCurrentPeople = #{groupContent}
 		WHERE groupId = #{groupId};
 	</update>
 	

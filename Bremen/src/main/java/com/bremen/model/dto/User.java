@@ -7,6 +7,7 @@ public class User {
 	private String userNickname;
 	private int userPoint;
 	private String userFriend;
+	private int userGroup;
 
 	public String getUserId() {
 		return userId;
@@ -60,5 +61,13 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName
 				+ ", userNickname=" + userNickname + ", userPoint=" + userPoint + ", userFriend=" + userFriend + "]";
+	}
+
+	public int getUserGroup() {
+		return userGroup;
+	}
+
+	public void setUserGroup(int userGroup) {
+		this.userGroup = userGroup;
 	}
 }

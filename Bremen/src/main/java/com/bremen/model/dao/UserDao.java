@@ -18,4 +18,6 @@ public interface UserDao {
 	List<User> selectUsersByGroupId(int groupId);
 	
 	int insertGroupUser(GroupUser groupUser);
+	
+	void updateUser(User user);
 }

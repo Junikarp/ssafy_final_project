@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,6 +48,18 @@ public class UserRestController {
 	@ApiOperation(value = "유저 조회 ")
 	public List<User> userList(Model model) {
 		return userService.selectAll();
+	}
+	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<?> userOne(@PathVariable String id) {
+		User user = userService.selectOne(id);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	
+	@PutMapping("/user")
+	public ResponseEntity<?> updateUser(@RequestBody User user) {
+		userService.updateUser(user);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	// 회원가입

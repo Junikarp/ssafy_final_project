@@ -22,4 +22,6 @@ public interface UserService {
 	List<User> selectUsersByGroupId(int groupId);
 	
 	int insertGroupUser(GroupUser groupUser);
+	
+	void updateUser(User user);
 }
